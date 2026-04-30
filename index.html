@@ -18,6 +18,8 @@
       --green:      #1b3d28;
       --green-mid:  #2d6644;
       --green-bright:#3a8a58;
+      --green-cta:  #24613d;
+      --green-on-dark:#7bdc9a;
       --gold:       #c9a96e;
       --gold-light: #e8d5b0;
       --muted:      #666;
@@ -46,7 +48,7 @@
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: white; }
-    .nav-cta { background: var(--green-bright); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta { background: var(--green-cta); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.85; }
 
     /* ── HERO ── */
@@ -111,7 +113,7 @@
     .hero-body { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.82); font-weight: 300; max-width: 520px; }
     .hero-actions { display: flex; gap: 16px; align-items: center; }
     .btn-primary {
-      background: var(--green-bright); color: white;
+      background: var(--green-cta); color: white;
       font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; padding: 16px 40px;
       min-height: 44px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
@@ -548,7 +550,7 @@
 <section id="market">
   <div class="market-grid">
     <div>
-      <p class="section-label" style="color:rgba(58,138,88,0.8)">O Mercado</p>
+      <p class="section-label" style="color:var(--green-on-dark)">O Mercado</p>
       <h2 class="market-headline fi">
         O Pilates não é<br/>uma moda.<br/><em>É uma revolução.</em>
       </h2>
@@ -618,7 +620,7 @@
 <section id="comparativo">
   <div class="comp-header">
     <div class="fi">
-      <p class="section-label" style="color:rgba(58,138,88,0.8)">A diferença real</p>
+      <p class="section-label" style="color:var(--green-on-dark)">A diferença real</p>
       <h2 class="section-headline" style="color:white;">Abrir sozinho<br/><em style="color:var(--green-bright)">vs. abrir com a VOLL.</em></h2>
     </div>
     <p class="fi d1" style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.72); font-weight:300; padding-bottom:8px;">O custo oculto de montar um studio sem uma franquia é muito maior do que parece. Veja o que a VOLL já resolve para você — sem reinventar a roda.</p>
@@ -696,7 +698,7 @@
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <p class="section-label" style="color:rgba(58,138,88,0.8)">Quem já faz parte</p>
+  <p class="section-label" style="color:var(--green-on-dark)">Quem já faz parte</p>
   <h2 class="section-headline fi" style="color:white; max-width:500px;">A voz de quem<br/><em style="color:var(--green-bright)">transformou sua vida.</em></h2>
   <div class="tcarousel" id="tcarousel" aria-roledescription="carrossel">
     <div class="tviewport">
@@ -759,7 +761,7 @@
 <section id="calculadora">
   <div class="calc-inner">
     <div class="calc-header fi">
-      <p class="section-label" style="color:rgba(58,138,88,0.8); justify-content:center;">Simulador de Retorno</p>
+      <p class="section-label" style="color:var(--green-on-dark); justify-content:center;">Simulador de Retorno</p>
       <h2 class="section-headline" style="color:white; text-align:center;">Calcule o potencial<br/><em style="color:var(--green-bright)">do seu investimento.</em></h2>
       <p style="font-size:15px; color:rgba(255,255,255,0.72); text-align:center; margin-top:16px; font-weight:300; max-width:480px; margin-left:auto; margin-right:auto;">Ajuste os parâmetros e veja uma estimativa do retorno financeiro baseada em médias reais da nossa rede.</p>
     </div>
@@ -1071,4 +1073,5 @@ document.querySelectorAll('.fi').forEach(el => {
 </script>
 </body>
 </html>
+
 
