@@ -6,7 +6,9 @@
   <title>VOLL Pilates — Franquia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,6 +27,7 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; }
+    section:not(#hero) { content-visibility: auto; contain-intrinsic-size: 900px; }
 
     /* ── NAV ── */
     nav {
@@ -57,6 +60,9 @@
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover;
       pointer-events: none; z-index: 0;
+    }
+    @media (max-width: 767px) {
+      .hero-video { background: url("video/videook-poster.jpg") center/cover no-repeat; }
     }
     .hero-video-overlay {
       position: absolute; inset: 0;
@@ -451,13 +457,13 @@
 
 <!-- HERO -->
 <section id="hero">
-  <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="video/videook.mp4" type="video/mp4"/>
+  <video class="hero-video" autoplay muted loop playsinline preload="none" poster="video/videook-poster.jpg" aria-hidden="true">
+    <source src="video/videook-hero.mp4" type="video/mp4" media="(min-width: 768px)"/>
   </video>
   <div class="hero-video-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <div class="hero-left-stats fi">
+    <div class="hero-left-stats">
       <div class="hero-stat-item">
         <div class="hero-stat-item-val">229</div>
         <div class="hero-stat-item-lbl">Studios no Brasil</div>
@@ -473,16 +479,16 @@
     </div>
 
     <div class="hero-right">
-      <p class="hero-eyebrow fi">Vagas limitadas por região em 2026</p>
-      <h1 class="fi d1">
+      <p class="hero-eyebrow">Vagas limitadas por região em 2026</p>
+      <h1>
         Seja o dono da<br/>
         franquia nº 230 da<br/>
         <em>maior rede de Pilates<br/>do Brasil.</em>
       </h1>
-      <p class="hero-body fi d2">
+      <p class="hero-body">
         Não precisa ser fisioterapeuta nem educador físico. Você recebe tudo pronto: equipamentos, projeto arquitetônico, marketing, plataforma exclusiva e royalties fixos de apenas R$&nbsp;990/mês — com breakeven em 2 a 4 meses.
       </p>
-      <div class="hero-actions fi d3">
+      <div class="hero-actions">
         <a href="#cta" class="btn-primary">Quero receber o plano de investimento</a>
         <a href="#authority" class="btn-link">Conhecer a VOLL →</a>
       </div>
@@ -502,7 +508,7 @@
   <div class="authority-grid">
     <div style="position:relative; padding-bottom:20px; padding-right:20px;">
       <div class="authority-img fi">
-        <img src="images/fachadaok.png" alt="Fachada do studio VOLL Pilates" width="960" height="1200" loading="lazy" decoding="async"/>
+        <img src="images/fachadaok-960.webp" srcset="images/fachadaok-640.webp 640w, images/fachadaok-960.webp 960w" sizes="(max-width: 960px) 100vw, 50vw" alt="Fachada do studio VOLL Pilates" width="960" height="1200" loading="lazy" decoding="async"/>
         <div class="authority-badge">
           <div class="authority-badge-num">#1</div>
           <div class="authority-badge-lbl">Am. Latina</div>
