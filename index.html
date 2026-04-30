@@ -399,23 +399,122 @@
     .fi.d4 { transition-delay: 0.40s; }
 
     @media (max-width: 960px) {
+      /* nav */
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
-      #hero .hero-content { grid-template-columns: 1fr; padding: 0 24px; padding-top: 140px; }
+
+      /* hero */
+      #hero .hero-content { grid-template-columns: 1fr; padding: 0 24px; padding-top: 140px; padding-bottom: 40px; gap: 32px; }
       .hero-left-stats { flex-direction: row; flex-wrap: wrap; gap: 16px; }
+      .hero-stat-item-val { font-size: 28px; }
+      .hero-stat-item-lbl { font-size: 12px; }
+      .hero-eyebrow { font-size: 11px; }
+      h1 { font-size: clamp(36px, 9vw, 56px); }
+      .hero-body { font-size: 15px; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+      .btn-primary { text-align: center; padding: 16px 24px; font-size: 13px; }
       .hero-stats-bar { grid-template-columns: repeat(2,1fr); }
-      .authority-grid, .market-grid, .modelo-intro, .dif-header, .jornada-header { grid-template-columns: 1fr; gap: 40px; }
-      .modelo-grid { grid-template-columns: 1fr; }
-      .dif-grid { grid-template-columns: 1fr; }
-      .tcarousel .tgrid { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; }
-      .steps::before { display: none; }
+      .hstat { padding: 20px 24px; }
+      .hstat-val { font-size: 32px; }
+      .hstat-lbl { font-size: 11px; }
+
+      /* sections — padding */
       #authority, #modelo, #jornada, #diferenciais { padding: 80px 24px; }
       #market, #testimonials, #cta { padding: 80px 24px; }
-      #numeros { grid-template-columns: repeat(2,1fr); }
+      #comparativo { padding: 80px 24px; }
+      #nao-e { padding: 80px 24px; }
+      #calculadora { padding: 80px 24px; }
+      #faq { padding: 80px 24px; }
+      #numeros { padding: 60px 24px; grid-template-columns: repeat(2,1fr); }
+      footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
+
+      /* section scaffolding */
+      .section-label { font-size: 11px; }
+      .section-headline { font-size: clamp(32px, 7vw, 48px); }
+      .body-text { font-size: 15px; }
+
+      /* authority */
+      .authority-grid { grid-template-columns: 1fr; gap: 40px; }
+      .authority-badge-lbl { font-size: 10px; }
+      .pillar p { font-size: 14px; }
+
+      /* market */
+      .market-grid { grid-template-columns: 1fr; gap: 40px; }
+      .market-headline { font-size: clamp(36px, 8vw, 56px); }
+      .market-cards { grid-template-columns: 1fr 1fr; }
+      .mcard-lbl { font-size: 13px; }
+      .market-right-body { font-size: 15px; }
+
+      /* modelo */
+      .modelo-intro { grid-template-columns: 1fr; gap: 32px; }
+      .modelo-grid { grid-template-columns: 1fr; }
+      .mcard2 { padding: 32px 24px; }
+      .mcard2 h3 { font-size: 20px; }
+      .mcard2 p { font-size: 14px; }
+
+      /* numeros */
+      .ncard { padding: 32px 24px; }
+      .ncard-val { font-size: 40px; }
+      .ncard-lbl { font-size: 13px; }
+
+      /* diferenciais */
+      .dif-header { grid-template-columns: 1fr; gap: 32px; }
+      .dif-grid { grid-template-columns: 1fr; }
+      .dif-item { padding: 32px 24px; }
+      .dif-content p { font-size: 14px; }
+
+      /* comparativo */
+      .comp-header { grid-template-columns: 1fr; gap: 32px; }
+      .comp-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .comp-table { min-width: 600px; }
+      .comp-table th, .comp-table td { padding: 14px 16px; font-size: 13px; }
+
+      /* jornada */
+      .jornada-header { grid-template-columns: 1fr; gap: 32px; }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      .step { align-items: flex-start; text-align: left; flex-direction: row; gap: 16px; padding: 12px 0; }
+      .step-dot { margin-bottom: 0; }
+      .step p { font-size: 14px; }
+
+      /* testimonials */
+      .tcarousel .tgrid { grid-template-columns: 1fr; }
+      .tcard { padding: 32px 24px; }
+      .tquote { font-size: 17px; }
+      .trole { font-size: 12px; }
+
+      /* nao-e */
+      .naoe-grid { grid-template-columns: 1fr; gap: 48px; }
+      .naoe-item p { font-size: 15px; }
+
+      /* calculadora */
+      .calc-grid { grid-template-columns: 1fr; gap: 40px; }
+      .calc-results { padding: 28px 20px; }
+      .calc-result-val { font-size: 26px; }
+      .calc-result-lbl { font-size: 14px; }
+      .calc-val { font-size: 28px; }
+      .calc-disclaimer { font-size: 12px; }
+
+      /* badges bar */
+      .badges-bar { padding: 28px 24px !important; gap: 24px !important; }
+      .badges-bar > div[style*="width:1px"] { display: none; }
+
+      /* CTA / form */
       #cta { flex-direction: column; align-items: flex-start; }
-      footer { flex-direction: column; gap: 20px; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
+      .cta-right { align-items: stretch; width: 100%; }
+      .qual-form { max-width: 100%; }
+      .qual-row { grid-template-columns: 1fr; }
+      .qual-field label { font-size: 11px; }
+      .cta-legal { font-size: 12px; }
+
+      /* faq */
+      .faq-q-text { font-size: 18px; }
+      .faq-a p { font-size: 14px; }
+
+      /* footer */
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .footer-links a { font-size: 12px; }
+      .footer-copy { font-size: 12px; }
     }
   </style>
   <template id="__bundler_thumbnail" data-bg-color="#0a0a0a">
@@ -626,6 +725,7 @@
     </div>
     <p class="fi d1" style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.72); font-weight:300; padding-bottom:8px;">O custo oculto de montar um studio sem uma franquia é muito maior do que parece. Veja o que a VOLL já resolve para você — sem reinventar a roda.</p>
   </div>
+  <div class="comp-table-wrap">
   <table class="comp-table fi">
     <thead>
       <tr>
@@ -677,6 +777,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </section>
 
 <!-- JORNADA -->
@@ -810,7 +911,7 @@
 </section>
 
 <!-- BADGES -->
-<div style="background:var(--white); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:32px 64px; display:flex; align-items:center; justify-content:center; gap:64px; flex-wrap:wrap;">
+<div class="badges-bar" style="background:var(--white); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:32px 64px; display:flex; align-items:center; justify-content:center; gap:64px; flex-wrap:wrap;">
   <div style="display:flex; align-items:center; gap:12px; color:var(--muted); font-size:13px;">
     <div style="width:40px; height:40px; background:var(--green-mid); display:flex; align-items:center; justify-content:center; color:white; font-family:var(--serif); font-size:11px; font-weight:700; text-align:center; line-height:1.2; padding:4px;">ABF</div>
     <span>Associada à<br/><strong style="color:var(--black)">ABF — Franquia verificada</strong></span>
