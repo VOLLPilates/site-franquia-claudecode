@@ -20,7 +20,7 @@
       --green-bright:#3a8a58;
       --gold:       #c9a96e;
       --gold-light: #e8d5b0;
-      --muted:      #888;
+      --muted:      #666;
       --rule:       rgba(0,0,0,0.09);
       --serif:      'Cormorant Garamond', Georgia, serif;
       --sans:       'DM Sans', Helvetica, sans-serif;
@@ -44,9 +44,9 @@
     .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: white; }
     .nav-logo span { color: var(--green-bright); }
     .nav-links { display: flex; gap: 40px; list-style: none; }
-    .nav-links a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: white; }
-    .nav-cta { background: var(--green-bright); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta { background: var(--green-bright); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px; min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.85; }
 
     /* ── HERO ── */
@@ -92,7 +92,7 @@
     }
     .hero-stat-item-lbl {
       font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.38); margin-top: 3px;
+      color: rgba(255,255,255,0.72); margin-top: 3px;
     }
     .hero-right { display: flex; flex-direction: column; gap: 40px; }
     .hero-eyebrow {
@@ -108,18 +108,19 @@
       letter-spacing: -0.025em; color: white;
     }
     h1 em { font-style: italic; color: var(--green-bright); }
-    .hero-body { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.52); font-weight: 300; max-width: 520px; }
+    .hero-body { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.82); font-weight: 300; max-width: 520px; }
     .hero-actions { display: flex; gap: 16px; align-items: center; }
     .btn-primary {
       background: var(--green-bright); color: white;
       font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; padding: 16px 40px;
-      text-decoration: none; display: inline-block;
+      min-height: 44px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
     .btn-link {
       font-size: 13px; color: var(--green-bright); font-weight: 500;
+      min-height: 44px; display: inline-flex; align-items: center;
       text-decoration: none; letter-spacing: 0.04em;
       transition: opacity 0.2s;
     }
@@ -140,7 +141,7 @@
     .hstat:last-child { border-right: none; }
     .hstat-val { font-family: var(--serif); font-size: 40px; font-weight: 600; color: white; line-height: 1; }
     .hstat-val span { color: var(--green-bright); }
-    .hstat-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 5px; }
+    .hstat-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.72); margin-top: 5px; }
 
     /* ── SECTION SCAFFOLDING ── */
     .section-label {
@@ -182,7 +183,7 @@
     .pillars { border-top: 1px solid var(--rule); margin-top: 32px; }
     .pillar { display: grid; grid-template-columns: 36px 1fr; gap: 20px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--rule); }
     .pillar-num { font-family: var(--serif); font-size: 28px; font-weight: 300; color: rgba(0,0,0,0.2); line-height: 1; }
-    .pillar h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .pillar h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
     .pillar p { font-size: 13px; line-height: 1.65; color: var(--muted); }
 
     /* ── MARKET ── */
@@ -194,8 +195,8 @@
     .mcard { background: var(--black); padding: 28px 24px; }
     .mcard-val { font-family: var(--serif); font-size: 40px; font-weight: 600; color: white; line-height: 1; margin-bottom: 6px; }
     .mcard-val span { color: var(--green-bright); }
-    .mcard-lbl { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.5; }
-    .market-right-body { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.52); font-weight: 300; }
+    .mcard-lbl { font-size: 12px; color: rgba(255,255,255,0.72); line-height: 1.5; }
+    .market-right-body { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.78); font-weight: 300; }
     .market-big { font-family: var(--serif); font-size: clamp(80px, 12vw, 140px); font-weight: 600; color: var(--green-bright); line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px; }
 
     /* ── MODELO ── */
@@ -215,7 +216,7 @@
     .ncard:last-child { border-right: none; }
     .ncard-val { font-family: var(--serif); font-size: 52px; font-weight: 600; color: white; line-height: 1; }
     .ncard-val span { color: var(--green-bright); }
-    .ncard-lbl { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 6px; line-height: 1.5; }
+    .ncard-lbl { font-size: 12px; color: rgba(255,255,255,0.72); margin-top: 6px; line-height: 1.5; }
 
     /* ── DIFERENCIAIS ── */
     #diferenciais { padding: 120px 64px; background: rgba(0,0,0,0.02); }
@@ -234,7 +235,7 @@
     .steps::before { content: ''; position: absolute; top: 24px; left: 10%; right: 10%; height: 1px; background: rgba(58,138,88,0.3); z-index: 0; }
     .step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 16px; position: relative; z-index: 1; }
     .step-dot { width: 48px; height: 48px; background: var(--black); color: var(--green-bright); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 20px; flex-shrink: 0; }
-    .step h4 { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .step h3 { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
     .step p { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
     /* ── TESTIMONIALS ── */
@@ -261,13 +262,19 @@
       margin-top: 32px;
     }
     .tbullet {
-      width: 9px; height: 9px; border-radius: 50%;
+      width: 44px; height: 44px; border-radius: 50%;
       border: none; padding: 0; cursor: pointer;
-      background: rgba(255,255,255,0.22);
+      background: transparent;
+      display: inline-flex; align-items: center; justify-content: center;
       transition: background 0.2s, transform 0.2s;
     }
-    .tbullet:hover { background: rgba(255,255,255,0.4); }
-    .tbullet[aria-current="true"] {
+    .tbullet::before {
+      content: ''; width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,255,0.72);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .tbullet:hover::before { background: rgba(255,255,255,0.82); }
+    .tbullet[aria-current="true"]::before {
       background: var(--green-bright);
       transform: scale(1.2);
     }
@@ -276,42 +283,42 @@
     .tauthor { display: flex; align-items: center; gap: 12px; }
     .tavatar { width: 40px; height: 40px; background: var(--green); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--gold); flex-shrink: 0; }
     .tname { font-size: 13px; font-weight: 600; color: white; }
-    .trole { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+    .trole { font-size: 11px; color: rgba(255,255,255,0.72); margin-top: 2px; }
 
     /* ── CTA ── */
     #cta { background: var(--green-mid); padding: 120px 64px; display: flex; align-items: center; justify-content: space-between; gap: 64px; }
     .cta-left h2 { font-family: var(--serif); font-size: clamp(44px, 5vw, 72px); font-weight: 400; line-height: 1.05; color: white; letter-spacing: -0.02em; }
     .cta-left h2 em { font-style: italic; color: var(--gold-light); }
-    .cta-left p { font-size: 15px; color: rgba(255,255,255,0.55); margin-top: 16px; line-height: 1.7; max-width: 500px; }
+    .cta-left p { font-size: 15px; color: rgba(255,255,255,0.78); margin-top: 16px; line-height: 1.7; max-width: 500px; }
     .cta-right { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; flex-shrink: 0; }
     .cta-form { display: flex; }
     .cta-input { flex: 1; width: 280px; padding: 16px 20px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; font-family: var(--sans); font-size: 14px; outline: none; }
-    .cta-input::placeholder { color: rgba(255,255,255,0.35); }
+    .cta-input::placeholder { color: rgba(255,255,255,0.72); }
     .cta-input:focus { border-color: var(--gold-light); }
     .btn-cta { background: var(--black); color: white; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 32px; border: none; cursor: pointer; transition: opacity 0.2s; white-space: nowrap; }
     .btn-cta:hover { opacity: 0.8; }
-    .cta-legal { font-size: 11px; color: rgba(255,255,255,0.3); }
+    .cta-legal { font-size: 11px; color: rgba(255,255,255,0.72); }
 
     /* ── FOOTER ── */
     footer { background: var(--black); padding: 40px 64px; display: flex; align-items: center; justify-content: space-between; }
     .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: white; }
     .footer-logo span { color: var(--green-bright); }
     .footer-links { display: flex; gap: 32px; list-style: none; }
-    .footer-links a { font-size: 11px; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a { font-size: 11px; color: rgba(255,255,255,0.68); min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .footer-links a:hover { color: rgba(255,255,255,0.7); }
-    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.68); }
 
     /* ── COMPARATIVO ── */
     #comparativo { padding: 120px 64px; background: var(--black); }
     .comp-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
     .comp-table { width: 100%; border-collapse: collapse; }
     .comp-table th { padding: 16px 24px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-align: left; }
-    .comp-table th:first-child { color: rgba(255,255,255,0.4); width: 40%; }
-    .comp-table th:nth-child(2) { color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.03); text-align: center; }
+    .comp-table th:first-child { color: rgba(255,255,255,0.72); width: 40%; }
+    .comp-table th:nth-child(2) { color: rgba(255,255,255,0.72); background: rgba(255,255,255,0.03); text-align: center; }
     .comp-table th:nth-child(3) { color: var(--green-bright); background: rgba(58,138,88,0.08); text-align: center; }
     .comp-table td { padding: 18px 24px; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); }
-    .comp-table td:first-child { color: rgba(255,255,255,0.5); font-weight: 300; }
-    .comp-table td:nth-child(2) { background: rgba(255,255,255,0.03); text-align: center; color: rgba(255,255,255,0.35); }
+    .comp-table td:first-child { color: rgba(255,255,255,0.72); font-weight: 300; }
+    .comp-table td:nth-child(2) { background: rgba(255,255,255,0.03); text-align: center; color: rgba(255,255,255,0.72); }
     .comp-table td:nth-child(3) { background: rgba(58,138,88,0.06); text-align: center; color: var(--green-bright); font-weight: 500; }
     .comp-check { font-size: 16px; }
     .comp-x { font-size: 14px; color: rgba(255,100,100,0.6); }
@@ -338,26 +345,28 @@
     .calc-header { text-align: center; margin-bottom: 64px; }
     .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     .calc-inputs { display: flex; flex-direction: column; gap: 32px; }
-    .calc-field label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
-    .calc-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 2px; background: rgba(255,255,255,0.15); outline: none; }
-    .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: var(--green-bright); cursor: pointer; border-radius: 50%; }
-    .calc-slider::-moz-range-thumb { width: 18px; height: 18px; background: var(--green-bright); cursor: pointer; border-radius: 50%; border: none; }
+    .calc-field label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.78); margin-bottom: 12px; }
+    .calc-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 44px; background: transparent; outline: none; cursor: pointer; }
+    .calc-slider::-webkit-slider-runnable-track { height: 4px; background: rgba(255,255,255,0.72); border-radius: 999px; }
+    .calc-slider::-moz-range-track { height: 4px; background: rgba(255,255,255,0.72); border-radius: 999px; }
+    .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; background: var(--green-bright); cursor: pointer; border-radius: 50%; margin-top: -10px; }
+    .calc-slider::-moz-range-thumb { width: 24px; height: 24px; background: var(--green-bright); cursor: pointer; border-radius: 50%; border: none; }
     .calc-val { font-family: var(--serif); font-size: 32px; font-weight: 600; color: white; margin-top: 8px; }
     .calc-val span { color: var(--green-bright); font-size: 18px; }
     .calc-results { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 40px; display: flex; flex-direction: column; gap: 28px; }
     .calc-result-item { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .calc-result-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .calc-result-lbl { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; max-width: 200px; }
+    .calc-result-lbl { font-size: 13px; color: rgba(255,255,255,0.78); line-height: 1.5; max-width: 200px; }
     .calc-result-val { font-family: var(--serif); font-size: 32px; font-weight: 600; color: white; text-align: right; }
     .calc-result-val span { color: var(--green-bright); }
-    .calc-disclaimer { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 24px; line-height: 1.6; }
+    .calc-disclaimer { font-size: 11px; color: rgba(255,255,255,0.68); text-align: center; margin-top: 24px; line-height: 1.6; }
 
     /* ── FORMULÁRIO QUALIFICADOR ── */
     .qual-form { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 440px; }
     .qual-field { display: flex; flex-direction: column; gap: 6px; }
-    .qual-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-    .qual-input, .qual-select { padding: 14px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: white; font-family: var(--sans); font-size: 14px; outline: none; width: 100%; transition: border-color 0.2s; }
-    .qual-input::placeholder { color: rgba(255,255,255,0.3); }
+    .qual-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
+    .qual-input, .qual-select { min-height: 44px; padding: 14px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: white; font-family: var(--sans); font-size: 14px; outline: none; width: 100%; transition: border-color 0.2s; }
+    .qual-input::placeholder { color: rgba(255,255,255,0.65); }
     .qual-input:focus, .qual-select:focus { border-color: var(--green-bright); }
     .qual-select { cursor: pointer; }
     .qual-select option { background: #1b3d28; color: white; }
@@ -455,6 +464,7 @@
   <a href="#cta" class="nav-cta">Seja franqueado</a>
 </nav>
 
+<main id="main-content">
 <!-- HERO -->
 <section id="hero">
   <video class="hero-video" autoplay muted loop playsinline preload="none" poster="video/videook-poster.jpg" aria-hidden="true">
@@ -526,9 +536,9 @@
         Fundada há 16 anos, a VOLL construiu o maior ecossistema de Pilates da América Latina — da formação de instrutores à expansão global. Associada à ABF, com presença em todos os estados brasileiros e em múltiplos países, a marca VOLL carrega credibilidade que nenhum concorrente pode replicar.
       </p>
       <div class="pillars">
-        <div class="pillar"><div class="pillar-num">01</div><div><h4>Metodologia proprietária</h4><p>Sistema pedagógico exclusivo, reconhecido no Brasil e exterior. Bolsa 100% no curso de formação incluída.</p></div></div>
-        <div class="pillar"><div class="pillar-num">02</div><div><h4>Marca consolidada</h4><p>16 anos de autoridade, associada à ABF, com maior evento de Pilates da América Latina.</p></div></div>
-        <div class="pillar"><div class="pillar-num">03</div><div><h4>Ecossistema completo</h4><p>Studios, educação, tecnologia, eventos e comunidade — tudo integrado para o sucesso do franqueado.</p></div></div>
+        <div class="pillar"><div class="pillar-num">01</div><div><h3>Metodologia proprietária</h3><p>Sistema pedagógico exclusivo, reconhecido no Brasil e exterior. Bolsa 100% no curso de formação incluída.</p></div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div><h3>Marca consolidada</h3><p>16 anos de autoridade, associada à ABF, com maior evento de Pilates da América Latina.</p></div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div><h3>Ecossistema completo</h3><p>Studios, educação, tecnologia, eventos e comunidade — tudo integrado para o sucesso do franqueado.</p></div></div>
       </div>
     </div>
   </div>
@@ -611,7 +621,7 @@
       <p class="section-label" style="color:rgba(58,138,88,0.8)">A diferença real</p>
       <h2 class="section-headline" style="color:white;">Abrir sozinho<br/><em style="color:var(--green-bright)">vs. abrir com a VOLL.</em></h2>
     </div>
-    <p class="fi d1" style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.45); font-weight:300; padding-bottom:8px;">O custo oculto de montar um studio sem uma franquia é muito maior do que parece. Veja o que a VOLL já resolve para você — sem reinventar a roda.</p>
+    <p class="fi d1" style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.72); font-weight:300; padding-bottom:8px;">O custo oculto de montar um studio sem uma franquia é muito maior do que parece. Veja o que a VOLL já resolve para você — sem reinventar a roda.</p>
   </div>
   <table class="comp-table fi">
     <thead>
@@ -659,7 +669,7 @@
       </tr>
       <tr>
         <td>Royalties mensais</td>
-        <td><span style="color:rgba(255,255,255,0.5)">— Sem custo de franquia</span></td>
+        <td><span style="color:rgba(255,255,255,0.72)">— Sem custo de franquia</span></td>
         <td><span class="comp-check">✓ Apenas R$990 fixo/mês</span></td>
       </tr>
     </tbody>
@@ -676,11 +686,11 @@
     <p class="body-text fi d1">Cada etapa foi desenhada para garantir que você abra com confiança, suporte e as melhores condições possíveis. Nada é deixado ao acaso.</p>
   </div>
   <div class="steps">
-    <div class="step fi"><div class="step-dot">1</div><h4>Candidatura</h4><p>Preencha o formulário. Nossa equipe entra em contato em até 24h.</p></div>
-    <div class="step fi d1"><div class="step-dot">2</div><h4>Entrevista</h4><p>Conversa com especialistas para alinhar perfil e expectativas.</p></div>
-    <div class="step fi d2"><div class="step-dot">3</div><h4>Aprovação</h4><p>Análise completa e assinatura do contrato de franquia VOLL.</p></div>
-    <div class="step fi d3"><div class="step-dot">4</div><h4>Implantação</h4><p>Suporte total na montagem, contratação e treinamento da equipe.</p></div>
-    <div class="step fi d4"><div class="step-dot">5</div><h4>Inauguração</h4><p>Abertura com campanha de lançamento e suporte presencial VOLL.</p></div>
+    <div class="step fi"><div class="step-dot">1</div><h3>Candidatura</h3><p>Preencha o formulário. Nossa equipe entra em contato em até 24h.</p></div>
+    <div class="step fi d1"><div class="step-dot">2</div><h3>Entrevista</h3><p>Conversa com especialistas para alinhar perfil e expectativas.</p></div>
+    <div class="step fi d2"><div class="step-dot">3</div><h3>Aprovação</h3><p>Análise completa e assinatura do contrato de franquia VOLL.</p></div>
+    <div class="step fi d3"><div class="step-dot">4</div><h3>Implantação</h3><p>Suporte total na montagem, contratação e treinamento da equipe.</p></div>
+    <div class="step fi d4"><div class="step-dot">5</div><h3>Inauguração</h3><p>Abertura com campanha de lançamento e suporte presencial VOLL.</p></div>
   </div>
 </section>
 
@@ -751,22 +761,22 @@
     <div class="calc-header fi">
       <p class="section-label" style="color:rgba(58,138,88,0.8); justify-content:center;">Simulador de Retorno</p>
       <h2 class="section-headline" style="color:white; text-align:center;">Calcule o potencial<br/><em style="color:var(--green-bright)">do seu investimento.</em></h2>
-      <p style="font-size:15px; color:rgba(255,255,255,0.4); text-align:center; margin-top:16px; font-weight:300; max-width:480px; margin-left:auto; margin-right:auto;">Ajuste os parâmetros e veja uma estimativa do retorno financeiro baseada em médias reais da nossa rede.</p>
+      <p style="font-size:15px; color:rgba(255,255,255,0.72); text-align:center; margin-top:16px; font-weight:300; max-width:480px; margin-left:auto; margin-right:auto;">Ajuste os parâmetros e veja uma estimativa do retorno financeiro baseada em médias reais da nossa rede.</p>
     </div>
     <div class="calc-grid fi d1">
       <div class="calc-inputs">
         <div class="calc-field">
-          <label>Número de alunos ativos</label>
+          <label for="sl-alunos">Número de alunos ativos</label>
           <input type="range" class="calc-slider" id="sl-alunos" min="30" max="200" value="80" step="5"/>
           <div class="calc-val"><span id="vl-alunos">80</span> <span>alunos</span></div>
         </div>
         <div class="calc-field">
-          <label>Mensalidade média por aluno</label>
+          <label for="sl-ticket">Mensalidade média por aluno</label>
           <input type="range" class="calc-slider" id="sl-ticket" min="250" max="800" value="420" step="10"/>
           <div class="calc-val">R$ <span id="vl-ticket">420</span></div>
         </div>
         <div class="calc-field">
-          <label>Número de sessões avulsas / mês</label>
+          <label for="sl-avulso">Número de sessões avulsas / mês</label>
           <input type="range" class="calc-slider" id="sl-avulso" min="0" max="100" value="20" step="5"/>
           <div class="calc-val"><span id="vl-avulso">20</span> <span>sessões · R$80 cada</span></div>
         </div>
@@ -779,7 +789,7 @@
           </div>
           <div class="calc-result-item">
             <div class="calc-result-lbl">Custos operacionais estimados (55%)</div>
-            <div class="calc-result-val" style="color:rgba(255,255,255,0.4);">− R$ <span id="res-custos">19.360</span></div>
+            <div class="calc-result-val" style="color:rgba(255,255,255,0.72);">− R$ <span id="res-custos">19.360</span></div>
           </div>
           <div class="calc-result-item">
             <div class="calc-result-lbl">Lucro líquido estimado / mês</div>
@@ -825,15 +835,15 @@
     <h2>Seja o franqueado nº 230.<br/><em>Garanta sua região</em><br/>antes que alguém o faça.</h2>
     <p>Preencha o formulário e um especialista VOLL entrará em contato em até 24 horas para uma conversa personalizada — sem pressão, sem compromisso.</p>
     <div style="display:flex; gap:24px; margin-top:32px; flex-wrap:wrap;">
-      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.55); font-size:13px;">
+      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.78); font-size:13px;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(58,138,88,0.8)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(58,138,88,0.8)" stroke-width="1.2"/></svg>
         Sem compromisso
       </div>
-      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.55); font-size:13px;">
+      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.78); font-size:13px;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(58,138,88,0.8)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(58,138,88,0.8)" stroke-width="1.2"/></svg>
         Resposta em até 24h
       </div>
-      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.55); font-size:13px;">
+      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.78); font-size:13px;">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(58,138,88,0.8)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(58,138,88,0.8)" stroke-width="1.2"/></svg>
         Dados confidenciais
       </div>
@@ -843,21 +853,21 @@
     <form class="qual-form" onsubmit="return false;">
       <div class="qual-row">
         <div class="qual-field">
-          <label>Nome</label>
-          <input type="text" class="qual-input" placeholder="Seu nome"/>
+          <label for="lead-nome">Nome</label>
+          <input type="text" class="qual-input" id="lead-nome" name="nome" autocomplete="name" placeholder="Seu nome"/>
         </div>
         <div class="qual-field">
-          <label>WhatsApp</label>
-          <input type="tel" class="qual-input" placeholder="(11) 99999-9999"/>
+          <label for="lead-whatsapp">WhatsApp</label>
+          <input type="tel" class="qual-input" id="lead-whatsapp" name="whatsapp" autocomplete="tel" placeholder="(11) 99999-9999"/>
         </div>
       </div>
       <div class="qual-field">
-        <label>E-mail</label>
-        <input type="email" class="qual-input" placeholder="seu@email.com"/>
+        <label for="lead-email">E-mail</label>
+        <input type="email" class="qual-input" id="lead-email" name="email" autocomplete="email" placeholder="seu@email.com"/>
       </div>
       <div class="qual-field">
-        <label>Seu perfil</label>
-        <select class="qual-select">
+        <label for="lead-perfil">Seu perfil</label>
+        <select class="qual-select" id="lead-perfil" name="perfil">
           <option value="" disabled selected>Selecione seu perfil</option>
           <option>Instrutor(a) de Pilates</option>
           <option>Empreendedor(a)</option>
@@ -867,8 +877,8 @@
         </select>
       </div>
       <div class="qual-field">
-        <label>Capital disponível para investimento</label>
-        <select class="qual-select">
+        <label for="lead-capital">Capital disponível para investimento</label>
+        <select class="qual-select" id="lead-capital" name="capital">
           <option value="" disabled selected>Selecione uma faixa</option>
           <option>Até R$ 100 mil</option>
           <option>R$ 100 mil – R$ 200 mil</option>
@@ -878,15 +888,15 @@
         </select>
       </div>
       <div class="qual-field">
-        <label>Cidade de interesse</label>
-        <input type="text" class="qual-input" placeholder="Cidade / Estado"/>
+        <label for="lead-cidade">Cidade de interesse</label>
+        <input type="text" class="qual-input" id="lead-cidade" name="cidade" autocomplete="address-level2" placeholder="Cidade / Estado"/>
       </div>
       <button type="submit" class="btn-primary" style="width:100%; text-align:center; padding:18px; margin-top:4px;" onclick="this.textContent='✓ Enviado! Em breve entraremos em contato.'; this.style.background='#2d6644'; this.disabled=true;">
         Quero receber o plano de investimento completo
       </button>
     </form>
     <p class="cta-legal" style="text-align:center; margin-top:12px;">Associados ABF · 229 unidades · 16 anos de mercado</p>
-    <p style="text-align:center; font-size:12px; color:rgba(255,255,255,0.5); margin-top:8px; display:flex; align-items:center; justify-content:flex-end; gap:6px;">
+    <p style="text-align:center; font-size:12px; color:rgba(255,255,255,0.72); margin-top:8px; display:flex; align-items:center; justify-content:flex-end; gap:6px;">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="rgba(201,169,110,0.6)" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="rgba(201,169,110,0.6)" stroke-width="1"/></svg>
       Vagas limitadas por região em 2026
     </p>
@@ -933,6 +943,7 @@
   </div>
 </section>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">VOLL <span>Pilates</span></div>
@@ -1060,3 +1071,4 @@ document.querySelectorAll('.fi').forEach(el => {
 </script>
 </body>
 </html>
+
