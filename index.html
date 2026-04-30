@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VOLL Pilates — Franquia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:      #0a0a0a;
+      --white:      #fafaf8;
+      --green:      #1b3d28;
+      --green-mid:  #2d6644;
+      --green-bright:#3a8a58;
+      --gold:       #c9a96e;
+      --gold-light: #e8d5b0;
+      --muted:      #888;
+      --rule:       rgba(0,0,0,0.09);
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'DM Sans', Helvetica, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 64px;
+      transition: background 0.4s, border-bottom 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.90);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: white; }
+    .nav-logo span { color: var(--green-bright); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: white; }
+    .nav-cta { background: var(--green-bright); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: max(760px, 100vh);
+      background: var(--black);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      pointer-events: none; z-index: 0;
+    }
+    .hero-video-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(10,10,10,0.84) 0%, rgba(10,10,10,0.62) 45%, rgba(10,10,10,0.42) 100%),
+        linear-gradient(180deg, rgba(10,10,10,0.28) 0%, rgba(10,10,10,0.68) 100%);
+      pointer-events: none; z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 64px; align-items: end;
+      padding: 0 64px;
+      flex: 1;
+      padding-top: 160px;
+      padding-bottom: 72px;
+    }
+    .hero-left-stats {
+      display: flex; flex-direction: column; gap: 28px; padding-bottom: 4px;
+    }
+    .hero-stat-item {
+      padding-left: 16px; border-left: 2px solid var(--green-bright);
+    }
+    .hero-stat-item-val {
+      font-family: var(--serif); font-size: 32px; font-weight: 600;
+      color: white; line-height: 1;
+    }
+    .hero-stat-item-lbl {
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.38); margin-top: 3px;
+    }
+    .hero-right { display: flex; flex-direction: column; gap: 40px; }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--green-bright);
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--green-bright); }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(64px, 7vw, 104px);
+      font-weight: 300; line-height: 0.93;
+      letter-spacing: -0.025em; color: white;
+    }
+    h1 em { font-style: italic; color: var(--green-bright); }
+    .hero-body { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.52); font-weight: 300; max-width: 520px; }
+    .hero-actions { display: flex; gap: 16px; align-items: center; }
+    .btn-primary {
+      background: var(--green-bright); color: white;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 16px 40px;
+      text-decoration: none; display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-link {
+      font-size: 13px; color: var(--green-bright); font-weight: 500;
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+    .btn-link:hover { opacity: 0.75; }
+
+    /* stats bar */
+    .hero-stats-bar {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      background: rgba(10,10,10,0.58);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .hstat {
+      padding: 28px 48px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .hstat:last-child { border-right: none; }
+    .hstat-val { font-family: var(--serif); font-size: 40px; font-weight: 600; color: white; line-height: 1; }
+    .hstat-val span { color: var(--green-bright); }
+    .hstat-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 5px; }
+
+    /* ── SECTION SCAFFOLDING ── */
+    .section-label {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--green-mid);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 32px;
+    }
+    .section-label::after { content: ''; flex: none; width: 36px; height: 1px; background: var(--green-mid); }
+    .section-headline {
+      font-family: var(--serif);
+      font-size: clamp(40px, 4vw, 60px);
+      font-weight: 400; line-height: 1.05; letter-spacing: -0.01em;
+    }
+    .section-headline em { font-style: italic; color: var(--green-mid); }
+    .body-text { font-size: 15px; line-height: 1.8; color: var(--muted); font-weight: 300; }
+
+    /* ── AUTHORITY ── */
+    #authority { padding: 120px 64px; }
+    .authority-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+    .authority-img {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: rgba(0,0,0,0.06);
+    }
+    .authority-img img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .authority-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 100px; height: 100px; background: var(--green-mid);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .authority-badge-num { font-family: var(--serif); font-size: 28px; font-weight: 600; color: white; line-height: 1; }
+    .authority-badge-lbl { font-size: 8px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 4px; }
+    .pillars { border-top: 1px solid var(--rule); margin-top: 32px; }
+    .pillar { display: grid; grid-template-columns: 36px 1fr; gap: 20px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--rule); }
+    .pillar-num { font-family: var(--serif); font-size: 28px; font-weight: 300; color: rgba(0,0,0,0.2); line-height: 1; }
+    .pillar h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .pillar p { font-size: 13px; line-height: 1.65; color: var(--muted); }
+
+    /* ── MARKET ── */
+    #market { background: var(--black); padding: 120px 64px; }
+    .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
+    .market-headline { font-family: var(--serif); font-size: clamp(48px, 5vw, 76px); font-weight: 300; line-height: 1.0; color: white; letter-spacing: -0.02em; }
+    .market-headline em { font-style: italic; color: var(--green-bright); }
+    .market-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); margin-top: 48px; }
+    .mcard { background: var(--black); padding: 28px 24px; }
+    .mcard-val { font-family: var(--serif); font-size: 40px; font-weight: 600; color: white; line-height: 1; margin-bottom: 6px; }
+    .mcard-val span { color: var(--green-bright); }
+    .mcard-lbl { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.5; }
+    .market-right-body { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.52); font-weight: 300; }
+    .market-big { font-family: var(--serif); font-size: clamp(80px, 12vw, 140px); font-weight: 600; color: var(--green-bright); line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px; }
+
+    /* ── MODELO ── */
+    #modelo { padding: 120px 64px; }
+    .modelo-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+    .modelo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); }
+    .mcard2 { background: var(--white); padding: 44px 36px; display: flex; flex-direction: column; gap: 16px; transition: background 0.2s; }
+    .mcard2:hover { background: white; }
+    .mcard2-num { font-family: var(--serif); font-size: 13px; font-weight: 600; color: var(--green-mid); letter-spacing: 0.08em; }
+    .mcard2 h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.2; }
+    .mcard2 p { font-size: 13px; line-height: 1.7; color: var(--muted); }
+    .mcard2-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-mid); margin-top: auto; }
+
+    /* ── NÚMEROS ── */
+    #numeros { background: var(--black); padding: 80px 64px; display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; }
+    .ncard { padding: 44px 48px; border-right: 1px solid rgba(255,255,255,0.07); }
+    .ncard:last-child { border-right: none; }
+    .ncard-val { font-family: var(--serif); font-size: 52px; font-weight: 600; color: white; line-height: 1; }
+    .ncard-val span { color: var(--green-bright); }
+    .ncard-lbl { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 6px; line-height: 1.5; }
+
+    /* ── DIFERENCIAIS ── */
+    #diferenciais { padding: 120px 64px; background: rgba(0,0,0,0.02); }
+    .dif-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+    .dif-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule); }
+    .dif-item { background: var(--white); padding: 44px 40px; display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start; transition: background 0.2s; }
+    .dif-item:hover { background: white; }
+    .dif-num { font-family: var(--serif); font-size: 48px; font-weight: 300; color: rgba(0,0,0,0.12); line-height: 1; }
+    .dif-content h3 { font-family: var(--serif); font-size: 22px; font-weight: 500; margin-bottom: 8px; }
+    .dif-content p { font-size: 13px; line-height: 1.7; color: var(--muted); }
+
+    /* ── JORNADA ── */
+    #jornada { padding: 120px 64px; }
+    .jornada-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 72px; }
+    .steps { display: grid; grid-template-columns: repeat(5,1fr); position: relative; }
+    .steps::before { content: ''; position: absolute; top: 24px; left: 10%; right: 10%; height: 1px; background: rgba(58,138,88,0.3); z-index: 0; }
+    .step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+    .step-dot { width: 48px; height: 48px; background: var(--black); color: var(--green-bright); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; font-weight: 600; margin-bottom: 20px; flex-shrink: 0; }
+    .step h4 { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .step p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--black); padding: 120px 64px; }
+    .tcarousel { margin-top: 56px; }
+    .tviewport { overflow: hidden; width: 100%; }
+    .ttrack {
+      display: flex;
+      transition: transform 0.55s ease;
+      will-change: transform;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ttrack { transition: none; }
+    }
+    .tslide {
+      flex: 0 0 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+    .tgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .tcard { background: var(--black); padding: 44px 36px; }
+    .tbullets {
+      display: flex; justify-content: center; align-items: center; gap: 10px;
+      margin-top: 32px;
+    }
+    .tbullet {
+      width: 9px; height: 9px; border-radius: 50%;
+      border: none; padding: 0; cursor: pointer;
+      background: rgba(255,255,255,0.22);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .tbullet:hover { background: rgba(255,255,255,0.4); }
+    .tbullet[aria-current="true"] {
+      background: var(--green-bright);
+      transform: scale(1.2);
+    }
+    .tquote { font-family: var(--serif); font-size: 19px; font-style: italic; font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.65; margin-bottom: 28px; }
+    .tquote::before { content: '"'; font-size: 52px; color: var(--green-bright); line-height: 0; vertical-align: -18px; margin-right: 2px; }
+    .tauthor { display: flex; align-items: center; gap: 12px; }
+    .tavatar { width: 40px; height: 40px; background: var(--green); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--gold); flex-shrink: 0; }
+    .tname { font-size: 13px; font-weight: 600; color: white; }
+    .trole { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+    /* ── CTA ── */
+    #cta { background: var(--green-mid); padding: 120px 64px; display: flex; align-items: center; justify-content: space-between; gap: 64px; }
+    .cta-left h2 { font-family: var(--serif); font-size: clamp(44px, 5vw, 72px); font-weight: 400; line-height: 1.05; color: white; letter-spacing: -0.02em; }
+    .cta-left h2 em { font-style: italic; color: var(--gold-light); }
+    .cta-left p { font-size: 15px; color: rgba(255,255,255,0.55); margin-top: 16px; line-height: 1.7; max-width: 500px; }
+    .cta-right { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; flex-shrink: 0; }
+    .cta-form { display: flex; }
+    .cta-input { flex: 1; width: 280px; padding: 16px 20px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; font-family: var(--sans); font-size: 14px; outline: none; }
+    .cta-input::placeholder { color: rgba(255,255,255,0.35); }
+    .cta-input:focus { border-color: var(--gold-light); }
+    .btn-cta { background: var(--black); color: white; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 32px; border: none; cursor: pointer; transition: opacity 0.2s; white-space: nowrap; }
+    .btn-cta:hover { opacity: 0.8; }
+    .cta-legal { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--black); padding: 40px 64px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: white; }
+    .footer-logo span { color: var(--green-bright); }
+    .footer-links { display: flex; gap: 32px; list-style: none; }
+    .footer-links a { font-size: 11px; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+
+    /* ── COMPARATIVO ── */
+    #comparativo { padding: 120px 64px; background: var(--black); }
+    .comp-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+    .comp-table { width: 100%; border-collapse: collapse; }
+    .comp-table th { padding: 16px 24px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-align: left; }
+    .comp-table th:first-child { color: rgba(255,255,255,0.4); width: 40%; }
+    .comp-table th:nth-child(2) { color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.03); text-align: center; }
+    .comp-table th:nth-child(3) { color: var(--green-bright); background: rgba(58,138,88,0.08); text-align: center; }
+    .comp-table td { padding: 18px 24px; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.7); }
+    .comp-table td:first-child { color: rgba(255,255,255,0.5); font-weight: 300; }
+    .comp-table td:nth-child(2) { background: rgba(255,255,255,0.03); text-align: center; color: rgba(255,255,255,0.35); }
+    .comp-table td:nth-child(3) { background: rgba(58,138,88,0.06); text-align: center; color: var(--green-bright); font-weight: 500; }
+    .comp-check { font-size: 16px; }
+    .comp-x { font-size: 14px; color: rgba(255,100,100,0.6); }
+    .comp-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .comp-table tr:hover td:nth-child(2) { background: rgba(255,255,255,0.05); }
+    .comp-table tr:hover td:nth-child(3) { background: rgba(58,138,88,0.12); }
+
+    /* ── PARA QUEM NÃO É ── */
+    #nao-e { padding: 120px 64px; background: rgba(0,0,0,0.02); }
+    .naoe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+    .naoe-col h3 { font-family: var(--serif); font-size: 26px; font-weight: 500; margin-bottom: 24px; }
+    .naoe-col h3 em { font-style: italic; }
+    .naoe-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--rule); }
+    .naoe-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+    .naoe-icon { width: 24px; height: 24px; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+    .naoe-item p { font-size: 14px; line-height: 1.65; color: var(--muted); }
+    .naoe-item p strong { color: var(--black); font-weight: 600; }
+    .naoe-col-yes .naoe-icon { color: var(--green-mid); }
+    .naoe-col-no  .naoe-icon { color: rgba(180,60,60,0.7); }
+
+    /* ── CALCULADORA ROI ── */
+    #calculadora { padding: 120px 64px; background: var(--black); }
+    .calc-inner { max-width: 960px; margin: 0 auto; }
+    .calc-header { text-align: center; margin-bottom: 64px; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .calc-inputs { display: flex; flex-direction: column; gap: 32px; }
+    .calc-field label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+    .calc-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 2px; background: rgba(255,255,255,0.15); outline: none; }
+    .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: var(--green-bright); cursor: pointer; border-radius: 50%; }
+    .calc-slider::-moz-range-thumb { width: 18px; height: 18px; background: var(--green-bright); cursor: pointer; border-radius: 50%; border: none; }
+    .calc-val { font-family: var(--serif); font-size: 32px; font-weight: 600; color: white; margin-top: 8px; }
+    .calc-val span { color: var(--green-bright); font-size: 18px; }
+    .calc-results { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 40px; display: flex; flex-direction: column; gap: 28px; }
+    .calc-result-item { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .calc-result-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .calc-result-lbl { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; max-width: 200px; }
+    .calc-result-val { font-family: var(--serif); font-size: 32px; font-weight: 600; color: white; text-align: right; }
+    .calc-result-val span { color: var(--green-bright); }
+    .calc-disclaimer { font-size: 11px; color: rgba(255,255,255,0.25); text-align: center; margin-top: 24px; line-height: 1.6; }
+
+    /* ── FORMULÁRIO QUALIFICADOR ── */
+    .qual-form { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 440px; }
+    .qual-field { display: flex; flex-direction: column; gap: 6px; }
+    .qual-field label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    .qual-input, .qual-select { padding: 14px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: white; font-family: var(--sans); font-size: 14px; outline: none; width: 100%; transition: border-color 0.2s; }
+    .qual-input::placeholder { color: rgba(255,255,255,0.3); }
+    .qual-input:focus, .qual-select:focus { border-color: var(--green-bright); }
+    .qual-select { cursor: pointer; }
+    .qual-select option { background: #1b3d28; color: white; }
+    .qual-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* ── FAQ ── */
+    #faq { padding: 120px 64px; }
+    .faq-inner { max-width: 860px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-list { border-top: 1px solid var(--rule); }
+    .faq-item { border-bottom: 1px solid var(--rule); }
+    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 0; cursor: pointer; background: none; border: none; text-align: left; font-family: var(--sans); }
+    .faq-q-text { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--black); line-height: 1.3; }
+    .faq-icon { width: 28px; height: 28px; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s, background 0.2s; font-size: 16px; color: var(--green-mid); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--green-mid); color: white; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 24px; }
+    .faq-a p { font-size: 15px; line-height: 1.8; color: var(--muted); font-weight: 300; }
+    .faq-a p + p { margin-top: 12px; }
+
+    /* ── FADE-IN ── */
+    .fi { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .fi.v  { opacity: 1; transform: none; }
+    .fi.d1 { transition-delay: 0.10s; }
+    .fi.d2 { transition-delay: 0.20s; }
+    .fi.d3 { transition-delay: 0.30s; }
+    .fi.d4 { transition-delay: 0.40s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      #hero .hero-content { grid-template-columns: 1fr; padding: 0 24px; padding-top: 140px; }
+      .hero-left-stats { flex-direction: row; flex-wrap: wrap; gap: 16px; }
+      .hero-stats-bar { grid-template-columns: repeat(2,1fr); }
+      .authority-grid, .market-grid, .modelo-intro, .dif-header, .jornada-header { grid-template-columns: 1fr; gap: 40px; }
+      .modelo-grid { grid-template-columns: 1fr; }
+      .dif-grid { grid-template-columns: 1fr; }
+      .tcarousel .tgrid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .steps::before { display: none; }
+      #authority, #modelo, #jornada, #diferenciais { padding: 80px 24px; }
+      #market, #testimonials, #cta { padding: 80px 24px; }
+      #numeros { grid-template-columns: repeat(2,1fr); }
+      #cta { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+  <template id="__bundler_thumbnail" data-bg-color="#0a0a0a">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <!-- nav bar -->
+      <rect x="0" y="0" width="1200" height="60" fill="#111"/>
+      <rect x="60" y="22" width="120" height="16" rx="2" fill="#3a8a58" opacity="0.8"/>
+      <rect x="1060" y="20" width="80" height="20" rx="2" fill="#3a8a58"/>
+      <!-- hero bg lines -->
+      <path d="M0 400 Q300 320 600 400 Q900 480 1200 400" stroke="#3a8a58" stroke-width="1" fill="none" opacity="0.3"/>
+      <path d="M0 500 Q400 420 700 500 Q950 560 1200 480" stroke="#2d6644" stroke-width="1" fill="none" opacity="0.2"/>
+      <path d="M0 300 Q250 260 500 300 Q800 360 1200 280" stroke="#3a8a58" stroke-width="0.8" fill="none" opacity="0.15"/>
+      <!-- orb -->
+      <circle cx="900" cy="350" r="220" fill="#2d6644" opacity="0.12"/>
+      <!-- stat bars left -->
+      <rect x="60" y="220" width="3" height="80" fill="#3a8a58"/>
+      <rect x="74" y="228" width="60" height="10" rx="1" fill="white" opacity="0.5"/>
+      <rect x="74" y="244" width="40" height="7" rx="1" fill="#3a8a58" opacity="0.5"/>
+      <rect x="60" y="320" width="3" height="60" fill="#3a8a58"/>
+      <rect x="74" y="328" width="50" height="10" rx="1" fill="white" opacity="0.5"/>
+      <rect x="74" y="344" width="35" height="7" rx="1" fill="#3a8a58" opacity="0.5"/>
+      <!-- headline -->
+      <rect x="200" y="200" width="640" height="44" rx="2" fill="white" opacity="0.85"/>
+      <rect x="200" y="256" width="520" height="44" rx="2" fill="white" opacity="0.85"/>
+      <rect x="200" y="312" width="580" height="44" rx="2" fill="#3a8a58" opacity="0.8"/>
+      <!-- CTA button -->
+      <rect x="200" y="390" width="180" height="40" rx="0" fill="#3a8a58"/>
+      <!-- stats bar bottom -->
+      <rect x="0" y="680" width="1200" height="120" fill="#111" opacity="0.8"/>
+      <rect x="60" y="710" width="80" height="24" rx="1" fill="white" opacity="0.5"/>
+      <rect x="360" y="710" width="80" height="24" rx="1" fill="white" opacity="0.5"/>
+      <rect x="660" y="710" width="80" height="24" rx="1" fill="white" opacity="0.5"/>
+      <rect x="960" y="710" width="80" height="24" rx="1" fill="white" opacity="0.5"/>
+    </svg>
+  </template>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">VOLL <span>Pilates</span></div>
+  <ul class="nav-links">
+    <li><a href="#authority">A VOLL</a></li>
+    <li><a href="#market">Mercado</a></li>
+    <li><a href="#modelo">Modelo</a></li>
+    <li><a href="#calculadora">ROI</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Seja franqueado</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="video/videook.mp4" type="video/mp4"/>
+  </video>
+  <div class="hero-video-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-left-stats fi">
+      <div class="hero-stat-item">
+        <div class="hero-stat-item-val">229</div>
+        <div class="hero-stat-item-lbl">Studios no Brasil</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-item-val">16</div>
+        <div class="hero-stat-item-lbl">Anos de liderança</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-item-val">#1</div>
+        <div class="hero-stat-item-lbl">América Latina</div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <p class="hero-eyebrow fi">Vagas limitadas por região em 2026</p>
+      <h1 class="fi d1">
+        Seja o dono da<br/>
+        franquia nº 230 da<br/>
+        <em>maior rede de Pilates<br/>do Brasil.</em>
+      </h1>
+      <p class="hero-body fi d2">
+        Não precisa ser fisioterapeuta nem educador físico. Você recebe tudo pronto: equipamentos, projeto arquitetônico, marketing, plataforma exclusiva e royalties fixos de apenas R$&nbsp;990/mês — com breakeven em 2 a 4 meses.
+      </p>
+      <div class="hero-actions fi d3">
+        <a href="#cta" class="btn-primary">Quero receber o plano de investimento</a>
+        <a href="#authority" class="btn-link">Conhecer a VOLL →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats-bar">
+    <div class="hstat"><div class="hstat-val">100<span>mil+</span></div><div class="hstat-lbl">Alunos atendidos por mês</div></div>
+    <div class="hstat"><div class="hstat-val">80<span>mil+</span></div><div class="hstat-lbl">Instrutores formados</div></div>
+    <div class="hstat"><div class="hstat-val">8<span>–12m</span></div><div class="hstat-lbl">Payback estimado</div></div>
+    <div class="hstat"><div class="hstat-val">R$<span>990</span></div><div class="hstat-lbl">Royalties fixos mensais</div></div>
+  </div>
+</section>
+
+<!-- AUTHORITY -->
+<section id="authority">
+  <div class="authority-grid">
+    <div style="position:relative; padding-bottom:20px; padding-right:20px;">
+      <div class="authority-img fi">
+        <img src="images/fachadaok.png" alt="Fachada do studio VOLL Pilates" width="960" height="1200" loading="lazy" decoding="async"/>
+        <div class="authority-badge">
+          <div class="authority-badge-num">#1</div>
+          <div class="authority-badge-lbl">Am. Latina</div>
+        </div>
+      </div>
+    </div>
+    <div class="fi d1">
+      <p class="section-label">Quem somos</p>
+      <h2 class="section-headline">
+        Você não está comprando<br/>
+        uma franquia qualquer.<br/>
+        <em>Está herdando uma autoridade.</em>
+      </h2>
+      <p class="body-text" style="margin-top:24px;">
+        Fundada há 16 anos, a VOLL construiu o maior ecossistema de Pilates da América Latina — da formação de instrutores à expansão global. Associada à ABF, com presença em todos os estados brasileiros e em múltiplos países, a marca VOLL carrega credibilidade que nenhum concorrente pode replicar.
+      </p>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-num">01</div><div><h4>Metodologia proprietária</h4><p>Sistema pedagógico exclusivo, reconhecido no Brasil e exterior. Bolsa 100% no curso de formação incluída.</p></div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div><h4>Marca consolidada</h4><p>16 anos de autoridade, associada à ABF, com maior evento de Pilates da América Latina.</p></div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div><h4>Ecossistema completo</h4><p>Studios, educação, tecnologia, eventos e comunidade — tudo integrado para o sucesso do franqueado.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="market-grid">
+    <div>
+      <p class="section-label" style="color:rgba(58,138,88,0.8)">O Mercado</p>
+      <h2 class="market-headline fi">
+        O Pilates não é<br/>uma moda.<br/><em>É uma revolução.</em>
+      </h2>
+      <div class="market-cards fi d1">
+        <div class="mcard"><div class="mcard-val">R$<span>8bi</span></div><div class="mcard-lbl">Mercado brasileiro de bem-estar</div></div>
+        <div class="mcard"><div class="mcard-val">38<span>%</span></div><div class="mcard-lbl">Crescimento anual do setor</div></div>
+        <div class="mcard"><div class="mcard-val">12<span>M+</span></div><div class="mcard-lbl">Praticantes no Brasil</div></div>
+        <div class="mcard"><div class="mcard-val">2<span>x</span></div><div class="mcard-lbl">Demanda vs. oferta atual</div></div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:24px; padding-top:56px;">
+      <div class="market-big fi">Agora.</div>
+      <p class="market-right-body fi d1">O Brasil vive o maior crescimento do Pilates de sua história. A demanda por studios de qualidade supera em muito a oferta — e a janela está aberta para quem entra com a marca certa.</p>
+      <p class="market-right-body fi d2">Empreendedores que chegam agora com a autoridade da VOLL saem na frente: posicionamento premium, clientela fiel e crescimento acelerado desde o primeiro mês.</p>
+      <a href="#cta" class="btn-primary" style="align-self:flex-start; margin-top:12px;">Quero garantir minha região →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODELO -->
+<section id="modelo">
+  <div class="modelo-intro">
+    <div class="fi">
+      <p class="section-label">O Modelo</p>
+      <h2 class="section-headline">Um negócio completo,<br/><em>do zero ao lucro.</em></h2>
+    </div>
+    <p class="body-text fi d1" style="padding-bottom:8px;">Ao abrir uma franquia VOLL você não recebe apenas equipamentos. Você recebe um modelo validado em 229 unidades, com suporte completo, tecnologia integrada e a força de uma marca global.</p>
+  </div>
+  <div class="modelo-grid">
+    <div class="mcard2 fi"><span class="mcard2-num">01</span><h3>Comece a operar com os melhores equipamentos do mercado</h3><p>Você recebe Cadillac, Reformer, Step Chair e Ladder Barrel — sem dor de cabeça com fornecedores. Pronto para gerar receita desde o primeiro dia.</p><span class="mcard2-tag">Infraestrutura</span></div>
+    <div class="mcard2 fi d1"><span class="mcard2-num">02</span><h3>Seu espaço projetado para atrair e fidelizar alunos</h3><p>Projeto arquitetônico exclusivo VOLL — funcional, premium e padronizado para espaços a partir de 65m². Ambiente que o aluno entra e já confia na marca.</p><span class="mcard2-tag">Espaço</span></div>
+    <div class="mcard2 fi d2"><span class="mcard2-num">03</span><h3>Esqueça agência: seu marketing já está pronto</h3><p>Site, app, mídias sociais e campanhas mensais estratégicas entregues. Você foca na gestão — a VOLL cuida da atração de alunos.</p><span class="mcard2-tag">Marketing</span></div>
+    <div class="mcard2 fi"><span class="mcard2-num">04</span><h3>Gestão completa na palma da mão</h3><p>Plataforma exclusiva com agendamento, CRM, relatórios financeiros e comunicação com toda a rede. Mais tempo para o que importa: crescer.</p><span class="mcard2-tag">Tecnologia</span></div>
+    <div class="mcard2 fi d1"><span class="mcard2-num">05</span><h3>Bolsa 100% — você forma sua equipe sem custo</h3><p>Bolsa integral no curso de formação em Pilates para você e seus instrutores. Treinamentos contínuos em gestão, marketing e vendas incluídos.</p><span class="mcard2-tag">Educação</span></div>
+    <div class="mcard2 fi d2"><span class="mcard2-num">06</span><h3>Pague R$&nbsp;990 fixos e esqueça percentuais sobre faturamento</h3><p>Sem fundo de propaganda. Sem surpresas. A estrutura de royalties mais previsível do mercado de franquias de bem-estar — você sabe exatamente o que paga todo mês.</p><span class="mcard2-tag">Financeiro</span></div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<section id="numeros">
+  <div class="ncard"><div class="ncard-val">229<span></span></div><div class="ncard-lbl">Unidades presentes em todos os estados brasileiros</div></div>
+  <div class="ncard"><div class="ncard-val">100<span>mil+</span></div><div class="ncard-lbl">Alunos atendidos em nossas unidades todo mês</div></div>
+  <div class="ncard"><div class="ncard-val">2<span>–4m</span></div><div class="ncard-lbl">Tempo médio para o breakeven do seu studio</div></div>
+  <div class="ncard"><div class="ncard-val">80<span>mil+</span></div><div class="ncard-lbl">Profissionais capacitados pelo Grupo VOLL</div></div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="dif-header">
+    <div class="fi">
+      <p class="section-label">Por que VOLL</p>
+      <h2 class="section-headline">O que nos torna<br/><em>inigualáveis.</em></h2>
+    </div>
+    <p class="body-text fi d1">Comparar a VOLL com outras franquias é como comparar uma marca de luxo com uma genérica. O produto final pode parecer similar — a profundidade, o legado e o retorno são completamente diferentes.</p>
+  </div>
+  <div class="dif-grid">
+    <div class="dif-item fi"><div class="dif-num">01</div><div class="dif-content"><h3>Marca de Autoridade Global</h3><p>Reconhecida por especialistas, atletas e clientes exigentes no Brasil e no exterior. Um ativo que nenhum concorrente tem.</p></div></div>
+    <div class="dif-item fi d1"><div class="dif-num">02</div><div class="dif-content"><h3>Associada à ABF</h3><p>Transparência, credibilidade e confiança garantidas pela Associação Brasileira de Franchising. Segurança para investir.</p></div></div>
+    <div class="dif-item fi"><div class="dif-num">03</div><div class="dif-content"><h3>Rede de 229 Franqueados</h3><p>Comunidade ativa com troca de experiências, benchmarking e suporte mútuo entre os maiores empreendedores do setor.</p></div></div>
+    <div class="dif-item fi d1"><div class="dif-num">04</div><div class="dif-content"><h3>Retorno Acelerado</h3><p>Breakeven em 2 a 4 meses. Payback estimado entre 8 e 12 meses. Modelo testado e validado em centenas de unidades.</p></div></div>
+    <div class="dif-item fi"><div class="dif-num">05</div><div class="dif-content"><h3>Maior Evento da Am. Latina</h3><p>Realização do maior congresso de Pilates da América Latina — visibilidade e autoridade que elevam sua marca local.</p></div></div>
+    <div class="dif-item fi d1"><div class="dif-num">06</div><div class="dif-content"><h3>Suporte Vitalício</h3><p>Consultoria, visitas técnicas, treinamentos contínuos e mentoria — do lançamento à expansão do seu negócio.</p></div></div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section id="comparativo">
+  <div class="comp-header">
+    <div class="fi">
+      <p class="section-label" style="color:rgba(58,138,88,0.8)">A diferença real</p>
+      <h2 class="section-headline" style="color:white;">Abrir sozinho<br/><em style="color:var(--green-bright)">vs. abrir com a VOLL.</em></h2>
+    </div>
+    <p class="fi d1" style="font-size:15px; line-height:1.8; color:rgba(255,255,255,0.45); font-weight:300; padding-bottom:8px;">O custo oculto de montar um studio sem uma franquia é muito maior do que parece. Veja o que a VOLL já resolve para você — sem reinventar a roda.</p>
+  </div>
+  <table class="comp-table fi">
+    <thead>
+      <tr>
+        <th>O que você precisa</th>
+        <th>Por conta própria</th>
+        <th>Com a VOLL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Marca reconhecida pelo cliente</td>
+        <td><span class="comp-x">✕ Construir do zero</span></td>
+        <td><span class="comp-check">✓ 16 anos de autoridade</span></td>
+      </tr>
+      <tr>
+        <td>Metodologia de ensino validada</td>
+        <td><span class="comp-x">✕ Indefinida ou copiada</span></td>
+        <td><span class="comp-check">✓ Sistema pedagógico exclusivo</span></td>
+      </tr>
+      <tr>
+        <td>Software de gestão e CRM</td>
+        <td><span class="comp-x">✕ R$400–1.200/mês</span></td>
+        <td><span class="comp-check">✓ Incluso na franquia</span></td>
+      </tr>
+      <tr>
+        <td>Marketing digital e campanhas</td>
+        <td><span class="comp-x">✕ R$3.000–8.000/mês</span></td>
+        <td><span class="comp-check">✓ Campanha mensal pronta</span></td>
+      </tr>
+      <tr>
+        <td>Projeto arquitetônico do espaço</td>
+        <td><span class="comp-x">✕ R$8.000–25.000</span></td>
+        <td><span class="comp-check">✓ Incluso no modelo</span></td>
+      </tr>
+      <tr>
+        <td>Formação da equipe instrutora</td>
+        <td><span class="comp-x">✕ Custo variável por instrutor</span></td>
+        <td><span class="comp-check">✓ Bolsa 100% no curso VOLL</span></td>
+      </tr>
+      <tr>
+        <td>Rede de suporte e mentoria</td>
+        <td><span class="comp-x">✕ Não existe</span></td>
+        <td><span class="comp-check">✓ 229 franqueados + equipe VOLL</span></td>
+      </tr>
+      <tr>
+        <td>Royalties mensais</td>
+        <td><span style="color:rgba(255,255,255,0.5)">— Sem custo de franquia</span></td>
+        <td><span class="comp-check">✓ Apenas R$990 fixo/mês</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- JORNADA -->
+<section id="jornada">
+  <div class="jornada-header">
+    <div class="fi">
+      <p class="section-label">Sua Jornada</p>
+      <h2 class="section-headline">Do interesse à abertura:<br/><em>um caminho claro.</em></h2>
+    </div>
+    <p class="body-text fi d1">Cada etapa foi desenhada para garantir que você abra com confiança, suporte e as melhores condições possíveis. Nada é deixado ao acaso.</p>
+  </div>
+  <div class="steps">
+    <div class="step fi"><div class="step-dot">1</div><h4>Candidatura</h4><p>Preencha o formulário. Nossa equipe entra em contato em até 24h.</p></div>
+    <div class="step fi d1"><div class="step-dot">2</div><h4>Entrevista</h4><p>Conversa com especialistas para alinhar perfil e expectativas.</p></div>
+    <div class="step fi d2"><div class="step-dot">3</div><h4>Aprovação</h4><p>Análise completa e assinatura do contrato de franquia VOLL.</p></div>
+    <div class="step fi d3"><div class="step-dot">4</div><h4>Implantação</h4><p>Suporte total na montagem, contratação e treinamento da equipe.</p></div>
+    <div class="step fi d4"><div class="step-dot">5</div><h4>Inauguração</h4><p>Abertura com campanha de lançamento e suporte presencial VOLL.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-label" style="color:rgba(58,138,88,0.8)">Quem já faz parte</p>
+  <h2 class="section-headline fi" style="color:white; max-width:500px;">A voz de quem<br/><em style="color:var(--green-bright)">transformou sua vida.</em></h2>
+  <div class="tcarousel" id="tcarousel" aria-roledescription="carrossel">
+    <div class="tviewport">
+      <div class="ttrack" id="ttrack">
+        <div class="tslide" id="t-slide-0" role="tabpanel" aria-labelledby="t-tab-0" aria-hidden="false">
+          <div class="tgrid">
+            <div class="tcard"><p class="tquote">Em 11 meses recuperei todo o investimento. Não era do setor de saúde — era do varejo. A VOLL entrega o que promete: suporte real e um modelo que funciona.</p><div class="tauthor"><div class="tavatar">C</div><div><div class="tname">Carolina Mendes</div><div class="trole">Franqueada — São Paulo, SP · 3 unidades · ROI em 11 meses</div></div></div></div>
+            <div class="tcard"><p class="tquote">Breakeven no 3º mês. Eu era empreendedor do setor de alimentação, sem nenhuma experiência em Pilates. O modelo da VOLL é plug and play de verdade.</p><div class="tauthor"><div class="tavatar">R</div><div><div class="tname">Roberto Alves</div><div class="trole">Franqueado — Curitiba, PR · 2 unidades · breakeven no 3º mês</div></div></div></div>
+            <div class="tcard"><p class="tquote">Entrei como investidora. Hoje tenho uma unidade lucrando acima da média da rede e já assinei contrato para a segunda. A marca VOLL vende sozinha.</p><div class="tauthor"><div class="tavatar">P</div><div><div class="tname">Patricia Souza</div><div class="trole">Franqueada — Belo Horizonte, MG · expansão em 2025</div></div></div></div>
+          </div>
+        </div>
+        <div class="tslide" id="t-slide-1" role="tabpanel" aria-labelledby="t-tab-1" aria-hidden="true">
+          <div class="tgrid">
+            <div class="tcard"><p class="tquote">Saí do marketing para empreender com propósito. O onboarding da VOLL é impecável — em 70 dias estávamos com agenda cheia e equipe alinhada à metodologia.</p><div class="tauthor"><div class="tavatar">F</div><div><div class="tname">Fernanda Costa</div><div class="trole">Franqueada — Florianópolis, SC · 1 unidade · inauguração em 60 dias</div></div></div></div>
+            <div class="tcard"><p class="tquote">Trabalhei 15 anos em multinacional. Queria um negócio próprio sem reinventar processos. A VOLL entrega playbook, indicadores e uma comunidade que acelera qualquer decisão.</p><div class="tauthor"><div class="tavatar">M</div><div><div class="tname">Marcos Oliveira</div><div class="trole">Franqueado — Rio de Janeiro, RJ · 1 unidade · ex-C-level</div></div></div></div>
+            <div class="tcard"><p class="tquote">Como fisioterapeuta, escolhi a VOLL pelo rigor técnico e pela formação da equipe. Hoje atendemos em fila de espera — a reputação da marca abre portas na cidade.</p><div class="tauthor"><div class="tavatar">J</div><div><div class="tname">Juliana Araújo</div><div class="trole">Franqueada — Salvador, BA · 1 unidade · lista de espera ativa</div></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tbullets" role="tablist" aria-label="Navegar entre grupos de depoimentos">
+      <button type="button" class="tbullet" role="tab" aria-selected="true" aria-controls="t-slide-0" id="t-tab-0" data-tindex="0" aria-label="Depoimentos 1 a 3"></button>
+      <button type="button" class="tbullet" role="tab" aria-selected="false" aria-controls="t-slide-1" id="t-tab-1" data-tindex="1" aria-label="Depoimentos 4 a 6"></button>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM NÃO É -->
+<section id="nao-e">
+  <div class="fi">
+    <p class="section-label">Transparência</p>
+    <h2 class="section-headline">Honestidade antes<br/><em>de qualquer negócio.</em></h2>
+    <p class="body-text" style="margin-top:16px; max-width:560px;">A VOLL não é para todo mundo — e isso é proposital. Selecionamos franqueados com cuidado para proteger a qualidade da rede e garantir o sucesso de cada unidade.</p>
+  </div>
+  <div class="naoe-grid">
+    <div class="naoe-col naoe-col-no">
+      <h3><em>Não é para você</em> se...</h3>
+      <div class="naoe-list">
+        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você busca <strong>renda passiva imediata</strong> sem envolvimento na operação do studio.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você quer <strong>mudar tudo</strong> da metodologia e operar de forma completamente independente da rede.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você não tem <strong>capital mínimo</strong> para o investimento inicial e capital de giro adequado.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você não está disposto a <strong>seguir os padrões de qualidade</strong> que protegem a marca e todos os franqueados.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você espera que o negócio <strong>cresça sozinho</strong> sem dedicação e comprometimento com a gestão.</p></div>
+      </div>
+    </div>
+    <div class="naoe-col naoe-col-yes">
+      <h3>É para você se...</h3>
+      <div class="naoe-list">
+        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você é <strong>instrutor de Pilates</strong> e quer escalar seu trabalho com uma marca que o mercado já reconhece.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você é <strong>empreendedor</strong> que busca um modelo de negócio sólido, validado e com suporte contínuo.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você é <strong>investidor</strong> que quer diversificar com um ativo no setor de saúde e bem-estar em crescimento acelerado.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você acredita no <strong>poder da comunidade</strong> e quer crescer dentro de uma rede de apoio mútuo.</p></div>
+        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você quer construir um <strong>legado</strong> em saúde, bem-estar e qualidade de vida na sua cidade.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULADORA ROI -->
+<section id="calculadora">
+  <div class="calc-inner">
+    <div class="calc-header fi">
+      <p class="section-label" style="color:rgba(58,138,88,0.8); justify-content:center;">Simulador de Retorno</p>
+      <h2 class="section-headline" style="color:white; text-align:center;">Calcule o potencial<br/><em style="color:var(--green-bright)">do seu investimento.</em></h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.4); text-align:center; margin-top:16px; font-weight:300; max-width:480px; margin-left:auto; margin-right:auto;">Ajuste os parâmetros e veja uma estimativa do retorno financeiro baseada em médias reais da nossa rede.</p>
+    </div>
+    <div class="calc-grid fi d1">
+      <div class="calc-inputs">
+        <div class="calc-field">
+          <label>Número de alunos ativos</label>
+          <input type="range" class="calc-slider" id="sl-alunos" min="30" max="200" value="80" step="5"/>
+          <div class="calc-val"><span id="vl-alunos">80</span> <span>alunos</span></div>
+        </div>
+        <div class="calc-field">
+          <label>Mensalidade média por aluno</label>
+          <input type="range" class="calc-slider" id="sl-ticket" min="250" max="800" value="420" step="10"/>
+          <div class="calc-val">R$ <span id="vl-ticket">420</span></div>
+        </div>
+        <div class="calc-field">
+          <label>Número de sessões avulsas / mês</label>
+          <input type="range" class="calc-slider" id="sl-avulso" min="0" max="100" value="20" step="5"/>
+          <div class="calc-val"><span id="vl-avulso">20</span> <span>sessões · R$80 cada</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="calc-results">
+          <div class="calc-result-item">
+            <div class="calc-result-lbl">Receita bruta estimada / mês</div>
+            <div class="calc-result-val">R$ <span id="res-receita">35.200</span></div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-lbl">Custos operacionais estimados (55%)</div>
+            <div class="calc-result-val" style="color:rgba(255,255,255,0.4);">− R$ <span id="res-custos">19.360</span></div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-lbl">Lucro líquido estimado / mês</div>
+            <div class="calc-result-val">R$ <span id="res-lucro" style="color:var(--green-bright)">15.840</span></div>
+          </div>
+          <div class="calc-result-item">
+            <div class="calc-result-lbl">Payback estimado do investimento</div>
+            <div class="calc-result-val"><span id="res-payback" style="color:var(--green-bright)">11</span> <span style="font-size:18px">meses</span></div>
+          </div>
+        </div>
+        <p class="calc-disclaimer">Simulação baseada em médias da rede VOLL. Resultados reais podem variar conforme localização, gestão e mercado local. Não constitui garantia de rentabilidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BADGES -->
+<div style="background:var(--white); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:32px 64px; display:flex; align-items:center; justify-content:center; gap:64px; flex-wrap:wrap;">
+  <div style="display:flex; align-items:center; gap:12px; color:var(--muted); font-size:13px;">
+    <div style="width:40px; height:40px; background:var(--green-mid); display:flex; align-items:center; justify-content:center; color:white; font-family:var(--serif); font-size:11px; font-weight:700; text-align:center; line-height:1.2; padding:4px;">ABF</div>
+    <span>Associada à<br/><strong style="color:var(--black)">ABF — Franquia verificada</strong></span>
+  </div>
+  <div style="width:1px; height:40px; background:var(--rule);"></div>
+  <div style="display:flex; align-items:center; gap:12px; color:var(--muted); font-size:13px;">
+    <div style="font-family:var(--serif); font-size:32px; font-weight:600; color:var(--green-mid); line-height:1;">16</div>
+    <span>Anos de<br/><strong style="color:var(--black)">liderança de mercado</strong></span>
+  </div>
+  <div style="width:1px; height:40px; background:var(--rule);"></div>
+  <div style="display:flex; align-items:center; gap:12px; color:var(--muted); font-size:13px;">
+    <div style="font-family:var(--serif); font-size:32px; font-weight:600; color:var(--green-mid); line-height:1;">#1</div>
+    <span>Maior rede de Pilates<br/><strong style="color:var(--black)">da América Latina</strong></span>
+  </div>
+  <div style="width:1px; height:40px; background:var(--rule);"></div>
+  <div style="display:flex; align-items:center; gap:12px; color:var(--muted); font-size:13px;">
+    <div style="font-family:var(--serif); font-size:32px; font-weight:600; color:var(--green-mid); line-height:1;">229</div>
+    <span>Unidades em todos<br/><strong style="color:var(--black)">os estados do Brasil</strong></span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-left fi">
+    <h2>Seja o franqueado nº 230.<br/><em>Garanta sua região</em><br/>antes que alguém o faça.</h2>
+    <p>Preencha o formulário e um especialista VOLL entrará em contato em até 24 horas para uma conversa personalizada — sem pressão, sem compromisso.</p>
+    <div style="display:flex; gap:24px; margin-top:32px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.55); font-size:13px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(58,138,88,0.8)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(58,138,88,0.8)" stroke-width="1.2"/></svg>
+        Sem compromisso
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.55); font-size:13px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(58,138,88,0.8)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(58,138,88,0.8)" stroke-width="1.2"/></svg>
+        Resposta em até 24h
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.55); font-size:13px;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(58,138,88,0.8)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(58,138,88,0.8)" stroke-width="1.2"/></svg>
+        Dados confidenciais
+      </div>
+    </div>
+  </div>
+  <div class="cta-right fi d1">
+    <form class="qual-form" onsubmit="return false;">
+      <div class="qual-row">
+        <div class="qual-field">
+          <label>Nome</label>
+          <input type="text" class="qual-input" placeholder="Seu nome"/>
+        </div>
+        <div class="qual-field">
+          <label>WhatsApp</label>
+          <input type="tel" class="qual-input" placeholder="(11) 99999-9999"/>
+        </div>
+      </div>
+      <div class="qual-field">
+        <label>E-mail</label>
+        <input type="email" class="qual-input" placeholder="seu@email.com"/>
+      </div>
+      <div class="qual-field">
+        <label>Seu perfil</label>
+        <select class="qual-select">
+          <option value="" disabled selected>Selecione seu perfil</option>
+          <option>Instrutor(a) de Pilates</option>
+          <option>Empreendedor(a)</option>
+          <option>Investidor(a)</option>
+          <option>Fisioterapeuta</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="qual-field">
+        <label>Capital disponível para investimento</label>
+        <select class="qual-select">
+          <option value="" disabled selected>Selecione uma faixa</option>
+          <option>Até R$ 100 mil</option>
+          <option>R$ 100 mil – R$ 200 mil</option>
+          <option>R$ 200 mil – R$ 350 mil</option>
+          <option>Acima de R$ 350 mil</option>
+          <option>Ainda estou avaliando</option>
+        </select>
+      </div>
+      <div class="qual-field">
+        <label>Cidade de interesse</label>
+        <input type="text" class="qual-input" placeholder="Cidade / Estado"/>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%; text-align:center; padding:18px; margin-top:4px;" onclick="this.textContent='✓ Enviado! Em breve entraremos em contato.'; this.style.background='#2d6644'; this.disabled=true;">
+        Quero receber o plano de investimento completo
+      </button>
+    </form>
+    <p class="cta-legal" style="text-align:center; margin-top:12px;">Associados ABF · 229 unidades · 16 anos de mercado</p>
+    <p style="text-align:center; font-size:12px; color:rgba(255,255,255,0.5); margin-top:8px; display:flex; align-items:center; justify-content:flex-end; gap:6px;">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="rgba(201,169,110,0.6)" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="rgba(201,169,110,0.6)" stroke-width="1"/></svg>
+      Vagas limitadas por região em 2026
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header fi">
+      <p class="section-label" style="justify-content:center;">Dúvidas frequentes</p>
+      <h2 class="section-headline">Perguntas que todo<br/><em>candidato faz.</em></h2>
+    </div>
+    <div class="faq-list fi d1">
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">Preciso ser professor de Pilates para abrir uma franquia VOLL?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a"><p>Não. A maioria dos nossos franqueados não era da área quando assinou o contrato. Temos empreendedores do varejo, da saúde, das finanças e investidores puros. A VOLL oferece bolsa 100% no curso de formação e todo o suporte para você montar e liderar sua equipe de instrutores.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">Qual é o investimento total e como é o retorno?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a"><p>O investimento inicial inclui taxa de franquia, equipamentos completos (Cadillac, Reformer, Step Chair, Ladder Barrel), projeto arquitetônico e capital de giro. O modelo prevê breakeven entre 2 e 4 meses e payback entre 8 e 12 meses — use nossa calculadora acima para simular com os seus números.</p><p>Nossa equipe apresenta uma proposta financeira detalhada e personalizada durante o processo de qualificação, sem pressão e sem compromisso.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">Quanto tempo leva para abrir o studio depois que eu assinar?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a"><p>Em média 60 a 90 dias — projeto arquitetônico, reforma, chegada dos equipamentos, formação da equipe e campanha de pré-lançamento. Nossa equipe acompanha cada etapa presencialmente. Você não fica sozinho em nenhum momento do processo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">Qual é o tamanho mínimo de espaço que eu preciso?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a"><p>A partir de 65m² já é possível operar um studio VOLL completo. Nossa equipe de arquitetura entrega o projeto adaptado ao seu espaço, seguindo os padrões de qualidade e identidade visual que os alunos já reconhecem e confiam.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">Como funcionam os royalties? Tem percentual sobre faturamento?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a"><p>Não há percentual sobre faturamento. Os royalties da VOLL são fixos: R$&nbsp;990 por mês — independente de quanto você fatura. Não há fundo de propaganda separado. Essa estrutura dá previsibilidade financeira total desde o primeiro mês e elimina qualquer surpresa no seu fluxo de caixa.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">Posso abrir em qualquer cidade do Brasil?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a"><p>A VOLL já está presente em todos os estados brasileiros. As vagas são limitadas por região para proteger o território de cada franqueado. Em 2026, algumas regiões ainda têm disponibilidade — entre em contato para verificar se sua cidade de interesse está disponível.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="faq-q-text">Posso abrir mais de uma unidade?</span><div class="faq-icon">+</div></button>
+        <div class="faq-a"><p>Sim. Multi-unidades são incentivadas e contam com condições diferenciadas. Temos franqueados que chegaram a 3, 4 e até 5 unidades. Após a consolidação da primeira, a expansão é o próximo passo natural dentro do ecossistema VOLL.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">VOLL <span>Pilates</span></div>
+  <ul class="footer-links">
+    <li><a href="#">Sobre a VOLL</a></li>
+    <li><a href="#">Franquias</a></li>
+    <li><a href="#">Metodologia</a></li>
+    <li><a href="#">Contato</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 VOLL Pilates Group. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+/* ── ROI CALCULATOR ── */
+(function() {
+  const fmt = n => n.toLocaleString('pt-BR');
+  const INV = 200000; // investimento médio estimado
+
+  function calc() {
+    const alunos  = +document.getElementById('sl-alunos').value;
+    const ticket  = +document.getElementById('sl-ticket').value;
+    const avulso  = +document.getElementById('sl-avulso').value;
+
+    document.getElementById('vl-alunos').textContent = alunos;
+    document.getElementById('vl-ticket').textContent = fmt(ticket);
+    document.getElementById('vl-avulso').textContent = avulso;
+
+    const receita = alunos * ticket + avulso * 80;
+    const custos  = Math.round(receita * 0.55);
+    const lucro   = receita - custos;
+    const payback = lucro > 0 ? Math.ceil(INV / lucro) : '—';
+
+    document.getElementById('res-receita').textContent = fmt(receita);
+    document.getElementById('res-custos').textContent  = fmt(custos);
+    document.getElementById('res-lucro').textContent   = fmt(lucro);
+    document.getElementById('res-payback').textContent = payback;
+  }
+
+  ['sl-alunos','sl-ticket','sl-avulso'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', calc);
+  });
+  calc();
+})();
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+/* ── FADE-IN ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); } });
+}, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fi').forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight) el.classList.add('v');
+  else io.observe(el);
+});
+
+/* ── TESTIMONIALS CAROUSEL ── */
+(function() {
+  const root = document.getElementById('tcarousel');
+  const track = document.getElementById('ttrack');
+  if (!root || !track) return;
+
+  const slides = root.querySelectorAll('.tslide');
+  const bullets = root.querySelectorAll('.tbullet');
+  const n = slides.length;
+  let i = 0;
+  let timer = null;
+  const INTERVAL_MS = 6000;
+
+  function goTo(idx) {
+    i = ((idx % n) + n) % n;
+    track.style.transform = 'translateX(-' + (i * 100) + '%)';
+    slides.forEach((s, k) => {
+      const hidden = k !== i;
+      s.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+      if (hidden) s.setAttribute('inert', '');
+      else s.removeAttribute('inert');
+    });
+    bullets.forEach((b, k) => {
+      const on = k === i;
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+      if (on) b.setAttribute('aria-current', 'true');
+      else b.removeAttribute('aria-current');
+    });
+  }
+
+  function next() { goTo(i + 1); }
+
+  function start() {
+    stop();
+    timer = setInterval(next, INTERVAL_MS);
+  }
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  bullets.forEach((b, k) => {
+    b.addEventListener('click', () => { goTo(k); start(); });
+  });
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.addEventListener('visibilitychange', () => {
+    if (reduceMotion) return;
+    if (document.hidden) stop(); else start();
+  });
+
+  goTo(0);
+  if (!reduceMotion) start();
+})();
+</script>
+</body>
+</html>
