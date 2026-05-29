@@ -1173,6 +1173,26 @@ document.querySelectorAll('.fi').forEach(el => {
   if (!reduceMotion) start();
 })();
 </script>
+
+<script type="module">
+	import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3.4/dist/web.js'
+	
+	Typebot.initBubble({
+		typebot: "franquias-agente-sdr",
+		apiHost: "https://iavoll.exerciciosdepilates.com.br",
+		className: "someMN",
+		previewMessage: {
+		  message: "Olá, tem alguma dúvida?",
+		  autoShowDelay: 5000,
+		  avatarUrl:
+			"https://vollpilates.com.br/wp-content/uploads/2024/07/curso_de_pilates_lgo_voll_pilates.webp",
+		},
+		theme: {
+		  button: { backgroundColor: "#00615a" },
+		  chatWindow: { backgroundColor: "#00615a" },
+		},
+	});
+</script>
 </body>
 </html>
 
