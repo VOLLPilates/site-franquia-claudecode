@@ -322,18 +322,44 @@
 
     /* ── CTA ── */
     /* verde sálvia escurecido: o sálvia puro só dava 2,65:1 com o texto de apoio */
-    #cta { background: var(--green-deep); padding: 120px 64px; display: flex; align-items: center; justify-content: space-between; gap: 64px; }
-    .cta-left h2 { font-family: var(--serif); font-size: clamp(42px, 4.6vw, 64px); font-weight: 700; line-height: 1.08; color: white; letter-spacing: -0.02em; }
+    #cta {
+      background: var(--green-deep);
+      min-height: calc(100vh - 112px);
+      padding: clamp(88px, 10vh, 132px) 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cta-inner {
+      width: 100%;
+      max-width: 1320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(460px, 0.82fr);
+      gap: clamp(48px, 6vw, 92px);
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .cta-left { max-width: 720px; }
+    .cta-left h2 { font-family: var(--serif); font-size: clamp(42px, 4.6vw, 59px); font-weight: 700; line-height: 1.08; color: white; letter-spacing: -0.02em; }
     .cta-left h2 em { font-style: italic; color: var(--gold-light); }
     .cta-left p { font-size: 15px; color: var(--dark-muted); margin-top: 16px; line-height: 1.7; max-width: 500px; }
-    .cta-right { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; flex-shrink: 0; }
+    .cta-points { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
+    .cta-point { display: flex; align-items: center; gap: 10px; color: var(--dark-muted); font-size: 13px; }
+    .cta-right { width: 100%; max-width: 560px; display: flex; flex-direction: column; gap: 16px; align-items: stretch; justify-self: center; }
     .cta-form { display: flex; }
     .cta-input { flex: 1; width: 280px; padding: 16px 20px; background: rgba(47,23,15,0.28); border: 1px solid rgba(255,246,227,0.38); color: white; font-family: var(--sans); font-size: 14px; outline: none; }
     .cta-input::placeholder { color: var(--dark-soft); }
     .cta-input:focus { border-color: var(--gold-light); }
     .btn-cta { background: var(--black); color: white; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 32px; border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
     .btn-cta:hover { background: #38261e; }
-    .cta-legal { font-size: 12px; color: var(--dark-muted); }
+    .cta-legal, .cta-region-note {
+      width: 100%;
+      font-size: 12px;
+      color: var(--dark-muted);
+      text-align: center;
+    }
+    .cta-region-note { display: flex; align-items: center; justify-content: center; gap: 6px; }
 
     /* ── FOOTER ── */
     footer { background: var(--black); padding: 40px 64px; display: flex; align-items: center; justify-content: space-between; }
@@ -398,15 +424,38 @@
     .calc-disclaimer { font-size: 12px; color: var(--dark-soft); text-align: center; margin-top: 24px; line-height: 1.6; }
 
     /* ── FORMULÁRIO QUALIFICADOR ── */
-    .qual-form { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 440px; }
+    .qual-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 100%;
+      padding: 28px;
+      background: rgba(47,23,15,0.18);
+      border: 1px solid rgba(255,246,227,0.28);
+    }
     .qual-field { display: flex; flex-direction: column; gap: 6px; }
     .qual-field label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark-muted); }
-    .qual-input, .qual-select { min-height: 44px; padding: 14px 16px; background: rgba(47,23,15,0.28); border: 1px solid rgba(255,246,227,0.40); color: white; font-family: var(--sans); font-size: 14px; outline: none; width: 100%; transition: border-color 0.2s, box-shadow 0.2s; }
+    .qual-input, .qual-select { min-height: 48px; padding: 14px 16px; background: rgba(47,23,15,0.30); border: 1px solid rgba(255,246,227,0.42); color: white; font-family: var(--sans); font-size: 14px; outline: none; width: 100%; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; }
     .qual-input::placeholder { color: var(--dark-soft); }
     .qual-input:focus, .qual-select:focus { border-color: var(--green-on-dark); box-shadow: 0 0 0 2px rgba(162,212,191,0.35); }
     .qual-select { cursor: pointer; }
     .qual-select option { background: var(--black); color: #fff6e3; }
     .qual-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .qual-submit {
+      width: 100%;
+      min-height: 58px;
+      margin-top: 4px;
+      padding: 16px 22px;
+      background: var(--black);
+      border: 1px solid rgba(255,246,227,0.20);
+      color: var(--white);
+      text-align: center;
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+    .qual-submit:hover { background: #261109; }
+    .qual-submit:disabled { cursor: default; transform: none; opacity: 0.88; }
 
     /* ── FAQ ── */
     #faq { padding: 120px 64px; }
@@ -533,9 +582,10 @@
       .badges-bar > div[style*="width:1px"] { display: none; }
 
       /* CTA / form */
-      #cta { flex-direction: column; align-items: flex-start; }
-      .cta-right { align-items: stretch; width: 100%; }
-      .qual-form { max-width: 100%; }
+      #cta { min-height: auto; }
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cta-right { max-width: 100%; }
+      .qual-form { padding: 24px; }
       .qual-row { grid-template-columns: 1fr; }
       .qual-field label { font-size: 11px; }
       .cta-legal { font-size: 12px; }
@@ -972,19 +1022,20 @@
 
 <!-- CTA -->
 <section id="cta">
+  <div class="cta-inner">
   <div class="cta-left fi">
     <h2>Seja o franqueado nº 230.<br/><em>Garanta sua região</em><br/>antes que alguém o faça.</h2>
     <p>Preencha o formulário e um especialista VOLL entrará em contato em até 24 horas para uma conversa personalizada — sem pressão, sem compromisso.</p>
-    <div style="display:flex; gap:24px; margin-top:32px; flex-wrap:wrap;">
-      <div style="display:flex; align-items:center; gap:10px; color:var(--dark-muted); font-size:13px;">
+    <div class="cta-points">
+      <div class="cta-point">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(162,212,191,0.95)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(162,212,191,0.95)" stroke-width="1.2"/></svg>
         Sem compromisso
       </div>
-      <div style="display:flex; align-items:center; gap:10px; color:var(--dark-muted); font-size:13px;">
+      <div class="cta-point">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(162,212,191,0.95)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(162,212,191,0.95)" stroke-width="1.2"/></svg>
         Resposta em até 24h
       </div>
-      <div style="display:flex; align-items:center; gap:10px; color:var(--dark-muted); font-size:13px;">
+      <div class="cta-point">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(162,212,191,0.95)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(162,212,191,0.95)" stroke-width="1.2"/></svg>
         Dados confidenciais
       </div>
@@ -1035,17 +1086,18 @@
         <label for="lead-cidade">Cidade de interesse</label>
         <input type="text" class="qual-input" id="lead-cidade" name="cidade" autocomplete="address-level2" placeholder="Cidade / Estado"/>
       </div>
-      <button type="submit" class="btn-primary" style="width:100%; text-align:center; padding:18px; margin-top:4px;" onclick="this.textContent='✓ Enviado! Em breve entraremos em contato.'; this.style.background='#2f170f'; this.style.color='#fff6e3'; this.disabled=true;">
+      <button type="submit" class="btn-primary qual-submit" onclick="this.textContent='✓ Enviado! Em breve entraremos em contato.'; this.disabled=true;">
         Quero receber o plano de investimento completo
       </button>
     </form>
-    <p class="cta-legal" style="text-align:center; margin-top:12px;">Associados ABF · 229 unidades · 16 anos de mercado</p>
-    <p style="text-align:center; font-size:12px; color:var(--dark-muted); margin-top:8px; display:flex; align-items:center; justify-content:flex-end; gap:6px;">
+    <p class="cta-legal">Associados ABF · 229 unidades · 16 anos de mercado</p>
+    <p class="cta-region-note">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="rgba(220,186,162,0.95)" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="rgba(220,186,162,0.95)" stroke-width="1"/></svg>
       Vagas limitadas por região em 2026
     </p>
   </div>
   <!-- END FORMULÁRIO DO RD -->
+  </div>
 </section>
 
 
