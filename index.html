@@ -13,6 +13,9 @@
   <meta property="og:image" content="images/logo-voll-colorido.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preconnect" href="https://d335luupugsy2.cloudfront.net" crossorigin/>
+  <link rel="dns-prefetch" href="https://d335luupugsy2.cloudfront.net"/>
+  <link rel="preload" as="image" href="images/interno1.webp" type="image/webp" fetchpriority="high"/>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap"/>
   <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/></noscript>
@@ -767,7 +770,7 @@
   <!-- Logo oficial VOLL Pilates Studios — assinatura colorida (símbolo verde original
        preservado), com o wordmark em creme para leitura sobre fundo escuro. -->
   <a href="#hero" class="nav-logo" aria-label="VOLL Pilates Studios — início">
-    <img src="images/logo-voll-colorido-negativo.png" alt="VOLL Pilates Studios" width="163" height="51"/>
+    <img src="images/logo-voll-colorido-negativo.webp" alt="VOLL Pilates Studios" width="163" height="51"/>
   </a>
   <ul class="nav-links">
     <li><a href="#authority">A VOLL</a></li>
@@ -782,7 +785,7 @@
 <main id="main-content">
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-video" style="background: url('images/interno1.png') center/cover no-repeat;" aria-hidden="true"></div>
+  <div class="hero-video" style="background: url('images/interno1.webp') center/cover no-repeat;" aria-hidden="true"></div>
   <div class="hero-video-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
@@ -1220,8 +1223,7 @@
         <p>Preencha abaixo e fale com um especialista agora mesmo</p>
       </div>
       <div role="main" id="franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd"></div>
-      <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
-      <script type="text/javascript"> new RDStationForms('franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd', 'UA-122086213-1').createForm();</script>
+      <script defer src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js" onload="new RDStationForms('franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd', 'UA-122086213-1').createForm();"></script>
       <p class="cta-legal">Ao enviar, você concorda em receber contato da equipe VOLL Studios.</p>
     </div>
   </div>
@@ -1272,7 +1274,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="images/logo-voll-colorido-negativo.png" alt="VOLL Pilates Studios" width="144" height="45"/>
+    <img src="images/logo-voll-colorido-negativo.webp" alt="VOLL Pilates Studios" width="144" height="45" loading="lazy" decoding="async"/>
   </div>
   <ul class="footer-links">
     <li><a href="#">Sobre a VOLL</a></li>
@@ -1283,7 +1285,7 @@
   <p class="footer-copy">© 2026 Grupo VOLL · VOLL Pilates Studios. Todos os direitos reservados.</p>
 </footer>
 
-<script>
+<script defer>
 /* ── ROI CALCULATOR ── */
 (function() {
   const fmt = n => Math.round(n).toLocaleString('pt-BR');
