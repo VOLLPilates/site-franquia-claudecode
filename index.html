@@ -107,44 +107,51 @@
     }
     .hero-content {
       position: relative; z-index: 2;
-      display: grid; grid-template-columns: auto 1fr;
-      gap: 64px; align-items: end;
-      padding: 0 64px;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 32px;
+      padding: 160px 64px 72px;
+      max-width: 1400px; margin: 0 auto;
       flex: 1;
-      padding-top: 160px;
-      padding-bottom: 72px;
     }
-    .hero-left-stats {
-      display: flex; flex-direction: column; gap: 28px; padding-bottom: 4px;
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 28px; border-radius: 999px;
+      background: #d9a992; color: #2f170f;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
     }
-    .hero-stat-item {
-      padding: 12px 14px; border: 1px solid rgba(162,212,191,0.42);
-      background: rgba(47,23,15,0.34);
-    }
-    .hero-stat-item-val {
-      font-family: var(--serif); font-size: 32px; font-weight: 600;
-      color: white; line-height: 1;
-    }
-    .hero-stat-item-lbl {
-      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--dark-muted); margin-top: 3px;
-    }
-    .hero-right { display: flex; flex-direction: column; gap: 40px; }
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--green-on-dark);
-    }
-    .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--green-on-dark); }
+    .hero-badge svg { width: 15px; height: 15px; flex: none; }
     h1 {
       font-family: var(--serif);
-      font-size: clamp(60px, 6.6vw, 96px);
-      font-weight: 700; line-height: 0.98;
+      font-size: clamp(38px, 5.4vw, 76px);
+      font-weight: 700; line-height: 1.1;
       letter-spacing: -0.02em; color: white;
+      max-width: none;
     }
-    h1 em { font-style: italic; color: var(--green-on-dark); }
-    .hero-body { font-size: 16px; line-height: 1.75; color: var(--dark-muted); font-weight: 400; max-width: 520px; }
-    .hero-actions { display: flex; gap: 16px; align-items: center; }
+    h1 em { font-style: normal; color: var(--green-on-dark); }
+    .hero-body { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.6; color: rgba(255,255,255,0.9); font-weight: 400; max-width: 960px; }
+    .hero-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; font-size: 14px; color: rgba(255,255,255,0.88); }
+    .hero-chips span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-chips svg { width: 16px; height: 16px; color: var(--green-on-dark); flex: none; }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .hero-actions .btn-primary { border-radius: 999px; padding: 18px 40px; font-size: 13px; }
+    .hero-actions .btn-outline {
+      border-radius: 999px; padding: 18px 40px;
+      border: 1.5px solid rgba(255,255,255,0.85); color: #fff;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+      text-decoration: none; display: inline-flex; align-items: center; min-height: 44px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-actions .btn-outline:hover { background: #fff; color: var(--dark); }
+    .hero-mini-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px; }
+    .hero-mini-stat {
+      padding: 14px 28px; border-radius: 999px;
+      background: rgba(47,23,15,0.55); border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.85); font-size: 12px;
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      min-width: 160px;
+    }
+    .hero-mini-stat b { color: var(--green-on-dark); font-size: 15px; font-weight: 700; }
+    .hero-scroll { position: relative; z-index: 2; text-align: center; color: rgba(255,255,255,0.6); padding-bottom: 24px; font-size: 18px; }
     .btn-primary {
       background: var(--green-cta); color: var(--white);
       font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
@@ -194,8 +201,25 @@
     .body-text { font-size: 15px; line-height: 1.8; color: var(--muted); font-weight: 400; }
 
     /* ── AUTHORITY ── */
-    #authority { padding: 120px 64px; }
-    .authority-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+    #authority { padding: 120px 64px; background: var(--white); text-align: center; }
+    .solidez-head { max-width: 900px; margin: 0 auto 72px; }
+    .solidez-head h2 { font-family: var(--serif); font-size: clamp(32px, 3.8vw, 52px); font-weight: 700; color: var(--dark); line-height: 1.15; letter-spacing: -0.01em; }
+    .solidez-head h2 em { font-style: normal; color: var(--green-cta); }
+    .solidez-head p { font-size: 17px; color: var(--muted); line-height: 1.6; margin-top: 20px; }
+    .solidez-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1080px; margin: 0 auto 72px; }
+    .solidez-stat { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .solidez-ico { width: 68px; height: 68px; border-radius: 50%; background: #eef2ef; display: flex; align-items: center; justify-content: center; color: var(--green-cta); }
+    .solidez-ico svg { width: 30px; height: 30px; }
+    .solidez-val { font-family: var(--serif); font-size: 38px; font-weight: 700; color: var(--green-cta); line-height: 1; }
+    .solidez-lbl { font-size: 14px; color: var(--muted); line-height: 1.4; text-align: center; max-width: 140px; }
+    .solidez-divider { max-width: 1280px; margin: 0 auto; border-top: 1px solid rgba(76,51,41,0.12); padding-top: 56px; }
+    .solidez-eco-title { font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dark); margin-bottom: 32px; }
+    .solidez-eco { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 48px; }
+    .solidez-eco-pill { padding: 14px 28px; border-radius: 999px; background: #faf3e2; font-size: 15px; color: var(--dark); }
+    .solidez-eco-pill b { color: var(--green-cta); font-weight: 700; margin-right: 4px; }
+    .solidez-cta { display: inline-flex; align-items: center; padding: 18px 44px; border-radius: 999px; background: var(--green-cta); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .solidez-cta:hover { background: #244635; transform: translateY(-1px); }
+    .authority-grid-old { display: none; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
     .authority-img {
       position: relative;
       aspect-ratio: 4/5;
@@ -222,17 +246,19 @@
     .pillar p { font-size: 13px; line-height: 1.65; color: var(--muted); font-weight: 400; }
 
     /* ── MARKET ── */
-    #market { background: var(--black); padding: 120px 64px; }
-    .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
-    .market-headline { font-family: var(--serif); font-size: clamp(44px, 4.6vw, 68px); font-weight: 700; line-height: 1.05; color: white; letter-spacing: -0.02em; }
-    .market-headline em { font-style: italic; color: var(--green-on-dark); }
-    .market-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--dark-rule); margin-top: 48px; }
-    .mcard { background: var(--surface-dark); padding: 28px 24px; }
-    .mcard-val { font-family: var(--serif); font-size: 40px; font-weight: 600; color: white; line-height: 1; margin-bottom: 6px; }
-    .mcard-val span { color: var(--green-on-dark); }
-    .mcard-lbl { font-size: 13px; color: var(--dark-muted); line-height: 1.5; }
-    .market-right-body { font-size: 15px; line-height: 1.8; color: var(--dark-muted); font-weight: 400; }
-    .market-big { font-family: var(--serif); font-size: clamp(80px, 12vw, 140px); font-weight: 600; color: var(--green-on-dark); line-height: 0.9; letter-spacing: -0.03em; margin-bottom: 24px; }
+    #market { background: linear-gradient(180deg, #3a1d13 0%, #4c3329 100%); padding: 120px 64px; text-align: center; }
+    .market-head { max-width: 900px; margin: 0 auto 64px; }
+    .market-head h2 { font-family: var(--serif); font-size: clamp(32px, 3.6vw, 48px); font-weight: 700; color: #fff; line-height: 1.15; }
+    .market-head p { font-size: 17px; color: rgba(255,255,255,0.78); line-height: 1.6; margin-top: 20px; }
+    .market-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1280px; margin: 0 auto; }
+    .market-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 24px; padding: 40px 28px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; min-height: 220px; justify-content: center; }
+    .market-card svg { width: 32px; height: 32px; color: var(--green-on-dark); stroke-width: 2; }
+    .market-card-val { font-family: var(--serif); font-size: clamp(32px, 3.2vw, 42px); font-weight: 700; color: #fff; line-height: 1; white-space: nowrap; }
+    .market-card-lbl { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.45; max-width: 200px; }
+    .market-sources { font-size: 13px; color: rgba(255,255,255,0.55); margin: 48px auto 32px; text-align: center; }
+    .market-cta { display: inline-flex; align-items: center; padding: 18px 44px; border-radius: 999px; background: #d9a992; color: #2f170f; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .market-cta:hover { background: #c99479; transform: translateY(-1px); }
+    .market-grid-old { display: none; }
 
     /* ── MODELO ── */
     #modelo { padding: 120px 64px; }
@@ -254,7 +280,39 @@
     .ncard-lbl { font-size: 13px; color: var(--dark-muted); margin-top: 6px; line-height: 1.5; }
 
     /* ── DIFERENCIAIS ── */
-    #diferenciais { padding: 120px 64px; background: var(--cream-deep); }
+    #diferenciais { padding: 120px 64px; background: #f7efdc; text-align: center; }
+    .para-quem-head { max-width: 900px; margin: 0 auto 40px; }
+    .para-quem-head h2 { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; color: var(--dark); line-height: 1.15; }
+    .para-quem-head p { font-size: 17px; color: var(--muted); line-height: 1.6; margin-top: 18px; }
+    .para-quem-highlight { max-width: 1080px; margin: 0 auto 40px; background: #fff; border-left: 4px solid var(--green-cta); border-radius: 12px; padding: 32px 36px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+    .para-quem-highlight h3 { font-family: var(--sans); font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; color: var(--green-cta); line-height: 1.35; margin-bottom: 14px; }
+    .para-quem-highlight p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+    .para-quem-highlight b { color: var(--dark); font-weight: 700; }
+    .para-quem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1080px; margin: 0 auto 96px; }
+    .para-quem-card { background: #fff; border-radius: 12px; padding: 28px 32px; display: grid; grid-template-columns: 48px 1fr; gap: 20px; text-align: left; align-items: start; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+    .para-quem-ico { width: 48px; height: 48px; border-radius: 10px; background: #eef2ef; color: var(--green-cta); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .para-quem-ico svg { width: 24px; height: 24px; }
+    .para-quem-card h3 { font-family: var(--sans); font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .para-quem-card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+    .perfil-head { max-width: 700px; margin: 0 auto 48px; }
+    .perfil-head h2 { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; color: var(--dark); line-height: 1.15; }
+    .perfil-head p { font-size: 17px; color: var(--muted); margin-top: 14px; }
+    .perfil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1000px; margin: 0 auto 40px; }
+    .perfil-card { background: #fff; border: 1.5px solid rgba(76,51,41,0.10); border-radius: 16px; padding: 40px 32px; text-align: left; }
+    .perfil-card.op { border-color: rgba(95,152,128,0.35); }
+    .perfil-card.inv { border-color: rgba(217,169,146,0.5); }
+    .perfil-ico { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .perfil-card.op .perfil-ico { background: #eef2ef; color: var(--green-cta); }
+    .perfil-card.inv .perfil-ico { background: #f7e9df; color: #b47a5c; }
+    .perfil-ico svg { width: 28px; height: 28px; }
+    .perfil-card h3 { font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--dark); text-align: center; margin-bottom: 16px; }
+    .perfil-card > p { font-size: 15px; color: var(--muted); line-height: 1.55; text-align: center; margin-bottom: 24px; }
+    .perfil-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .perfil-list li { font-size: 14.5px; color: var(--dark); padding-left: 18px; position: relative; line-height: 1.5; }
+    .perfil-list li::before { content: '•'; position: absolute; left: 0; color: var(--muted); font-size: 20px; line-height: 1; top: 2px; }
+    .perfil-cta { display: inline-flex; align-items: center; padding: 18px 44px; border-radius: 999px; background: var(--green-cta); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .perfil-cta:hover { background: #244635; transform: translateY(-1px); }
     .dif-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
     .dif-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--rule); }
     .dif-item { background: #fff9ec; padding: 44px 40px; display: grid; grid-template-columns: 56px 1fr; gap: 24px; align-items: start; transition: background 0.2s; }
@@ -264,7 +322,30 @@
     .dif-content p { font-size: 14px; line-height: 1.7; color: var(--muted); }
 
     /* ── JORNADA ── */
-    #jornada { padding: 120px 64px; }
+    #jornada { padding: 120px 64px; background: #fff; text-align: center; }
+    .neg-head { max-width: 800px; margin: 0 auto 64px; }
+    .neg-head h2 { font-family: var(--serif); font-size: clamp(32px, 3.8vw, 48px); font-weight: 700; color: var(--dark); line-height: 1.15; }
+    .neg-head p { font-size: 17px; color: var(--muted); line-height: 1.6; margin-top: 18px; }
+    .neg-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; max-width: 1280px; margin: 0 auto; }
+    .neg-card { background: #fdf1ce; border-radius: 20px; padding: 36px 24px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+    .neg-ico { color: var(--green-cta); }
+    .neg-ico svg { width: 34px; height: 34px; }
+    .neg-val { font-family: var(--sans); font-size: 30px; font-weight: 800; color: var(--dark); line-height: 1; margin-top: 8px; }
+    .neg-lbl { font-size: 14px; color: var(--muted); line-height: 1.4; }
+    .royalties-bar { max-width: 1280px; margin: 48px auto 0; background: #fff; border: 1px solid rgba(76,51,41,0.12); border-radius: 14px; padding: 22px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; text-align: left; }
+    .royalties-bar-left b { display: block; font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .royalties-bar-left span { font-size: 14px; color: var(--muted); }
+    .royalties-bar-right { color: var(--green-cta); font-size: 14px; font-weight: 600; white-space: nowrap; }
+    .desconto-card { max-width: 1280px; margin: 40px auto 0; background: linear-gradient(180deg,#4c3329 0%, #3a251b 100%); border-radius: 20px; padding: 56px 48px 48px; position: relative; text-align: center; color: #fff; }
+    .desconto-badge { position: absolute; top: 24px; right: 32px; padding: 8px 20px; border-radius: 999px; background: #d9a992; color: #2f170f; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+    .desconto-card h3 { font-family: var(--sans); font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .desconto-card .desconto-sub { font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+    .desconto-headline { font-family: var(--serif); font-size: clamp(40px, 5.4vw, 68px); font-weight: 700; color: var(--green-on-dark); line-height: 1.05; margin-bottom: 14px; }
+    .desconto-taxas { display: inline-block; color: #d9a992; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 24px; }
+    .desconto-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 36px; }
+    .desconto-chip { padding: 10px 20px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.10); color: rgba(255,255,255,0.85); font-size: 13px; }
+    .desconto-cta { display: inline-flex; align-items: center; padding: 18px 44px; border-radius: 999px; background: var(--green-cta); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .desconto-cta:hover { background: #244635; transform: translateY(-1px); }
     .jornada-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 72px; }
     .steps { display: grid; grid-template-columns: repeat(5,1fr); position: relative; }
     .steps::before { content: ''; position: absolute; top: 24px; left: 10%; right: 10%; height: 1px; background: rgba(49,93,73,0.48); z-index: 0; }
@@ -323,30 +404,38 @@
     /* ── CTA ── */
     /* verde sálvia escurecido: o sálvia puro só dava 2,65:1 com o texto de apoio */
     #cta {
-      background: var(--green-deep);
-      min-height: calc(100vh - 112px);
-      padding: clamp(88px, 10vh, 132px) 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: linear-gradient(180deg,#3a1d13 0%, #4c3329 100%);
+      padding: 120px 64px;
+      position: relative;
+      overflow: hidden;
     }
+    #cta::before { content: ''; position: absolute; top: -140px; left: -140px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(217,169,146,0.10) 0%, transparent 70%); pointer-events: none; }
     .cta-inner {
       width: 100%;
-      max-width: 1320px;
+      max-width: 1280px;
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(460px, 0.82fr);
-      gap: clamp(48px, 6vw, 92px);
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: center;
-      justify-content: center;
       margin: 0 auto;
+      position: relative;
     }
-    .cta-left { max-width: 720px; }
-    .cta-left h2 { font-family: var(--serif); font-size: clamp(42px, 4.6vw, 59px); font-weight: 700; line-height: 1.08; color: white; letter-spacing: -0.02em; }
-    .cta-left h2 em { font-style: italic; color: var(--gold-light); }
-    .cta-left p { font-size: 15px; color: var(--dark-muted); margin-top: 16px; line-height: 1.7; max-width: 500px; }
-    .cta-points { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
-    .cta-point { display: flex; align-items: center; gap: 10px; color: var(--dark-muted); font-size: 13px; }
-    .cta-right { width: 100%; max-width: 560px; display: flex; flex-direction: column; gap: 16px; align-items: stretch; justify-self: center; }
+    .cta-left { color: #fff; }
+    .cta-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 22px; border-radius: 999px; background: rgba(217,169,146,0.20); color: #d9a992; font-size: 13px; font-weight: 600; margin-bottom: 28px; }
+    .cta-badge svg { width: 14px; height: 14px; }
+    .cta-left h2 { font-family: var(--serif); font-size: clamp(38px, 4.4vw, 60px); font-weight: 700; line-height: 1.08; color: #fff; letter-spacing: -0.02em; }
+    .cta-left h2 em { font-style: normal; color: var(--green-on-dark); }
+    .cta-left p { font-size: 16px; color: rgba(255,255,255,0.78); margin-top: 24px; line-height: 1.65; max-width: 520px; }
+    .cta-features { list-style: none; padding: 0; margin-top: 36px; display: flex; flex-direction: column; gap: 16px; }
+    .cta-features li { display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,0.88); font-size: 15px; }
+    .cta-feat-ico { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.06); color: var(--green-on-dark); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .cta-feat-ico svg { width: 18px; height: 18px; }
+    .cta-right { background: #fff; border-radius: 22px; padding: 40px 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+    .cta-form-head { text-align: center; margin-bottom: 28px; }
+    .cta-form-head h3 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .cta-form-head p { font-size: 14px; color: var(--muted); }
+    #franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd { min-height: 480px; }
+    .cta-legal { font-size: 12px; color: var(--muted); text-align: center; margin-top: 18px; line-height: 1.5; }
     .cta-form { display: flex; }
     .cta-input { flex: 1; width: 280px; padding: 16px 20px; background: rgba(47,23,15,0.28); border: 1px solid rgba(255,246,227,0.38); color: white; font-family: var(--sans); font-size: 14px; outline: none; }
     .cta-input::placeholder { color: var(--dark-soft); }
@@ -371,7 +460,16 @@
     .footer-copy { font-size: 12px; color: var(--dark-soft); }
 
     /* ── COMPARATIVO ── */
-    #comparativo { padding: 120px 64px; background: var(--black); }
+    #comparativo { padding: 120px 64px; background: #f7efdc; text-align: center; }
+    .rec-head { max-width: 900px; margin: 0 auto 56px; }
+    .rec-head h2 { font-family: var(--serif); font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; color: var(--dark); line-height: 1.15; }
+    .rec-head p { font-size: 17px; color: var(--muted); line-height: 1.6; margin-top: 18px; }
+    .rec-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 1360px; margin: 0 auto; }
+    .rec-card { background: #fff; border-radius: 14px; padding: 32px 24px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+    .rec-ico { width: 52px; height: 52px; border-radius: 12px; background: #eef2ef; color: var(--green-cta); display: flex; align-items: center; justify-content: center; }
+    .rec-ico svg { width: 26px; height: 26px; }
+    .rec-card h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; color: var(--dark); line-height: 1.25; }
+    .rec-card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
     .comp-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
     .comp-table { width: 100%; border-collapse: collapse; }
     .comp-table th { padding: 16px 24px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-align: left; }
@@ -402,26 +500,35 @@
     .naoe-col-no  .naoe-icon { color: var(--terracota-text); }
 
     /* ── CALCULADORA ROI ── */
-    #calculadora { padding: 120px 64px; background: var(--black); }
-    .calc-inner { max-width: 960px; margin: 0 auto; }
-    .calc-header { text-align: center; margin-bottom: 64px; }
-    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    .calc-inputs { display: flex; flex-direction: column; gap: 32px; }
-    .calc-field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark-muted); margin-bottom: 12px; }
-    .calc-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 44px; background: transparent; outline: none; cursor: pointer; }
-    .calc-slider::-webkit-slider-runnable-track { height: 4px; background: var(--dark-soft); border-radius: 999px; }
-    .calc-slider::-moz-range-track { height: 4px; background: var(--dark-soft); border-radius: 999px; }
-    .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; background: var(--green-on-dark); cursor: pointer; border-radius: 50%; margin-top: -10px; }
-    .calc-slider::-moz-range-thumb { width: 24px; height: 24px; background: var(--green-on-dark); cursor: pointer; border-radius: 50%; border: none; }
-    .calc-val { font-family: var(--serif); font-size: 32px; font-weight: 600; color: white; margin-top: 8px; }
-    .calc-val span { color: var(--green-on-dark); font-size: 18px; }
-    .calc-results { background: var(--surface-dark); border: 1px solid var(--dark-rule); padding: 40px; display: flex; flex-direction: column; gap: 28px; }
-    .calc-result-item { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid var(--dark-rule); }
-    .calc-result-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .calc-result-lbl { font-size: 14px; color: var(--dark-muted); line-height: 1.5; max-width: 200px; }
-    .calc-result-val { font-family: var(--serif); font-size: 32px; font-weight: 600; color: white; text-align: right; }
-    .calc-result-val span { color: var(--green-on-dark); }
-    .calc-disclaimer { font-size: 12px; color: var(--dark-soft); text-align: center; margin-top: 24px; line-height: 1.6; }
+    #calculadora { padding: 120px 64px; background: #f7efdc; }
+    .calc-inner { max-width: 1120px; margin: 0 auto; }
+    .calc-header { text-align: center; margin-bottom: 56px; }
+    .calc-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-cta); margin-bottom: 12px; }
+    .calc-header h2 { font-family: var(--serif); font-size: clamp(32px, 3.6vw, 46px); font-weight: 700; color: var(--dark); line-height: 1.15; }
+    .calc-sub { font-size: 16px; color: var(--muted); line-height: 1.6; margin: 16px auto 0; max-width: 660px; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
+    .calc-inputs { background: #fff; border-radius: 18px; padding: 36px; display: flex; flex-direction: column; gap: 28px; }
+    .calc-field label { display: block; font-size: 14px; font-weight: 600; color: var(--dark); }
+    .calc-field-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+    .calc-field-val { font-family: var(--sans); font-size: 15px; color: var(--muted); }
+    .calc-field-val b { color: var(--green-cta); font-weight: 700; font-size: 20px; }
+    .calc-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 24px; background: transparent; outline: none; cursor: pointer; }
+    .calc-slider::-webkit-slider-runnable-track { height: 6px; background: #eee6d1; border-radius: 999px; }
+    .calc-slider::-moz-range-track { height: 6px; background: #eee6d1; border-radius: 999px; }
+    .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; background: var(--green-cta); cursor: pointer; border-radius: 50%; margin-top: -8px; border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+    .calc-slider::-moz-range-thumb { width: 22px; height: 22px; background: var(--green-cta); cursor: pointer; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+    .calc-field-range { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .calc-note { font-size: 12px; color: var(--muted); font-style: italic; line-height: 1.5; margin-top: 4px; }
+    .calc-results { background: linear-gradient(180deg,#4c3329 0%, #3a251b 100%); border-radius: 18px; padding: 40px 36px; display: flex; flex-direction: column; gap: 24px; color: #fff; }
+    .calc-result-item { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.10); gap: 16px; }
+    .calc-result-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+    .calc-result-lbl { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.5; max-width: 200px; }
+    .calc-result-val { font-family: var(--serif); font-size: 30px; font-weight: 700; color: #fff; text-align: right; white-space: nowrap; }
+    .calc-result-val.hi { color: var(--green-on-dark); }
+    .calc-result-val small { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.7); margin-left: 4px; }
+    .calc-invest { margin-top: 8px; padding: 14px 18px; background: rgba(217,169,146,0.15); border-radius: 10px; font-size: 14px; color: rgba(255,255,255,0.8); text-align: center; }
+    .calc-invest b { color: #fff; font-weight: 700; }
+    .calc-disclaimer { font-size: 12px; color: var(--muted); text-align: center; margin: 32px auto 0; line-height: 1.65; max-width: 900px; }
 
     /* ── FORMULÁRIO QUALIFICADOR ── */
     .qual-form {
@@ -486,19 +593,15 @@
       .nav-links { display: none; }
 
       /* hero */
-      #hero .hero-content { grid-template-columns: 1fr; padding: 0 24px; padding-top: 140px; padding-bottom: 40px; gap: 32px; }
-      .hero-left-stats { flex-direction: row; flex-wrap: wrap; gap: 16px; }
-      .hero-stat-item-val { font-size: 28px; }
-      .hero-stat-item-lbl { font-size: 12px; }
-      .hero-eyebrow { font-size: 11px; }
-      h1 { font-size: clamp(36px, 9vw, 56px); }
+      #hero .hero-content { padding: 120px 20px 40px; gap: 24px; }
+      .hero-badge { font-size: 12px; padding: 10px 20px; }
+      .hero-chips { gap: 16px; font-size: 13px; }
+      .hero-mini-stat { min-width: 0; flex: 1 1 auto; padding: 12px 18px; }
+      h1 { font-size: clamp(30px, 8vw, 48px); }
       .hero-body { font-size: 15px; }
-      .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
-      .btn-primary { text-align: center; padding: 16px 24px; font-size: 13px; }
-      .hero-stats-bar { grid-template-columns: repeat(2,1fr); }
-      .hstat { padding: 20px 24px; }
-      .hstat-val { font-size: 32px; }
-      .hstat-lbl { font-size: 11px; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; width: 100%; max-width: 340px; }
+      .hero-actions .btn-primary, .hero-actions .btn-outline { text-align: center; justify-content: center; padding: 16px 24px; font-size: 13px; }
+      .hero-mini-stats { flex-direction: column; width: 100%; max-width: 340px; }
 
       /* sections — padding */
       #authority, #modelo, #jornada, #diferenciais { padding: 80px 24px; }
@@ -506,6 +609,11 @@
       #comparativo { padding: 80px 24px; }
       #nao-e { padding: 80px 24px; }
       #calculadora { padding: 80px 24px; }
+      .calc-grid { grid-template-columns: 1fr; gap: 20px; }
+      .calc-inputs, .calc-results { padding: 28px 22px; }
+      #cta { padding: 80px 20px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cta-right { padding: 32px 22px; }
       #faq { padding: 80px 24px; }
       #numeros { padding: 60px 24px; grid-template-columns: repeat(2,1fr); }
       footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
@@ -518,11 +626,22 @@
       /* authority */
       .authority-grid { grid-template-columns: 1fr; gap: 40px; }
       .authority-badge-lbl { font-size: 10px; }
+      .solidez-stats { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; margin-bottom: 48px; }
+      .solidez-head { margin-bottom: 48px; }
+      .solidez-val { font-size: 30px; }
+      .solidez-eco { gap: 10px; }
+      .solidez-eco-pill { padding: 12px 20px; font-size: 14px; }
+      .para-quem-grid, .perfil-grid { grid-template-columns: 1fr; gap: 16px; }
+      .para-quem-highlight { padding: 24px 22px; }
+      .para-quem-card { padding: 22px 20px; }
+      .perfil-card { padding: 32px 24px; }
       .pillar p { font-size: 14px; }
 
       /* market */
       .market-grid { grid-template-columns: 1fr; gap: 40px; }
       .market-headline { font-size: clamp(36px, 8vw, 56px); }
+      .market-cards { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .market-card { padding: 28px 18px; }
       .market-cards { grid-template-columns: 1fr 1fr; }
       .mcard-lbl { font-size: 13px; }
       .market-right-body { font-size: 15px; }
@@ -549,10 +668,17 @@
       .comp-header { grid-template-columns: 1fr; gap: 32px; }
       .comp-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
       .comp-table { min-width: 600px; }
+      .rec-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .rec-card { padding: 24px 18px; }
       .comp-table th, .comp-table td { padding: 14px 16px; font-size: 13px; }
 
       /* jornada */
       .jornada-header { grid-template-columns: 1fr; gap: 32px; }
+      .neg-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .neg-card { padding: 24px 16px; }
+      .royalties-bar { flex-direction: column; align-items: flex-start; gap: 8px; padding: 20px 22px; }
+      .desconto-card { padding: 48px 24px 36px; }
+      .desconto-badge { position: static; display: inline-block; margin-bottom: 20px; }
       .steps { grid-template-columns: 1fr; }
       .steps::before { display: none; }
       .step { align-items: flex-start; text-align: left; flex-direction: row; gap: 16px; padding: 12px 0; }
@@ -656,105 +782,114 @@
 <main id="main-content">
 <!-- HERO -->
 <section id="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="none" poster="video/videook-poster.jpg" aria-hidden="true">
-    <source src="video/completo.mp4" type="video/mp4" media="(min-width: 768px)"/>
-  </video>
+  <div class="hero-video" style="background: url('images/interno1.png') center/cover no-repeat;" aria-hidden="true"></div>
   <div class="hero-video-overlay" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <div class="hero-left-stats">
-      <div class="hero-stat-item">
-        <div class="hero-stat-item-val">229</div>
-        <div class="hero-stat-item-lbl">Studios no Brasil</div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-item-val">16</div>
-        <div class="hero-stat-item-lbl">Anos de liderança</div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-item-val">#1</div>
-        <div class="hero-stat-item-lbl">América Latina</div>
-      </div>
+    <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Vagas Limitadas por Região — Garanta Sua Exclusividade</span>
+
+    <h1>Abra Seu Próprio Studio de Pilates<br/>com <em>Suporte Completo</em></h1>
+
+    <p class="hero-body">
+      Tenha seu próprio Studio com o respaldo do maior grupo de Pilates da<br> América do Sul. Modelo de negócio validado com mais de 250 unidades de<br> sucesso em 115 cidades.
+    </p>
+
+    <div class="hero-chips">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 9 8.5 12 2"/></svg>Não exige formação na área</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg>Associado ABF</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Exclusividade territorial</span>
     </div>
 
-    <div class="hero-right">
-      <p class="hero-eyebrow">Vagas limitadas por região em 2026</p>
-      <h1>
-        Seja o dono da<br/>
-        franquia nº 230 da<br/>
-        <em>maior rede de Pilates<br/>do Brasil.</em>
-      </h1>
-      <p class="hero-body">
-        Não precisa ser fisioterapeuta nem educador físico. Você recebe tudo pronto: equipamentos, projeto arquitetônico, marketing, plataforma exclusiva e royalties fixos de apenas R$&nbsp;990/mês — com breakeven em 2 a 4 meses.
-      </p>
-      <div class="hero-actions">
-        <a href="#cta" class="btn-primary">Quero receber o plano de investimento</a>
-        <a href="#authority" class="btn-link">Conhecer a VOLL →</a>
-      </div>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">Quero Abrir Minha Franquia</a>
+      <a href="#modelo" class="btn-outline">Conhecer o Modelo →</a>
+    </div>
+
+    <div class="hero-mini-stats">
+      <div class="hero-mini-stat">Associado <b>ABF</b></div>
+      <div class="hero-mini-stat">Payback médio<b>8-12 meses</b></div>
+      <div class="hero-mini-stat">Faturamento até<b>R$38k/mês</b></div>
     </div>
   </div>
 
-  <div class="hero-stats-bar">
-    <div class="hstat"><div class="hstat-val">100<span>mil+</span></div><div class="hstat-lbl">Alunos atendidos por mês</div></div>
-    <div class="hstat"><div class="hstat-val">80<span>mil+</span></div><div class="hstat-lbl">Instrutores formados</div></div>
-    <div class="hstat"><div class="hstat-val">8<span>–12m</span></div><div class="hstat-lbl">Payback estimado</div></div>
-    <div class="hstat"><div class="hstat-val">R$<span>990</span></div><div class="hstat-lbl">Royalties fixos mensais</div></div>
-  </div>
+  <div class="hero-scroll" aria-hidden="true">↓</div>
 </section>
 
 <!-- AUTHORITY -->
 <section id="authority">
-  <div class="authority-grid">
-    <div style="position:relative; padding-bottom:20px; padding-right:20px;">
-      <div class="authority-img fi">
-        <img src="images/fachadaok-960.webp" srcset="images/fachadaok-640.webp 640w, images/fachadaok-960.webp 960w" sizes="(max-width: 960px) 100vw, 50vw" alt="Fachada do studio VOLL Pilates" width="960" height="1200" loading="lazy" decoding="async"/>
-        <div class="authority-badge">
-          <div class="authority-badge-num">#1</div>
-          <div class="authority-badge-lbl">Am. Latina</div>
-        </div>
-      </div>
+  <div class="solidez-head fi">
+    <h2>Você não está comprando uma franquia,<br/><em>está herdando uma autoridade!</em></h2>
+  </div>
+
+  <div class="solidez-stats fi d1">
+    <div class="solidez-stat">
+      <div class="solidez-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></div>
+      <div class="solidez-val">16 anos</div>
+      <div class="solidez-lbl">De experiência</div>
     </div>
-    <div class="fi d1">
-      <p class="section-label">Quem somos</p>
-      <h2 class="section-headline">
-        Você não está comprando<br/>
-        uma franquia qualquer.<br/>
-        <em>Está herdando uma autoridade.</em>
-      </h2>
-      <p class="body-text" style="margin-top:24px;">
-        Fundada há 16 anos, a VOLL construiu o maior ecossistema de Pilates da América Latina — da formação de instrutores à expansão global. Associada à ABF, com presença em todos os estados brasileiros e em múltiplos países, a marca VOLL carrega credibilidade que nenhum concorrente pode replicar.
-      </p>
-      <div class="pillars">
-        <div class="pillar"><div class="pillar-num">01</div><div><h3>Metodologia proprietária</h3><p>Sistema pedagógico exclusivo, reconhecido no Brasil e exterior. Bolsa 100% no curso de formação incluída.</p></div></div>
-        <div class="pillar"><div class="pillar-num">02</div><div><h3>Marca consolidada</h3><p>16 anos de autoridade, associada à ABF, com maior evento de Pilates da América Latina.</p></div></div>
-        <div class="pillar"><div class="pillar-num">03</div><div><h3>Ecossistema completo</h3><p>Studios, educação, tecnologia, eventos e comunidade — tudo integrado para o sucesso do franqueado.</p></div></div>
-      </div>
+    <div class="solidez-stat">
+      <div class="solidez-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h2M9 13h2M9 17h2M13 9h2M13 13h2M13 17h2"/></svg></div>
+      <div class="solidez-val">+250</div>
+      <div class="solidez-lbl">Unidades comercializadas</div>
     </div>
+    <div class="solidez-stat">
+      <div class="solidez-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div class="solidez-val">+115</div>
+      <div class="solidez-lbl">Cidades brasileiras</div>
+    </div>
+    <div class="solidez-stat">
+      <div class="solidez-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="solidez-val">+100 mil</div>
+      <div class="solidez-lbl">Alunos em toda a rede</div>
+    </div>
+  </div>
+
+  <div class="solidez-divider fi d2">
+    <p class="solidez-eco-title">Ecossistema Completo do Grupo VOLL</p>
+    <div class="solidez-eco">
+      <span class="solidez-eco-pill"><b>VOLL</b>Pós-Graduação</span>
+      <span class="solidez-eco-pill"><b>VOLL</b>Cursos</span>
+      <span class="solidez-eco-pill"><b>VOLL</b>Internacional</span>
+      <span class="solidez-eco-pill"><b>VOLL</b>Studios</span>
+      <span class="solidez-eco-pill"><b>VOLL</b>Eventos</span>
+      <span class="solidez-eco-pill"><b>VOLL</b>Streaming</span>
+    </div>
+    <a href="#cta" class="solidez-cta">Quero Fazer Parte Desse Grupo</a>
   </div>
 </section>
 
 <!-- MARKET -->
 <section id="market">
-  <div class="market-grid">
-    <div>
-      <p class="section-label" style="color:var(--green-on-dark)">O Mercado</p>
-      <h2 class="market-headline fi">
-        O Pilates não é<br/>uma moda.<br/><em>É uma revolução.</em>
-      </h2>
-      <div class="market-cards fi d1">
-        <div class="mcard"><div class="mcard-val">R$<span>8bi</span></div><div class="mcard-lbl">Mercado brasileiro de bem-estar</div></div>
-        <div class="mcard"><div class="mcard-val">38<span>%</span></div><div class="mcard-lbl">Crescimento anual do setor</div></div>
-        <div class="mcard"><div class="mcard-val">12<span>M+</span></div><div class="mcard-lbl">Praticantes no Brasil</div></div>
-        <div class="mcard"><div class="mcard-val">2<span>x</span></div><div class="mcard-lbl">Demanda vs. oferta atual</div></div>
-      </div>
+  <div class="market-head fi">
+    <h2>O Mercado Que Não Para de Crescer</h2>
+    <p>O setor de saúde, beleza e bem-estar é o 2º maior do franchising brasileiro. Pilates<br> lidera as tendências globais de fitness.</p>
+  </div>
+
+  <div class="market-cards fi d1">
+    <div class="market-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>
+      <div class="market-card-val">277%</div>
+      <div class="market-card-lbl">Crescimento do Pilates no Brasil</div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:24px; padding-top:56px;">
-      <div class="market-big fi">Agora.</div>
-      <p class="market-right-body fi d1">O Brasil vive o maior crescimento do Pilates de sua história. A demanda por studios de qualidade supera em muito a oferta — e a janela está aberta para quem entra com a marca certa.</p>
-      <p class="market-right-body fi d2">Empreendedores que chegam agora com a autoridade da VOLL saem na frente: posicionamento premium, clientela fiel e crescimento acelerado desde o primeiro mês.</p>
-      <a href="#cta" class="btn-primary" style="align-self:flex-start; margin-top:12px;">Quero garantir minha região →</a>
+    <div class="market-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="9 7 17 7 17 15"/></svg>
+      <div class="market-card-val">13,5%</div>
+      <div class="market-card-lbl">Crescimento do setor<br> de franquias em 2024</div>
+    </div>
+    <div class="market-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+      <div class="market-card-val">US$9 tri</div>
+      <div class="market-card-lbl">Mercado global de<br> bem-estar</div>
+    </div>
+    <div class="market-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 12 7 12 10 5 14 19 17 12 21 12"/></svg>
+      <div class="market-card-val">2º lugar</div>
+      <div class="market-card-lbl">Atividade física mais praticada no Brasil</div>
     </div>
   </div>
+
+  <p class="market-sources fi d2">Fontes: ABF, Portal do Franchising, WebRun, FitFeed, Nord Investimentos</p>
+  <div style="text-align:center;"><a href="#cta" class="market-cta">Aproveitar Essa Oportunidade</a></div>
 </section>
 
 <!-- MODELO -->
@@ -776,112 +911,236 @@
   </div>
 </section>
 
-<!-- NÚMEROS -->
-<section id="numeros">
-  <div class="ncard"><div class="ncard-val">229<span></span></div><div class="ncard-lbl">Unidades presentes em todos os estados brasileiros</div></div>
-  <div class="ncard"><div class="ncard-val">100<span>mil+</span></div><div class="ncard-lbl">Alunos atendidos em nossas unidades todo mês</div></div>
-  <div class="ncard"><div class="ncard-val">2<span>–4m</span></div><div class="ncard-lbl">Tempo médio para o breakeven do seu studio</div></div>
-  <div class="ncard"><div class="ncard-val">80<span>mil+</span></div><div class="ncard-lbl">Profissionais capacitados pelo Grupo VOLL</div></div>
-</section>
 
-<!-- DIFERENCIAIS -->
+<!-- PARA QUEM + PERFIL -->
 <section id="diferenciais">
-  <div class="dif-header">
-    <div class="fi">
-      <p class="section-label">Por que VOLL</p>
-      <h2 class="section-headline">O que nos torna<br/><em>inigualáveis.</em></h2>
+  <div class="para-quem-head fi">
+    <h2>Para Quem é a Franquia VOLL Pilates Studios?</h2>
+    <p>Para quem deseja empreender em um dos mercados que mais crescem no Brasil: saúde, bem-estar e qualidade de vida.</p>
+  </div>
+
+  <div class="para-quem-highlight fi d1">
+    <h3>Você não precisa ser formado em fisioterapia, educação física<br> ou enfermagem.</h3>
+    <p>O que realmente importa é ter <b>espírito empreendedor</b> e o desejo de construir um negócio sólido em um segmento que só cresce. Nós cuidamos do resto.</p>
+  </div>
+
+  <div class="para-quem-grid fi d2">
+    <div class="para-quem-card">
+      <div class="para-quem-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+      <div><h3>Modelo Testado e Validado</h3><p>Em diversas regiões do Brasil e fora dele, com resultados comprovados em mais de 250 unidades.</p></div>
     </div>
-    <p class="body-text fi d1">Comparar a VOLL com outras franquias é como comparar uma marca de luxo com uma genérica. O produto final pode parecer similar — a profundidade, o legado e o retorno são completamente diferentes.</p>
+    <div class="para-quem-card">
+      <div class="para-quem-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+      <div><h3>Baixo Investimento, Alto Retorno</h3><p>Agilidade no retorno com investimento facilitado e formas de pagamento flexíveis. Payback em 8-12 meses.</p></div>
+    </div>
+    <div class="para-quem-card">
+      <div class="para-quem-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21h6M12 17v4M8 3h8l1 3a5 5 0 0 1-10 0l1-3z"/></svg></div>
+      <div><h3>Know-how e Credibilidade</h3><p>O respaldo do maior grupo de Pilates da América Latina com 16 anos de experiência e marca reconhecida.</p></div>
+    </div>
+    <div class="para-quem-card">
+      <div class="para-quem-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2zM9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/></svg></div>
+      <div><h3>Suporte Completo</h3><p>Treinamentos constantes, estratégias de gestão e marketing que aceleram seu crescimento.</p></div>
+    </div>
   </div>
-  <div class="dif-grid">
-    <div class="dif-item fi"><div class="dif-num">01</div><div class="dif-content"><h3>Marca de Autoridade Global</h3><p>Reconhecida por especialistas, atletas e clientes exigentes no Brasil e no exterior. Um ativo que nenhum concorrente tem.</p></div></div>
-    <div class="dif-item fi d1"><div class="dif-num">02</div><div class="dif-content"><h3>Associada à ABF</h3><p>Transparência, credibilidade e confiança garantidas pela Associação Brasileira de Franchising. Segurança para investir.</p></div></div>
-    <div class="dif-item fi"><div class="dif-num">03</div><div class="dif-content"><h3>Rede de 229 Franqueados</h3><p>Comunidade ativa com troca de experiências, benchmarking e suporte mútuo entre os maiores empreendedores do setor.</p></div></div>
-    <div class="dif-item fi d1"><div class="dif-num">04</div><div class="dif-content"><h3>Retorno Acelerado</h3><p>Breakeven em 2 a 4 meses. Payback estimado entre 8 e 12 meses. Modelo testado e validado em centenas de unidades.</p></div></div>
-    <div class="dif-item fi"><div class="dif-num">05</div><div class="dif-content"><h3>Maior Evento da Am. Latina</h3><p>Realização do maior congresso de Pilates da América Latina — visibilidade e autoridade que elevam sua marca local.</p></div></div>
-    <div class="dif-item fi d1"><div class="dif-num">06</div><div class="dif-content"><h3>Suporte Vitalício</h3><p>Consultoria, visitas técnicas, treinamentos contínuos e mentoria — do lançamento à expansão do seu negócio.</p></div></div>
+
+  <div class="perfil-head fi">
+    <h2>Perfil que Buscamos</h2>
+    <p>Escolha o modelo que se encaixa no seu estilo de vida</p>
   </div>
+
+  <div class="perfil-grid fi d1">
+    <div class="perfil-card op">
+      <div class="perfil-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <h3>Sócio Operador</h3>
+      <p>Perfil ideal para quem deseja estar à frente da operação e atuar diretamente na gestão do Studio.</p>
+      <ul class="perfil-list">
+        <li>Participa ativamente do dia a dia</li>
+        <li>Foco em gestão, vendas e relacionamento</li>
+        <li>Acompanha equipe, metas e resultados</li>
+        <li>Crescimento escalável com dedicação direta</li>
+      </ul>
+    </div>
+    <div class="perfil-card inv">
+      <div class="perfil-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+      <h3>Sócio Investidor</h3>
+      <p>Perfil ideal para quem deseja investir em um modelo validado, com gestão estruturada.</p>
+      <ul class="perfil-list">
+        <li>Atua de forma estratégica, não operacional</li>
+        <li>Pode contar com gestor contratado</li>
+        <li>Foco em indicadores e performance financeira</li>
+        <li>Expansão via múltiplas unidades</li>
+      </ul>
+    </div>
+  </div>
+
+  <a href="#cta" class="perfil-cta">Descobrir Se Minha Cidade Está Disponível</a>
 </section>
 
 <!-- COMPARATIVO -->
 <section id="comparativo">
-  <div class="comp-header">
-    <div class="fi">
-      <p class="section-label" style="color:var(--green-on-dark)">A diferença real</p>
-      <h2 class="section-headline" style="color:white;">Abrir sozinho<br/><em style="color:var(--green-on-dark)">vs. abrir com a VOLL.</em></h2>
-    </div>
-    <p class="fi d1" style="font-size:15px; line-height:1.8; color:var(--dark-muted); font-weight:400; padding-bottom:8px;">O custo oculto de montar um studio sem uma franquia é muito maior do que parece. Veja o que a VOLL já resolve para você — sem reinventar a roda.</p>
+  <div class="rec-head fi">
+    <h2>O Que Você Recebe ao Abrir Seu Studio</h2>
+    <p>Você recebe um Kit completo de aparelhos, um Layout arquitetônico exclusivo e uma equipe estratégica que vai acompanhar você e sua unidade sempre com o objetivo de fazer com que faturamento seja sempre alto!</p>
   </div>
-  <div class="comp-table-wrap">
-  <table class="comp-table fi">
-    <thead>
-      <tr>
-        <th>O que você precisa</th>
-        <th>Por conta própria</th>
-        <th>Com a VOLL</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Marca reconhecida pelo cliente</td>
-        <td><span class="comp-x">✕ Construir do zero</span></td>
-        <td><span class="comp-check">✓ 16 anos de autoridade</span></td>
-      </tr>
-      <tr>
-        <td>Metodologia de ensino validada</td>
-        <td><span class="comp-x">✕ Indefinida ou copiada</span></td>
-        <td><span class="comp-check">✓ Sistema pedagógico exclusivo</span></td>
-      </tr>
-      <tr>
-        <td>Software de gestão e CRM</td>
-        <td><span class="comp-x">✕ R$400–1.200/mês</span></td>
-        <td><span class="comp-check">✓ Incluso na franquia</span></td>
-      </tr>
-      <tr>
-        <td>Marketing digital e campanhas</td>
-        <td><span class="comp-x">✕ R$3.000–8.000/mês</span></td>
-        <td><span class="comp-check">✓ Campanha mensal pronta</span></td>
-      </tr>
-      <tr>
-        <td>Projeto arquitetônico do espaço</td>
-        <td><span class="comp-x">✕ R$8.000–25.000</span></td>
-        <td><span class="comp-check">✓ Incluso no modelo</span></td>
-      </tr>
-      <tr>
-        <td>Formação da equipe instrutora</td>
-        <td><span class="comp-x">✕ Custo variável por instrutor</span></td>
-        <td><span class="comp-check">✓ Bolsa 100% no curso VOLL</span></td>
-      </tr>
-      <tr>
-        <td>Rede de suporte e mentoria</td>
-        <td><span class="comp-x">✕ Não existe</span></td>
-        <td><span class="comp-check">✓ 229 franqueados + equipe VOLL</span></td>
-      </tr>
-      <tr>
-        <td>Royalties mensais</td>
-        <td><span style="color:var(--dark-muted)">— Sem custo de franquia</span></td>
-        <td><span class="comp-check">✓ Apenas R$990 fixo/mês</span></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <div class="rec-grid fi d1">
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+      <h3>Investimento Facilitado</h3>
+      <p>Equipamentos e acessórios com formas de pagamento facilitadas.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+      <h3>Equipamentos Completos</h3>
+      <p>Kit completo de aparelhos para abrir seu Studio com qualidade VOLL.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+      <h3>Escalabilidade</h3>
+      <p>Amplie sua rede com incentivos exclusivos e condições diferenciadas.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8v18l-18-8v-2z"/><path d="M11 15v4a2 2 0 0 1-4 0v-3"/></svg></div>
+      <h3>Campanhas de Vendas Prontas</h3>
+      <p>Equipe estratégica desenha campanhas mensais e anuais para sua unidade.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 1 0 10 10c0-1.66-1.34-3-3-3h-2a2 2 0 0 1-2-2 2 2 0 0 0-2-2 4 4 0 0 1-1-3z"/></svg></div>
+      <h3>Projeto Arquitetônico</h3>
+      <p>Padronização atraente e funcional para espaços a partir de 40m².</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3>Plataforma do Franqueado</h3>
+      <p>Materiais exclusivos, do marketing à gestão de negócios.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
+      <h3>Marketing 2.0</h3>
+      <p>Site, sistema, mídia social e App prontos para turbinar seu Studio.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.66 3 3 6 3s6-1.34 6-3v-5"/></svg></div>
+      <h3>Treinamentos Avançados</h3>
+      <p>Vantagens exclusivas em formação de instrutores de Pilates.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><polyline points="8.21 13.89 7 22 12 19 17 22 15.79 13.88"/></svg></div>
+      <h3>Direitos da Marca</h3>
+      <p>Seja reconhecido com uso da marca VOLL Pilates Studios como Franqueado.</p>
+    </div>
+    <div class="rec-card">
+      <div class="rec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>Fature Muito!</h3>
+      <p>Fature com alunos e com a revenda de cursos e produtos do grupo VOLL.</p>
+    </div>
   </div>
 </section>
 
-<!-- JORNADA -->
+<!-- ENTENDA O NEGÓCIO -->
 <section id="jornada">
-  <div class="jornada-header">
-    <div class="fi">
-      <p class="section-label">Sua Jornada</p>
-      <h2 class="section-headline">Do interesse à abertura:<br/><em>um caminho claro.</em></h2>
-    </div>
-    <p class="body-text fi d1">Cada etapa foi desenhada para garantir que você abra com confiança, suporte e as melhores condições possíveis. Nada é deixado ao acaso.</p>
+  <div class="neg-head fi">
+    <h2>Entenda o Negócio</h2>
+    <p>Investimento inicial baixo e facilitado, incluindo todos equipamentos necessários para começar o negócio e faturar!</p>
   </div>
-  <div class="steps">
-    <div class="step fi"><div class="step-dot">1</div><h3>Candidatura</h3><p>Preencha o formulário. Nossa equipe entra em contato em até 24h.</p></div>
-    <div class="step fi d1"><div class="step-dot">2</div><h3>Entrevista</h3><p>Conversa com especialistas para alinhar perfil e expectativas.</p></div>
-    <div class="step fi d2"><div class="step-dot">3</div><h3>Aprovação</h3><p>Análise completa e assinatura do contrato de franquia VOLL.</p></div>
-    <div class="step fi d3"><div class="step-dot">4</div><h3>Implantação</h3><p>Suporte total na montagem, contratação e treinamento da equipe.</p></div>
-    <div class="step fi d4"><div class="step-dot">5</div><h3>Inauguração</h3><p>Abertura com campanha de lançamento e suporte presencial VOLL.</p></div>
+  <div class="neg-grid fi d1">
+    <div class="neg-card">
+      <div class="neg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="neg-val">Até R$38k</div>
+      <div class="neg-lbl">Faturamento mensal</div>
+    </div>
+    <div class="neg-card">
+      <div class="neg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="neg-val">8-12</div>
+      <div class="neg-lbl">meses de Payback</div>
+    </div>
+    <div class="neg-card">
+      <div class="neg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+      <div class="neg-val">2-4</div>
+      <div class="neg-lbl">meses para Breakeven</div>
+    </div>
+    <div class="neg-card">
+      <div class="neg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div>
+      <div class="neg-val">50%</div>
+      <div class="neg-lbl">Conversão média de clientes</div>
+    </div>
+    <div class="neg-card">
+      <div class="neg-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 2.5 21.5 8.5 8.5 21.5 2.5 15.5z"/><line x1="7" y1="10" x2="9" y2="12"/><line x1="10" y1="7" x2="13" y2="10"/><line x1="13" y1="4" x2="17" y2="8"/></svg></div>
+      <div class="neg-val">40m²</div>
+      <div class="neg-lbl">Tamanho mínimo</div>
+    </div>
+  </div>
+
+  <div class="royalties-bar fi d2">
+    <div class="royalties-bar-left">
+      <b>Royalties</b>
+      <span>R$990,00 mensais fixo (Para unidades polo de curso)</span>
+    </div>
+    <div class="royalties-bar-right">Não cobramos fundo de propaganda</div>
+  </div>
+
+  <div class="desconto-card fi d3">
+    <span class="desconto-badge">Condição Especial</span>
+    <h3>Investimento Inicial Baixo e Facilitado</h3>
+    <p class="desconto-sub">Aparelhos · Acessórios · Layout · Capacitação · Assessoria completa</p>
+    <div class="desconto-headline">Consulte Desconto Especial</div>
+    <div class="desconto-taxas">Taxas Zeradas! 🎉</div>
+    <div class="desconto-chips">
+      <span class="desconto-chip">À vista no contrato</span>
+      <span class="desconto-chip">12x sem juros no cartão</span>
+      <span class="desconto-chip">70% + 12x boleto</span>
+    </div>
+    <a href="#cta" class="desconto-cta">Quero Abrir Minha Franquia</a>
+  </div>
+</section>
+
+<!-- SIMULADOR DE RETORNO -->
+<section id="calculadora">
+  <div class="calc-inner">
+    <div class="calc-header fi">
+      <p class="calc-eyebrow">Simulador de Retorno</p>
+      <h2>Simule o Potencial do Seu Studio</h2>
+      <p class="calc-sub">Ajuste os parâmetros e veja uma estimativa do retorno financeiro baseada nas premissas reais da rede VOLL Pilates Studios.</p>
+    </div>
+
+    <div class="calc-grid fi d1">
+      <div class="calc-inputs">
+        <div class="calc-field">
+          <div class="calc-field-head"><label for="sl-alunos">Número de alunos ativos</label><span class="calc-field-val"><b id="vl-alunos">150</b></span></div>
+          <input type="range" class="calc-slider" id="sl-alunos" min="100" max="180" value="150" step="1"/>
+          <div class="calc-field-range"><span>100</span><span>180</span></div>
+        </div>
+        <div class="calc-field">
+          <div class="calc-field-head"><label for="sl-ticket">Mensalidade média por aluno</label><span class="calc-field-val">R$ <b id="vl-ticket">269</b></span></div>
+          <input type="range" class="calc-slider" id="sl-ticket" min="199" max="350" value="269" step="1"/>
+          <div class="calc-field-range"><span>R$199</span><span>R$350</span></div>
+        </div>
+        <div class="calc-field">
+          <div class="calc-field-head"><label for="sl-plat">Alunos Wellhub + TotalPass</label><span class="calc-field-val"><b id="vl-plat">30</b></span></div>
+          <input type="range" class="calc-slider" id="sl-plat" min="10" max="50" value="30" step="1"/>
+          <div class="calc-field-range"><span>10</span><span>50</span></div>
+        </div>
+        <p class="calc-note">Os alunos de plataformas estão incluídos no total de alunos ativos.</p>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-result-item">
+          <div class="calc-result-lbl">Receita bruta estimada / mês</div>
+          <div class="calc-result-val">R$ <span id="res-receita">37.056</span></div>
+        </div>
+        <div class="calc-result-item">
+          <div class="calc-result-lbl">Resultado líquido estimado / mês</div>
+          <div class="calc-result-val hi">R$ <span id="res-lucro">11.117</span></div>
+        </div>
+        <div class="calc-result-item">
+          <div class="calc-result-lbl">Retorno estimado do investimento</div>
+          <div class="calc-result-val hi"><span id="res-payback">10</span> <small>meses</small></div>
+        </div>
+        <div class="calc-invest">Investimento estimado <b>a partir de R$ 80.000</b></div>
+      </div>
+    </div>
+
+    <p class="calc-disclaimer">Simulação baseada em parâmetros financeiros e operacionais de referência da rede VOLL Pilates Studios. O resultado considera despesas operacionais, pró-labore e período de ramp-up da unidade. Os resultados reais podem variar conforme localização, ocupação, ticket médio, gestão e condições do mercado local. Não constitui garantia de faturamento, lucratividade ou prazo de retorno do investimento.</p>
   </div>
 </section>
 
@@ -915,87 +1174,8 @@
   </div>
 </section>
 
-<!-- PARA QUEM NÃO É -->
-<section id="nao-e">
-  <div class="fi">
-    <p class="section-label">Transparência</p>
-    <h2 class="section-headline">Honestidade antes<br/><em>de qualquer negócio.</em></h2>
-    <p class="body-text" style="margin-top:16px; max-width:560px;">A VOLL não é para todo mundo — e isso é proposital. Selecionamos franqueados com cuidado para proteger a qualidade da rede e garantir o sucesso de cada unidade.</p>
-  </div>
-  <div class="naoe-grid">
-    <div class="naoe-col naoe-col-no">
-      <h3><em>Não é para você</em> se...</h3>
-      <div class="naoe-list">
-        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você busca <strong>renda passiva imediata</strong> sem envolvimento na operação do studio.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você quer <strong>mudar tudo</strong> da metodologia e operar de forma completamente independente da rede.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você não tem <strong>capital mínimo</strong> para o investimento inicial e capital de giro adequado.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você não está disposto a <strong>seguir os padrões de qualidade</strong> que protegem a marca e todos os franqueados.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✕</div><p>Você espera que o negócio <strong>cresça sozinho</strong> sem dedicação e comprometimento com a gestão.</p></div>
-      </div>
-    </div>
-    <div class="naoe-col naoe-col-yes">
-      <h3>É para você se...</h3>
-      <div class="naoe-list">
-        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você é <strong>instrutor de Pilates</strong> e quer escalar seu trabalho com uma marca que o mercado já reconhece.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você é <strong>empreendedor</strong> que busca um modelo de negócio sólido, validado e com suporte contínuo.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você é <strong>investidor</strong> que quer diversificar com um ativo no setor de saúde e bem-estar em crescimento acelerado.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você acredita no <strong>poder da comunidade</strong> e quer crescer dentro de uma rede de apoio mútuo.</p></div>
-        <div class="naoe-item"><div class="naoe-icon">✓</div><p>Você quer construir um <strong>legado</strong> em saúde, bem-estar e qualidade de vida na sua cidade.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CALCULADORA ROI -->
-<section id="calculadora">
-  <div class="calc-inner">
-    <div class="calc-header fi">
-      <p class="section-label" style="color:var(--green-on-dark); justify-content:center;">Simulador de Retorno</p>
-      <h2 class="section-headline" style="color:white; text-align:center;">Calcule o potencial<br/><em style="color:var(--green-on-dark)">do seu investimento.</em></h2>
-      <p style="font-size:15px; color:var(--dark-muted); text-align:center; margin-top:16px; font-weight:400; max-width:480px; margin-left:auto; margin-right:auto;">Ajuste os parâmetros e veja uma estimativa do retorno financeiro baseada em médias reais da nossa rede.</p>
-    </div>
-    <div class="calc-grid fi d1">
-      <div class="calc-inputs">
-        <div class="calc-field">
-          <label for="sl-alunos">Número de alunos ativos</label>
-          <input type="range" class="calc-slider" id="sl-alunos" min="30" max="200" value="80" step="5"/>
-          <div class="calc-val"><span id="vl-alunos">80</span> <span>alunos</span></div>
-        </div>
-        <div class="calc-field">
-          <label for="sl-ticket">Mensalidade média por aluno</label>
-          <input type="range" class="calc-slider" id="sl-ticket" min="250" max="800" value="420" step="10"/>
-          <div class="calc-val">R$ <span id="vl-ticket">420</span></div>
-        </div>
-        <div class="calc-field">
-          <label for="sl-avulso">Número de sessões avulsas / mês</label>
-          <input type="range" class="calc-slider" id="sl-avulso" min="0" max="100" value="20" step="5"/>
-          <div class="calc-val"><span id="vl-avulso">20</span> <span>sessões · R$80 cada</span></div>
-        </div>
-      </div>
-      <div>
-        <div class="calc-results">
-          <div class="calc-result-item">
-            <div class="calc-result-lbl">Receita bruta estimada / mês</div>
-            <div class="calc-result-val">R$ <span id="res-receita">35.200</span></div>
-          </div>
-          <div class="calc-result-item">
-            <div class="calc-result-lbl">Custos operacionais estimados (55%)</div>
-            <div class="calc-result-val" style="color:var(--dark-muted);">− R$ <span id="res-custos">19.360</span></div>
-          </div>
-          <div class="calc-result-item">
-            <div class="calc-result-lbl">Lucro líquido estimado / mês</div>
-            <div class="calc-result-val">R$ <span id="res-lucro" style="color:var(--green-on-dark)">15.840</span></div>
-          </div>
-          <div class="calc-result-item">
-            <div class="calc-result-lbl">Payback estimado do investimento</div>
-            <div class="calc-result-val"><span id="res-payback" style="color:var(--green-on-dark)">11</span> <span style="font-size:18px">meses</span></div>
-          </div>
-        </div>
-        <p class="calc-disclaimer">Simulação baseada em médias da rede VOLL. Resultados reais podem variar conforme localização, gestão e mercado local. Não constitui garantia de rentabilidade.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- BADGES -->
 <div class="badges-bar" style="background:var(--white); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:32px 64px; display:flex; align-items:center; justify-content:center; gap:64px; flex-wrap:wrap;">
@@ -1023,80 +1203,27 @@
 <!-- CTA -->
 <section id="cta">
   <div class="cta-inner">
-  <div class="cta-left fi">
-    <h2>Seja o franqueado nº 230.<br/><em>Garanta sua região</em><br/>antes que alguém o faça.</h2>
-    <p>Preencha o formulário e um especialista VOLL entrará em contato em até 24 horas para uma conversa personalizada — sem pressão, sem compromisso.</p>
-    <div class="cta-points">
-      <div class="cta-point">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(162,212,191,0.95)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(162,212,191,0.95)" stroke-width="1.2"/></svg>
-        Sem compromisso
-      </div>
-      <div class="cta-point">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(162,212,191,0.95)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(162,212,191,0.95)" stroke-width="1.2"/></svg>
-        Resposta em até 24h
-      </div>
-      <div class="cta-point">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(162,212,191,0.95)" stroke-width="1"/><path d="M5 8l2 2 4-4" stroke="rgba(162,212,191,0.95)" stroke-width="1.2"/></svg>
-        Dados confidenciais
-      </div>
+    <div class="cta-left fi">
+      <span class="cta-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Poucas vagas disponíveis na sua região</span>
+      <h2>Garanta Sua Região com <em>Exclusividade</em></h2>
+      <p>Trabalhamos com territórios protegidos. Cada franqueado tem exclusividade na sua área de atuação. Preencha o formulário e descubra se sua cidade ainda está disponível.</p>
+      <ul class="cta-features">
+        <li><span class="cta-feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Exclusividade territorial garantida</li>
+        <li><span class="cta-feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/></svg></span>Seus dados estão protegidos e seguros</li>
+        <li><span class="cta-feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>Retorno em até 24 horas úteis</li>
+      </ul>
     </div>
-  </div>
 
-
-  <!-- Formulário de Contato - AQUI VAI ENTRAR O FORMULÁRIO DO RD -->
-  <div class="cta-right fi d1">
-    <form class="qual-form" onsubmit="return false;">
-      <div class="qual-row">
-        <div class="qual-field">
-          <label for="lead-nome">Nome</label>
-          <input type="text" class="qual-input" id="lead-nome" name="nome" autocomplete="name" placeholder="Seu nome"/>
-        </div>
-        <div class="qual-field">
-          <label for="lead-whatsapp">WhatsApp</label>
-          <input type="tel" class="qual-input" id="lead-whatsapp" name="whatsapp" autocomplete="tel" placeholder="(11) 99999-9999"/>
-        </div>
+    <div class="cta-right fi d1">
+      <div class="cta-form-head">
+        <h3>Solicite Informações</h3>
+        <p>Preencha abaixo e fale com um especialista agora mesmo</p>
       </div>
-      <div class="qual-field">
-        <label for="lead-email">E-mail</label>
-        <input type="email" class="qual-input" id="lead-email" name="email" autocomplete="email" placeholder="seu@email.com"/>
-      </div>
-      <div class="qual-field">
-        <label for="lead-perfil">Seu perfil</label>
-        <select class="qual-select" id="lead-perfil" name="perfil">
-          <option value="" disabled selected>Selecione seu perfil</option>
-          <option>Instrutor(a) de Pilates</option>
-          <option>Empreendedor(a)</option>
-          <option>Investidor(a)</option>
-          <option>Fisioterapeuta</option>
-          <option>Outro</option>
-        </select>
-      </div>
-      <div class="qual-field">
-        <label for="lead-capital">Capital disponível para investimento</label>
-        <select class="qual-select" id="lead-capital" name="capital">
-          <option value="" disabled selected>Selecione uma faixa</option>
-          <option>Até R$ 100 mil</option>
-          <option>R$ 100 mil – R$ 200 mil</option>
-          <option>R$ 200 mil – R$ 350 mil</option>
-          <option>Acima de R$ 350 mil</option>
-          <option>Ainda estou avaliando</option>
-        </select>
-      </div>
-      <div class="qual-field">
-        <label for="lead-cidade">Cidade de interesse</label>
-        <input type="text" class="qual-input" id="lead-cidade" name="cidade" autocomplete="address-level2" placeholder="Cidade / Estado"/>
-      </div>
-      <button type="submit" class="btn-primary qual-submit" onclick="this.textContent='✓ Enviado! Em breve entraremos em contato.'; this.disabled=true;">
-        Quero receber o plano de investimento completo
-      </button>
-    </form>
-    <p class="cta-legal">Associados ABF · 229 unidades · 16 anos de mercado</p>
-    <p class="cta-region-note">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5.5" stroke="rgba(220,186,162,0.95)" stroke-width="1"/><path d="M3.5 6l1.5 1.5 3-3" stroke="rgba(220,186,162,0.95)" stroke-width="1"/></svg>
-      Vagas limitadas por região em 2026
-    </p>
-  </div>
-  <!-- END FORMULÁRIO DO RD -->
+      <div role="main" id="franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd"></div>
+      <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+      <script type="text/javascript"> new RDStationForms('franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd', 'UA-122086213-1').createForm();</script>
+      <p class="cta-legal">Ao enviar, você concorda em receber contato da equipe VOLL Studios.</p>
+    </div>
   </div>
 </section>
 
@@ -1159,30 +1286,33 @@
 <script>
 /* ── ROI CALCULATOR ── */
 (function() {
-  const fmt = n => n.toLocaleString('pt-BR');
-  const INV = 200000; // investimento médio estimado
+  const fmt = n => Math.round(n).toLocaleString('pt-BR');
+  const INVEST = 80000;
+  const PLAT_AULAS = 8;
+  const PLAT_VALOR = 19.90;
+  const MARGEM = 0.30;
+  const RAMPUP_BUFFER = 2;
 
   function calc() {
-    const alunos  = +document.getElementById('sl-alunos').value;
-    const ticket  = +document.getElementById('sl-ticket').value;
-    const avulso  = +document.getElementById('sl-avulso').value;
+    const alunos = +document.getElementById('sl-alunos').value;
+    const ticket = +document.getElementById('sl-ticket').value;
+    const plat   = Math.min(+document.getElementById('sl-plat').value, alunos);
 
     document.getElementById('vl-alunos').textContent = alunos;
     document.getElementById('vl-ticket').textContent = fmt(ticket);
-    document.getElementById('vl-avulso').textContent = avulso;
+    document.getElementById('vl-plat').textContent   = plat;
 
-    const receita = alunos * ticket + avulso * 80;
-    const custos  = Math.round(receita * 0.55);
-    const lucro   = receita - custos;
-    const payback = lucro > 0 ? Math.ceil(INV / lucro) : '—';
+    const particulares = alunos - plat;
+    const receita = particulares * ticket + plat * PLAT_VALOR * PLAT_AULAS;
+    const lucro   = receita * MARGEM;
+    const payback = lucro > 0 ? Math.ceil(INVEST / lucro) + RAMPUP_BUFFER : '—';
 
     document.getElementById('res-receita').textContent = fmt(receita);
-    document.getElementById('res-custos').textContent  = fmt(custos);
     document.getElementById('res-lucro').textContent   = fmt(lucro);
     document.getElementById('res-payback').textContent = payback;
   }
 
-  ['sl-alunos','sl-ticket','sl-avulso'].forEach(id => {
+  ['sl-alunos','sl-ticket','sl-plat'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('input', calc);
   });

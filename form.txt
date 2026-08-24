@@ -1,0 +1,2 @@
+ 
+ &lt;div role=&quot;main&quot; id=&quot;franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd&quot;&gt;&lt;/div&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt; new RDStationForms('franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd', 'UA-122086213-1').createForm();&lt;/script&gt; 
