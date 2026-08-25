@@ -597,7 +597,7 @@
     .badges-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1280px; margin: 0 auto; }
     .badge-card { background: #fff; border-radius: 18px; padding: 28px 24px; display: flex; align-items: center; gap: 16px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: transform 0.2s, box-shadow 0.2s; }
     .badge-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
-    .badge-ico-abf { width: 48px; height: 48px; border-radius: 12px; background: var(--dark); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .badge-ico-abf { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; display: block; }
     .badge-num { font-family: var(--sans); font-size: 34px; font-weight: 800; color: var(--green-cta); line-height: 1; flex-shrink: 0; min-width: 48px; }
     .badge-txt { display: flex; flex-direction: column; gap: 2px; font-size: 13px; }
     .badge-txt span { color: var(--muted); }
@@ -1189,7 +1189,7 @@
 <section class="badges-section">
   <div class="badges-grid">
     <div class="badge-card">
-      <div class="badge-ico badge-ico-abf">ABF</div>
+      <img class="badge-ico-abf" src="images/ABF_LOGO2023_ASSOCIADO_V_RGB_Final.webp" alt="Logo ABF Associado" loading="lazy" decoding="async"/>
       <div class="badge-txt"><span>Associada à</span><strong>ABF — Franquia verificada</strong></div>
     </div>
     <div class="badge-card">
