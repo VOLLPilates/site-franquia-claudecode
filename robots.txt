@@ -8,4 +8,4 @@ Disallow: /calc.txt
 Disallow: /form.txt
 
 # Sitemap
-Sitemap: https://site-franquia-claudecode.vercel.app/sitemap.xml
+Sitemap: https://franquiadepilates.com.br/sitemap.xml
