@@ -605,7 +605,7 @@
     .cta-features li { display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,0.88); font-size: 15px; }
     .cta-feat-ico { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.06); color: var(--green-on-dark); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .cta-feat-ico svg { width: 18px; height: 18px; }
-    .cta-right { background: #fff; border-radius: 22px; padding: 40px 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+    .cta-right { background: #fff; border-radius: 22px; padding: 40px 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); scroll-margin-top: 132px; }
     .cta-form-head { text-align: center; margin-bottom: 28px; }
     .cta-form-head h3 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
     .cta-form-head p { font-size: 14px; color: var(--muted); }
@@ -969,7 +969,7 @@
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://franquiadepilates.com.br/areadofranqueado/" target="_blank" rel="noopener noreferrer">Área do Franqueado</a></li>
   </ul>
-  <a href="#cta" class="nav-cta">Seja franqueado</a>
+  <a href="#formulario-franquia" class="nav-cta">Seja franqueado</a>
 </nav>
 
 <main id="main-content">
@@ -994,7 +994,7 @@
     </div>
 
     <div class="hero-actions">
-      <a href="#cta" class="btn-primary">Quero Abrir Minha Franquia</a>
+      <a href="#formulario-franquia" class="btn-primary">Quero Abrir Minha Franquia</a>
       <a href="#modelo" class="btn-outline">Conhecer o Modelo →</a>
     </div>
 
@@ -1047,7 +1047,7 @@
       <span class="solidez-eco-pill"><b>VOLL</b>Eventos</span>
       <span class="solidez-eco-pill"><b>VOLL</b>Streaming</span>
     </div>
-    <a href="#cta" class="solidez-cta">Quero Fazer Parte Desse Grupo</a>
+    <a href="#formulario-franquia" class="solidez-cta">Quero Fazer Parte Desse Grupo</a>
   </div>
 </section>
 
@@ -1082,7 +1082,7 @@
   </div>
 
   <p class="market-sources fi d2">Fontes: ABF, Portal do Franchising, WebRun, FitFeed, Nord Investimentos</p>
-  <div style="text-align:center;"><a href="#cta" class="market-cta">Aproveitar Essa Oportunidade</a></div>
+  <div style="text-align:center;"><a href="#formulario-franquia" class="market-cta">Aproveitar Essa Oportunidade</a></div>
 </section>
 
 <!-- MODELO -->
@@ -1161,7 +1161,7 @@
     </div>
   </div>
 
-  <a href="#cta" class="perfil-cta">Descobrir Se Minha Cidade Está Disponível</a>
+  <a href="#formulario-franquia" class="perfil-cta">Descobrir Se Minha Cidade Está Disponível</a>
 </section>
 
 <!-- COMPARATIVO -->
@@ -1265,7 +1265,7 @@
       <span class="desconto-chip">12x sem juros no cartão</span>
       <span class="desconto-chip">70% + 12x boleto</span>
     </div>
-    <a href="#cta" class="desconto-cta">Quero Abrir Minha Franquia</a>
+    <a href="#formulario-franquia" class="desconto-cta">Quero Abrir Minha Franquia</a>
   </div>
 </section>
 
@@ -1388,7 +1388,7 @@
       </ul>
     </div>
 
-    <div class="cta-right fi d1">
+    <div class="cta-right fi d1" id="formulario-franquia">
       <div class="cta-form-head">
         <h3>Solicite Informações</h3>
         <p>Preencha abaixo e fale com um especialista agora mesmo</p>
@@ -1427,7 +1427,7 @@
         }
 
         function rolarParaFormulario(modo) {
-          var blocoFormulario = document.querySelector('.cta-right') || document.getElementById('cta');
+          var blocoFormulario = document.getElementById('formulario-franquia') || document.querySelector('.cta-right') || document.getElementById('cta');
           if (!blocoFormulario) return;
 
           var nav = document.getElementById('nav');
@@ -1448,14 +1448,14 @@
         }
 
         // 2) Ao clicar em qualquer botão que leve ao formulário
-        document.querySelectorAll('a[href="#cta"]').forEach(function (a) {
+        document.querySelectorAll('a[href="#cta"], a[href="#formulario-franquia"]').forEach(function (a) {
           a.addEventListener('click', function (evento) {
             evento.preventDefault();
             carregar();
 
             if (history.pushState) {
               try {
-                history.pushState(null, '', '#cta');
+                history.pushState(null, '', '#formulario-franquia');
               } catch (erro) {}
             }
 
@@ -1468,6 +1468,12 @@
             window.setTimeout(function () { rolarParaFormulario('auto'); }, 900);
           });
         });
+
+        if (location.hash === '#cta' || location.hash === '#formulario-franquia') {
+          carregar();
+          window.setTimeout(function () { rolarParaFormulario('auto'); }, 120);
+          window.setTimeout(function () { rolarParaFormulario('auto'); }, 700);
+        }
       })();
       </script>
       <p class="cta-legal">Ao enviar, você concorda em receber contato da equipe VOLL Studios.</p>
