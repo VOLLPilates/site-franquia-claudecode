@@ -1426,9 +1426,47 @@
           carregar();
         }
 
+        function rolarParaFormulario(modo) {
+          var blocoFormulario = document.querySelector('.cta-right') || document.getElementById('cta');
+          if (!blocoFormulario) return;
+
+          var nav = document.getElementById('nav');
+          var alturaNav = nav ? nav.getBoundingClientRect().height : 0;
+          var respiro = window.matchMedia('(max-width: 960px)').matches ? 18 : 28;
+          var topo = blocoFormulario.getBoundingClientRect().top + window.pageYOffset - alturaNav - respiro;
+          var raiz = document.documentElement;
+          var scrollOriginal = raiz.style.scrollBehavior;
+
+          if (modo === 'auto') raiz.style.scrollBehavior = 'auto';
+          window.scrollTo({
+            top: Math.max(0, topo),
+            behavior: modo
+          });
+          if (modo === 'auto') {
+            window.setTimeout(function () { raiz.style.scrollBehavior = scrollOriginal; }, 0);
+          }
+        }
+
         // 2) Ao clicar em qualquer botão que leve ao formulário
         document.querySelectorAll('a[href="#cta"]').forEach(function (a) {
-          a.addEventListener('click', carregar, { once: true });
+          a.addEventListener('click', function (evento) {
+            evento.preventDefault();
+            carregar();
+
+            if (history.pushState) {
+              try {
+                history.pushState(null, '', '#cta');
+              } catch (erro) {}
+            }
+
+            var movimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+            rolarParaFormulario(movimento);
+
+            // O RD Station injeta campos depois do clique e pode deslocar o alvo.
+            // Recalcular a rolagem deixa o formulário no lugar certo em meia tela.
+            window.setTimeout(function () { rolarParaFormulario(movimento); }, 260);
+            window.setTimeout(function () { rolarParaFormulario('auto'); }, 900);
+          });
         });
       })();
       </script>
