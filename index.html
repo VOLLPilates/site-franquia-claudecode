@@ -10,37 +10,55 @@
   <meta name="google-site-verification" content="biY9HhHIBtH8P2kVRJnmS435jHbEe0YI-1ChgbEP4S0"/>
   <!-- TAG FACE ADS -->
   <meta name="facebook-domain-verification" content="fa3inkwh3orox5izz51ucaxy0lzrfv"/>
-  <!-- Facebook Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '347468702586505');
-    fbq('track', 'PageView');
-  </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=347468702586505&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Facebook Pixel Code -->
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5XHHDKN');</script>
-  <!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8R0SS9HQGX"></script>
+
+  <!-- Tags de rastreamento (Meta Pixel + GTM + GA4).
+       Os stubs (fbq / gtag / dataLayer) são criados de imediato para que nenhum
+       evento se perca; o download dos scripts é adiado até a página terminar de
+       carregar ou até a primeira interação — o que vier antes. Isso tira ~300ms
+       de trabalho da thread principal sem afetar a coleta de dados. -->
   <script>
+  (function () {
+    // ── Stubs: enfileiram eventos antes dos scripts chegarem ──
+    var f = window;
+    f.fbq = f.fbq || function () {
+      f.fbq.callMethod ? f.fbq.callMethod.apply(f.fbq, arguments) : f.fbq.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = f.fbq;
+    f.fbq.push = f.fbq; f.fbq.loaded = true; f.fbq.version = '2.0'; f.fbq.queue = f.fbq.queue || [];
+    f.fbq('init', '347468702586505');
+    f.fbq('track', 'PageView');
+
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
     gtag('js', new Date());
     gtag('config', 'G-8R0SS9HQGX');
+
+    // ── Carregamento adiado ──
+    var loaded = false;
+    function inject(src) {
+      var s = document.createElement('script');
+      s.async = true; s.src = src;
+      document.head.appendChild(s);
+    }
+    function loadTags() {
+      if (loaded) return;
+      loaded = true;
+      inject('https://connect.facebook.net/en_US/fbevents.js');
+      inject('https://www.googletagmanager.com/gtm.js?id=GTM-5XHHDKN');
+      inject('https://www.googletagmanager.com/gtag/js?id=G-8R0SS9HQGX');
+      events.forEach(function (e) { window.removeEventListener(e, loadTags); });
+    }
+    var events = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+    events.forEach(function (e) {
+      window.addEventListener(e, loadTags, { once: true, passive: true });
+    });
+    if (document.readyState === 'complete') setTimeout(loadTags, 1200);
+    else window.addEventListener('load', function () { setTimeout(loadTags, 1200); });
+  })();
   </script>
   <link rel="icon" type="image/png" href="images/favicon_logo-vollstudios.png"/>
   <link rel="apple-touch-icon" href="images/favicon_logo-vollstudios.png"/>
@@ -152,8 +170,13 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preconnect" href="https://d335luupugsy2.cloudfront.net" crossorigin/>
+  <!-- RD Station e tags são carregados sob demanda: só resolvemos o DNS
+       antecipadamente, sem abrir conexão que ficaria ociosa. -->
   <link rel="dns-prefetch" href="https://d335luupugsy2.cloudfront.net"/>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
+  <link rel="dns-prefetch" href="https://connect.facebook.net"/>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/>
+  <link rel="dns-prefetch" href="https://iavoll.exerciciosdepilates.com.br"/>
   <link rel="preload" as="image" href="images/interno1-mobile.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high"/>
   <link rel="preload" as="image" href="images/interno1.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high"/>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap"/>
@@ -197,7 +220,8 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; }
-    section:not(#hero) { content-visibility: auto; contain-intrinsic-size: 900px; }
+    /* Compensa a nav fixa ao navegar por âncora (#cta, #modelo, etc.) */
+    section[id] { scroll-margin-top: 104px; }
 
     /* ── NAV ── */
     nav {
@@ -756,6 +780,7 @@
       /* nav */
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
+      section[id] { scroll-margin-top: 84px; }
 
       /* hero */
       #hero .hero-content { padding: 120px 20px 40px; gap: 24px; }
@@ -1331,7 +1356,7 @@
 <section class="badges-section">
   <div class="badges-grid">
     <div class="badge-card">
-      <img class="badge-ico-abf" src="images/LOGO_ABF_75.webp" alt="Logo ABF Associado" loading="lazy" decoding="async"/>
+      <img class="badge-ico-abf" src="images/LOGO_ABF_75.webp" alt="Logo ABF Associado" width="56" height="56" loading="lazy" decoding="async"/>
       <div class="badge-txt"><span>Associada à</span><strong>ABF — Franquia verificada</strong></div>
     </div>
     <div class="badge-card">
@@ -1369,7 +1394,44 @@
         <p>Preencha abaixo e fale com um especialista agora mesmo</p>
       </div>
       <div role="main" id="franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd"></div>
-      <script defer src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js" onload="new RDStationForms('franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd', 'UA-122086213-1').createForm();"></script>
+      <script>
+      /* Formulário RD Station carregado sob demanda: dispara quando o usuário
+         chega perto da seção (600px antes) ou clica em qualquer CTA que aponte
+         para #cta. Evita ~100KB de JS no carregamento inicial sem risco de o
+         formulário não estar pronto quando o visitante chegar nele. */
+      (function () {
+        var ID = 'franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd';
+        var alvo = document.getElementById(ID);
+        var carregado = false;
+
+        function carregar() {
+          if (carregado) return;
+          carregado = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js';
+          s.onload = function () {
+            new RDStationForms(ID, 'UA-122086213-1').createForm();
+          };
+          document.head.appendChild(s);
+        }
+
+        // 1) Ao se aproximar da seção do formulário
+        if ('IntersectionObserver' in window && alvo) {
+          var obs = new IntersectionObserver(function (entradas) {
+            if (entradas[0].isIntersecting) { carregar(); obs.disconnect(); }
+          }, { rootMargin: '600px 0px' });
+          obs.observe(alvo);
+        } else {
+          carregar();
+        }
+
+        // 2) Ao clicar em qualquer botão que leve ao formulário
+        document.querySelectorAll('a[href="#cta"]').forEach(function (a) {
+          a.addEventListener('click', carregar, { once: true });
+        });
+      })();
+      </script>
       <p class="cta-legal">Ao enviar, você concorda em receber contato da equipe VOLL Studios.</p>
     </div>
   </div>
@@ -1549,23 +1611,45 @@ document.querySelectorAll('.fi').forEach(el => {
 </script>
 
 <script type="module">
-	import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3.4/dist/web.js'
-	
-	Typebot.initBubble({
-		typebot: "franquias-agente-sdr",
-		apiHost: "https://iavoll.exerciciosdepilates.com.br",
-		className: "someMN",
-		previewMessage: {
-		  message: "Olá, tem alguma dúvida?",
-		  autoShowDelay: 5000,
-		  avatarUrl:
-			"https://vollpilates.com.br/wp-content/uploads/2024/07/curso_de_pilates_lgo_voll_pilates.webp",
-		},
-		theme: {
-		  button: { backgroundColor: "#00615a" },
-		  chatWindow: { backgroundColor: "#00615a" },
-		},
-	});
+/* Chat Typebot carregado sob demanda. A bolha só exibe a mensagem de prévia
+   após 5s, então adiar o download até a página carregar (ou até a primeira
+   interação) não muda nada para o visitante e tira o módulo do CDN do
+   caminho crítico. */
+(function () {
+  var carregado = false;
+  var eventos = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+
+  function iniciar() {
+    if (carregado) return;
+    carregado = true;
+    eventos.forEach(function (e) { window.removeEventListener(e, iniciar); });
+
+    import('https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3.4/dist/web.js')
+      .then(function (mod) {
+        (mod.default || mod).initBubble({
+          typebot: "franquias-agente-sdr",
+          apiHost: "https://iavoll.exerciciosdepilates.com.br",
+          className: "someMN",
+          previewMessage: {
+            message: "Olá, tem alguma dúvida?",
+            autoShowDelay: 5000,
+            avatarUrl:
+              "https://vollpilates.com.br/wp-content/uploads/2024/07/curso_de_pilates_lgo_voll_pilates.webp",
+          },
+          theme: {
+            button: { backgroundColor: "#00615a" },
+            chatWindow: { backgroundColor: "#00615a" },
+          },
+        });
+      });
+  }
+
+  eventos.forEach(function (e) {
+    window.addEventListener(e, iniciar, { once: true, passive: true });
+  });
+  if (document.readyState === 'complete') setTimeout(iniciar, 1500);
+  else window.addEventListener('load', function () { setTimeout(iniciar, 1500); });
+})();
 </script>
 </body>
 </html>
