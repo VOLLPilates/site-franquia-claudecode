@@ -604,25 +604,8 @@
     .cta-features li { display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,0.88); font-size: 15px; }
     .cta-feat-ico { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.06); color: var(--green-on-dark); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .cta-feat-ico svg { width: 18px; height: 18px; }
-    .cta-right { background: #fff; border-radius: 22px; padding: 40px 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); scroll-margin-top: 132px; }
-    .cta-form-head { text-align: center; margin-bottom: 28px; }
-    .cta-form-head h3 { font-family: var(--sans); font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-    .cta-form-head p { font-size: 14px; color: var(--muted); }
-    #franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd { min-height: 480px; }
-    .cta-legal { font-size: 12px; color: var(--muted); text-align: center; margin-top: 18px; line-height: 1.5; }
-    .cta-form { display: flex; }
-    .cta-input { flex: 1; width: 280px; padding: 16px 20px; background: rgba(47,23,15,0.28); border: 1px solid rgba(255,246,227,0.38); color: white; font-family: var(--sans); font-size: 14px; outline: none; }
-    .cta-input::placeholder { color: var(--dark-soft); }
-    .cta-input:focus { border-color: var(--gold-light); }
-    .btn-cta { background: var(--black); color: white; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 32px; border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-    .btn-cta:hover { background: #38261e; }
-    .cta-legal, .cta-region-note {
-      width: 100%;
-      font-size: 12px;
-      color: var(--dark-muted);
-      text-align: center;
-    }
-    .cta-region-note { display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .cta-right { background: #fff; border-radius: 22px; padding: 0; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.25); scroll-margin-top: 132px; }
+    .cta-right iframe { display: block; width: 100%; border: 0; }
 
     /* ── FOOTER ── */
     footer { background: var(--black); padding: 40px 64px; display: flex; align-items: center; justify-content: space-between; }
@@ -802,7 +785,7 @@
       .calc-inputs, .calc-results { padding: 28px 22px; }
       #cta { padding: 80px 20px; }
       .cta-inner { grid-template-columns: 1fr; gap: 40px; }
-      .cta-right { padding: 32px 22px; }
+      .cta-right { padding: 0; }
       #faq { padding: 80px 24px; }
       #numeros { padding: 60px 24px; grid-template-columns: repeat(2,1fr); }
       footer { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
@@ -905,7 +888,6 @@
       .qual-form { padding: 24px; }
       .qual-row { grid-template-columns: 1fr; }
       .qual-field label { font-size: 11px; }
-      .cta-legal { font-size: 12px; }
 
       /* faq */
       .faq-q-text { font-size: 18px; }
@@ -1387,94 +1369,15 @@
     </div>
 
     <div class="cta-right fi d1" id="formulario-franquia">
-      <div class="cta-form-head">
-        <h3>Solicite Informações</h3>
-        <p>Preencha abaixo e fale com um especialista agora mesmo</p>
-      </div>
-      <div role="main" id="franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd"></div>
-      <script>
-      /* Formulário RD Station carregado sob demanda: dispara quando o usuário
-         chega perto da seção (600px antes) ou clica em qualquer CTA que aponte
-         para #cta. Evita ~100KB de JS no carregamento inicial sem risco de o
-         formulário não estar pronto quando o visitante chegar nele. */
-      (function () {
-        var ID = 'franquias-inscricao-site-de-vendas-banner-da-home-4ac0f4a834c79a1ee2dd';
-        var alvo = document.getElementById(ID);
-        var carregado = false;
-
-        function carregar() {
-          if (carregado) return;
-          carregado = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js';
-          s.onload = function () {
-            new RDStationForms(ID, 'UA-122086213-1').createForm();
-          };
-          document.head.appendChild(s);
-        }
-
-        // 1) Ao se aproximar da seção do formulário
-        if ('IntersectionObserver' in window && alvo) {
-          var obs = new IntersectionObserver(function (entradas) {
-            if (entradas[0].isIntersecting) { carregar(); obs.disconnect(); }
-          }, { rootMargin: '600px 0px' });
-          obs.observe(alvo);
-        } else {
-          carregar();
-        }
-
-        function rolarParaFormulario(modo) {
-          var blocoFormulario = document.getElementById('formulario-franquia') || document.querySelector('.cta-right') || document.getElementById('cta');
-          if (!blocoFormulario) return;
-
-          var nav = document.getElementById('nav');
-          var alturaNav = nav ? nav.getBoundingClientRect().height : 0;
-          var respiro = window.matchMedia('(max-width: 960px)').matches ? 18 : 28;
-          var topo = blocoFormulario.getBoundingClientRect().top + window.pageYOffset - alturaNav - respiro;
-          var raiz = document.documentElement;
-          var scrollOriginal = raiz.style.scrollBehavior;
-
-          if (modo === 'auto') raiz.style.scrollBehavior = 'auto';
-          window.scrollTo({
-            top: Math.max(0, topo),
-            behavior: modo
-          });
-          if (modo === 'auto') {
-            window.setTimeout(function () { raiz.style.scrollBehavior = scrollOriginal; }, 0);
-          }
-        }
-
-        // 2) Ao clicar em qualquer botão que leve ao formulário
-        document.querySelectorAll('a[href="#cta"], a[href="#formulario-franquia"]').forEach(function (a) {
-          a.addEventListener('click', function (evento) {
-            evento.preventDefault();
-            carregar();
-
-            if (history.pushState) {
-              try {
-                history.pushState(null, '', '#formulario-franquia');
-              } catch (erro) {}
-            }
-
-            var movimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-            rolarParaFormulario(movimento);
-
-            // O RD Station injeta campos depois do clique e pode deslocar o alvo.
-            // Recalcular a rolagem deixa o formulário no lugar certo em meia tela.
-            window.setTimeout(function () { rolarParaFormulario(movimento); }, 260);
-            window.setTimeout(function () { rolarParaFormulario('auto'); }, 900);
-          });
-        });
-
-        if (location.hash === '#cta' || location.hash === '#formulario-franquia') {
-          carregar();
-          window.setTimeout(function () { rolarParaFormulario('auto'); }, 120);
-          window.setTimeout(function () { rolarParaFormulario('auto'); }, 700);
-        }
-      })();
-      </script>
-      <p class="cta-legal">Ao enviar, você concorda em receber contato da equipe VOLL Studios.</p>
+      <!-- Formulário de Franquias - Portal VOLL -->
+      <iframe
+        src="https://portal.grupovoll.com.br/?publicFormId=c2470d8c-bbb7-4e41-934b-5ce9243b5381&amp;embed=true"
+        width="100%"
+        height="840px"
+        frameborder="0"
+        style="border:0;max-width:100%;"
+        title="Formulário de Franquias - Portal VOLL"
+      ></iframe>
     </div>
   </div>
 </section>
