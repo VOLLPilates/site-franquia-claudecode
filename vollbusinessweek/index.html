@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>VOLL Business Week · Inscrição</title>
+<meta name="description" content="O evento que vai transformar a gestão da sua franquia. Três noites, gratuitas e online, para todas as unidades VOLL. 16 a 18/11.">
+<meta name="theme-color" content="#070302">
+<link rel="canonical" href="https://franquiadepilates.com.br/vollbusinessweek/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://franquiadepilates.com.br/vollbusinessweek/">
+<meta property="og:title" content="VOLL Business Week 2026">
+<meta property="og:description" content="O evento que vai transformar a gestão da sua franquia. Três noites, gratuitas e online, para todas as unidades VOLL. 16 a 18/11.">
+<meta property="og:image" content="https://franquiadepilates.com.br/vollbusinessweek/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Franqueados VOLL reunidos em uma edição anterior do evento, erguendo taças em comemoração.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+<style>
+/* Layout: seis faixas de cor inteira (preto, creme, verde, preto, creme, preto); tudo em Montserrat, destaques em verde, Inter só na marca. */
+:root{
+  --black:#070302;
+  --cream:#fdf5e6;
+  --grey:#666666;
+  --green:#329980;
+  --text:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --logo:"Inter","Helvetica Neue",Arial,sans-serif;
+  --r:24px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--black);color:var(--cream);font:400 16px/1.6 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+
+.band{--fg:var(--cream);--accent:var(--green);--sub:rgba(253,245,230,.7);--line:rgba(253,245,230,.16);
+  background:var(--black);color:var(--fg);padding-block:clamp(72px,10vw,120px)}
+.band.cream{--fg:var(--black);--accent:var(--green);--sub:var(--grey);--line:rgba(7,3,2,.14);background:var(--cream);color-scheme:light}
+.band.green{--fg:var(--black);--accent:var(--cream);--sub:rgba(7,3,2,.78);--line:rgba(7,3,2,.22);background:var(--green);color-scheme:light}
+
+.eyebrow{display:flex;align-items:center;gap:14px;font:700 12px/1.4 var(--text);letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.band.green .eyebrow{color:var(--black)}
+.eyebrow::before{content:"";width:32px;height:2px;background:currentColor}
+.eyebrow.c{justify-content:center}
+.eyebrow.c::after{content:"";width:32px;height:2px;background:currentColor}
+.h{margin:16px 0 20px;font:800 clamp(34px,4.8vw,60px)/1.04 var(--text);letter-spacing:-.03em;text-wrap:balance}
+.h em{font-style:normal;color:var(--accent)}
+.band.green .h em{color:var(--cream)}
+.c{text-align:center}
+.sub{color:var(--sub);max-width:60ch;margin:0;font-size:clamp(16px,1.4vw,18px)}
+.sub strong{color:var(--fg);font-weight:700}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:16px 34px;border-radius:999px;background:var(--green);color:var(--black);font:800 13px/1 var(--text);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -12px rgba(50,153,128,.85)}
+.btn[disabled]{opacity:.6;cursor:progress;transform:none;box-shadow:none}
+.btn svg{width:18px;height:18px}
+.btn.dark{background:var(--black);color:var(--cream)}
+.btn.dark:hover{box-shadow:0 14px 34px -12px rgba(7,3,2,.7)}
+
+/* Barra */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--black);border-bottom:1px solid rgba(253,245,230,.14)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:62px}
+.bar .logo{height:28px;width:auto}
+.bar .r{display:flex;align-items:center;gap:14px}
+.bar .lbl{font:700 11px/1.2 var(--text);letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+.bar .btn{min-height:40px;padding:10px 20px;font-size:11px}
+.cd{display:flex;gap:6px;font-variant-numeric:tabular-nums}
+.cd span{display:flex;flex-direction:column;align-items:center;min-width:44px;padding:5px 6px;border:1px solid rgba(253,245,230,.18);border-radius:10px;font:700 16px/1 var(--text);color:var(--cream)}
+.cd span small{font:600 9px/1.4 var(--text);letter-spacing:.14em;color:var(--grey);margin-top:3px;text-transform:uppercase}
+
+/* 1 · Chamada */
+.hero{padding-block:clamp(48px,7vw,96px)}
+.hero .top{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(28px,5vw,64px);align-items:center}
+.free{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid rgba(50,153,128,.6);font:700 12px/1 var(--text);letter-spacing:.14em;text-transform:uppercase}
+.free b{background:var(--green);color:var(--black);padding:7px 12px;border-radius:999px}
+.free-big{display:inline-flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 26px;padding:12px 22px 12px 12px;border-radius:22px;background:rgba(50,153,128,.14);border:1.5px solid var(--green)}
+.free-big b{background:var(--green);color:var(--black);padding:10px 18px;border-radius:999px;font:900 clamp(16px,1.8vw,22px)/1 var(--text);letter-spacing:.06em;text-transform:uppercase}
+.free-big span{font:700 13px/1.3 var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--cream)}
+@media (max-width:640px){.free-big{border-radius:20px;padding:12px}}
+.urge{margin:36px 0 0;padding:24px 26px;border-radius:var(--r);background:var(--green);color:var(--black)}
+.urge strong{display:block;font:900 clamp(24px,2.8vw,34px)/1.08 var(--text);letter-spacing:-.025em;text-wrap:balance}
+.urge p{margin:10px 0 0;font:600 15px/1.45 var(--text)}
+.urge p b{font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.cta-end{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:clamp(32px,4vw,44px)}
+.fb-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-top:clamp(56px,7vw,80px)}
+.fb-head h3{margin:12px 0 0;font:800 clamp(26px,3vw,38px)/1.08 var(--text);letter-spacing:-.025em;text-wrap:balance}
+.fb-head h3 em{font-style:normal;color:var(--green)}
+.track.fb{margin-top:24px;grid-auto-columns:clamp(270px,32%,360px)}
+.fbc{border-radius:var(--r);background:var(--black);color:var(--cream);padding:26px;display:flex;flex-direction:column;gap:16px;min-height:260px}
+.fbc .stars{display:flex;align-items:center;gap:10px;font:800 13px/1 var(--text);letter-spacing:.08em;color:var(--green)}
+.fbc .stars span{letter-spacing:2px;font-size:16px}
+.fbc blockquote{margin:0;font:600 17px/1.45 var(--text);flex:1}
+.fbc footer{border-top:1px solid rgba(253,245,230,.16);padding-top:14px}
+.fbc footer b{display:block;font:800 15px/1.3 var(--text)}
+.fbc footer span{font:600 12px/1.4 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+@media (max-width:640px){.track.fb{grid-auto-columns:86%}}
+.hero h1{margin:22px 0 24px;font:900 clamp(40px,6.4vw,84px)/.98 var(--text);letter-spacing:-.04em;text-wrap:balance}
+.hero h1 em{color:var(--green);font-style:normal;display:block}
+.hero .lead{font-size:clamp(17px,1.6vw,20px);max-width:50ch;margin:0 0 32px;color:rgba(253,245,230,.85)}
+.hero .lead strong{font-weight:700;color:var(--cream)}
+.hero .logo-v{width:100%;max-width:360px;justify-self:center;height:auto}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px}
+.note{font:500 14px/1.4 var(--text);color:var(--sub)}
+.note strong{color:var(--fg);font-weight:700}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(48px,6vw,72px);border-top:1px solid var(--line)}
+.facts div{padding:22px 22px 0;min-width:0}
+.facts div:first-child{padding-left:0}
+.facts div + div{border-left:1px solid var(--line)}
+.facts b{display:block;font:800 clamp(22px,2.2vw,30px)/1.08 var(--text);letter-spacing:-.02em;color:var(--green)}
+.facts span{display:block;margin-top:6px;font-size:13.5px;color:var(--sub)}
+
+/* 2 · Qual é a sua unidade */
+.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.type{border-radius:var(--r);padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:12px;min-width:0;border:1.5px solid var(--line)}
+.type .n{font:900 52px/1 var(--text);letter-spacing:-.04em;color:rgba(7,3,2,.16)}
+.type h3{margin:0;font:800 clamp(21px,2vw,26px)/1.12 var(--text);letter-spacing:-.02em}
+.type p{margin:0;font-size:15px;color:var(--grey)}
+.type .tag{align-self:flex-start;margin-top:auto;padding:7px 12px;border-radius:999px;font:700 11px/1 var(--text);letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(7,3,2,.2);color:var(--grey)}
+.type.win{background:var(--black);color:var(--cream);border-color:var(--black)}
+.type.win .n{color:var(--green)}
+.type.win p{color:rgba(253,245,230,.78)}
+.type.win .tag{background:var(--green);border-color:var(--green);color:var(--black)}
+.type.lose h3,.type.lose p{color:var(--grey)}
+.verdict{margin:clamp(36px,5vw,52px) 0 0;font:800 clamp(24px,3vw,38px)/1.12 var(--text);letter-spacing:-.025em;text-wrap:balance;max-width:28ch}
+.verdict em{font-style:normal;color:var(--green)}
+
+/* 3 · Promessa */
+.pillars{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px;margin-top:40px}
+.pillar{border-radius:var(--r);background:var(--black);color:var(--cream);padding:clamp(26px,3vw,36px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.pillar .ic{width:52px;height:52px;border-radius:50%;background:var(--green);color:var(--black);display:grid;place-items:center}
+.pillar .ic svg{width:24px;height:24px}
+.pillar h3{margin:0;font:800 clamp(22px,2.2vw,28px)/1.1 var(--text);letter-spacing:-.02em}
+.pillar p{margin:0;font-size:15px;color:rgba(253,245,230,.78)}
+.pillar.main{background:var(--cream);color:var(--black)}
+.pillar.main p{color:var(--grey)}
+.pillar.main h3{font-size:clamp(26px,2.8vw,34px)}
+.prize-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.prize-row span{padding:7px 12px;border-radius:999px;background:rgba(50,153,128,.18);border:1px solid rgba(50,153,128,.5);font:600 12px/1.2 var(--text)}
+.ref{margin-top:clamp(40px,5vw,56px);padding:clamp(28px,4vw,44px);border-radius:var(--r);background:var(--black);color:var(--cream);display:grid;grid-template-columns:1.4fr auto;gap:24px;align-items:center}
+.ref p{margin:0;font:800 clamp(24px,3vw,38px)/1.1 var(--text);letter-spacing:-.025em;text-wrap:balance}
+.ref p em{font-style:normal;color:var(--green)}
+
+/* 4 · Palestrantes */
+.sp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.nav{display:flex;align-items:center;gap:12px}
+.nav button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--cream);background:transparent;color:var(--cream);cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s}
+.nav button:hover{background:var(--cream);color:var(--black)}
+.nav button svg{width:20px;height:20px}
+.nav .count{font:600 14px/1 var(--text);font-variant-numeric:tabular-nums;min-width:48px;text-align:center}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(240px,28%,320px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;margin-top:40px;padding-bottom:12px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.card{scroll-snap-align:start;margin:0;min-width:0}
+.photo{position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--green)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;opacity:0;transition:opacity .4s}
+.photo img.ok{opacity:1}
+.mono{position:absolute;inset:0;display:grid;place-items:center;font:800 clamp(56px,6vw,80px)/1 var(--text);letter-spacing:-.03em;color:var(--green)}
+.card figcaption{padding:16px 4px 0}
+.card h3{margin:0;font:700 20px/1.2 var(--text);letter-spacing:-.01em}
+.card p{margin:6px 0 0;font-size:14px;color:var(--sub)}
+
+/* 5 · Edições anteriores */
+.all{display:grid;grid-template-columns:1.45fr .55fr;gap:clamp(28px,5vw,64px);align-items:end}
+.big-all{font:900 clamp(64px,10vw,140px)/.9 var(--text);letter-spacing:-.05em;color:var(--green);margin:0;text-align:right}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(170px,1fr);gap:12px;margin-top:44px}
+.gallery figure{margin:0;border-radius:18px;overflow:hidden;position:relative;background:rgba(7,3,2,.08);min-width:0}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery .wide{grid-column:span 2;grid-row:span 2}
+.gallery .tall{grid-column:1/-1;grid-row:auto;aspect-ratio:21/8}
+.cap{margin:14px 0 0;font:600 12px/1.4 var(--text);letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+
+/* 6 · Inscrição */
+.form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,72px);align-items:start}
+.checks{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
+.deadline{margin:0;display:inline-flex;padding:10px 16px;border-radius:999px;border:1px solid var(--green);font:600 13px/1.2 var(--text);letter-spacing:.06em;text-transform:uppercase}
+.deadline b{font-weight:800;color:var(--green)}
+.grab{margin:32px 0 0;font:800 clamp(22px,2.4vw,30px)/1.15 var(--text);letter-spacing:-.02em;color:var(--green);text-wrap:balance}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;font-weight:500}
+.checks svg{width:20px;height:20px;color:var(--green);margin-top:3px}
+.form-info{position:sticky;top:calc(108px + env(safe-area-inset-top,0px))}
+.form-frame{display:block;width:100%;height:1000px;border:0;border-radius:var(--r);background:#f8fafc}
+.form-alt{margin:14px 0 0;font-size:13.5px;color:var(--sub);text-align:center}
+.form-alt a{color:var(--green);font-weight:600}
+.done{border-radius:var(--r);background:var(--cream);color:var(--black);padding:clamp(28px,4vw,48px);text-align:center}
+.done .h em{color:var(--green)}
+.done p{margin:0 auto;max-width:44ch;color:var(--grey)}
+
+/* Rodapé */
+.foot{background:var(--grey);color:var(--cream)}
+.foot .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:28px}
+.foot .brand{font:600 15px/1 var(--logo);letter-spacing:.02em}
+.foot .sig{font:600 15px/1.3 var(--text)}
+.foot small{font:500 12.5px/1.4 var(--text)}
+/* Ajustes de seção */
+.band.cream .nav button{border-color:var(--black);color:var(--black)}
+.band.cream .nav button:hover{background:var(--black);color:var(--cream)}
+.photo{background-color:var(--green)}
+#unidade .type{border-color:rgba(253,245,230,.18)}
+#unidade .type .n{color:rgba(253,245,230,.18)}
+#unidade .type.lose h3{color:rgba(253,245,230,.72)}
+#unidade .type.lose p{color:rgba(253,245,230,.55)}
+#unidade .type.lose .tag{border-color:rgba(253,245,230,.25);color:rgba(253,245,230,.6)}
+#unidade .type.win{background:var(--green);border-color:var(--green);color:var(--black)}
+#unidade .type.win .n{color:var(--black)}
+#unidade .type.win p{color:rgba(7,3,2,.8)}
+#unidade .type.win .tag{background:var(--black);border-color:var(--black);color:var(--cream)}
+.ed-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:44px}
+.ed-nav .cap{margin:0}
+.track.gal{margin-top:20px;grid-auto-columns:clamp(280px,48%,560px)}
+.shot{border-radius:18px;overflow:hidden;aspect-ratio:3/2;background:rgba(7,3,2,.08)}
+.shot img{width:100%;height:100%;object-fit:cover}
+@media (max-width:640px){.track.gal{grid-auto-columns:88%}}
+.mobile-cta{display:none}
+
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}
+  @keyframes rise{from{opacity:.001;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){.track{scroll-behavior:auto}}
+
+@media (max-width:900px){
+  .hero .top,.form-grid,.all{grid-template-columns:1fr}
+  .form-info{position:static}
+  .hero .logo-v{max-width:220px;order:-1;justify-self:start}
+  .types,.pillars{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:20px}
+  .facts div:nth-child(3){padding-left:0;border-left:0}
+  .track{grid-auto-columns:clamp(220px,42%,300px)}
+  .ref{grid-template-columns:1fr}
+  .big-all{text-align:left}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:160px}
+  .gallery .wide{grid-column:1/-1;grid-row:span 2}
+}
+@media (max-width:640px){
+  .bar .lbl,.bar .btn{display:none}
+  .cd span{min-width:38px;font-size:14px}
+  .form-frame{height:1040px}
+  .track{grid-auto-columns:78%}
+  .nav button{width:44px;height:44px}
+  .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--black);border-top:1px solid rgba(253,245,230,.14);gap:12px;align-items:center}
+  .mobile-cta .btn{flex:1;min-height:48px}
+  .mobile-cta .p{font:600 12px/1.3 var(--text);color:var(--grey)}
+  .mobile-cta .p strong{display:block;color:var(--cream);font-size:15px}
+  .foot{padding-bottom:76px}
+}
+
+/* v10: cabeçalho maior, hero novo, fundo com foto, depoimentos estilo WhatsApp, dores, sorteios */
+.bar .wrap{min-height:84px}
+.bar .logo{height:44px}
+.bar .lbl{font-size:12px;color:rgba(253,245,230,.7)}
+.bar .cd span{min-width:52px;padding:7px 8px;font-size:19px;border-color:var(--green)}
+.bar .btn{min-height:48px;padding:12px 24px;font-size:12px}
+.hero h1{font-size:clamp(40px,6vw,78px)}
+.lead{margin-bottom:14px!important}
+.lead2{margin:0 0 14px;max-width:58ch;font-size:clamp(15.5px,1.3vw,17px);color:rgba(253,245,230,.78)}
+.lead2 strong{color:var(--cream);font-weight:700}
+.when{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px;padding:0;list-style:none}
+.when li{padding:10px 16px;border-radius:999px;border:1px solid rgba(253,245,230,.22);font:700 12.5px/1.2 var(--text);letter-spacing:.1em;text-transform:uppercase}
+.when li:first-child{background:var(--green);border-color:var(--green);color:var(--black)}
+.photo-bg{position:relative;background:linear-gradient(100deg,rgba(7,3,2,.86) 0%,rgba(7,3,2,.55) 50%,rgba(7,3,2,0) 100%),linear-gradient(0deg,rgba(50,153,128,.6),rgba(50,153,128,.6)),url("assets/images/edicoes/turma.webp") center 45%/cover no-repeat,var(--green)}
+.photo-bg .big-all{color:var(--cream);text-shadow:0 6px 30px rgba(7,3,2,.45)}
+.photo-bg .h{text-shadow:0 2px 18px rgba(7,3,2,.5)}
+.photo-bg .sub{color:rgba(253,245,230,.9)}
+#depoimentos .fb-head{margin-top:0}
+#depoimentos .nav button{border-color:var(--black);color:var(--black)}
+#depoimentos .nav button:hover{background:var(--black);color:var(--cream)}
+#depoimentos .fb-head h3{color:var(--black)}
+#depoimentos .fb-head h3 em{color:var(--cream)}
+#depoimentos .note{color:rgba(7,3,2,.75)}
+.photo-bg .fb-head h3{color:var(--cream)}
+.wa{border-radius:20px;overflow:hidden;background:#efeae2;color:#111b21;display:flex;flex-direction:column;min-height:220px;box-shadow:0 20px 50px -24px rgba(0,0,0,.7)}
+.wa-top{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--green);color:#fff}
+.wa-top .av{flex:none;width:38px;height:38px;border-radius:50%;background:#dfe5e7;color:#54656f;display:grid;place-items:center;font:700 13px/1 var(--text)}
+.wa-top b{display:block;font:600 14.5px/1.25 var(--text)}
+.wa-top small{display:block;font:500 12px/1.3 var(--text);opacity:.85}
+.wa-body{flex:1;padding:16px 14px 18px;display:flex;flex-direction:column;gap:6px;background-color:#efeae2;background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:14px 14px}
+.bubble{position:relative;align-self:flex-start;max-width:92%;background:#fff;border-radius:0 10px 10px 10px;padding:8px 10px 6px;box-shadow:0 1px .5px rgba(11,20,26,.13)}
+.bubble:first-child::before{content:"";position:absolute;left:-8px;top:0;border-top:10px solid #fff;border-left:8px solid transparent}
+.bubble + .bubble{border-radius:10px}
+.bubble p{margin:0;font:400 15px/1.45 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",var(--text);color:#111b21}
+.bubble .meta{display:flex;justify-content:flex-end;align-items:center;gap:4px;margin-top:2px;font:400 11px/1 -apple-system,"Segoe UI",Roboto,var(--text);color:#667781}
+.bubble .meta svg{width:16px;height:11px;color:#53bdeb}
+.track.fb{grid-auto-columns:clamp(270px,32%,360px)}
+.pains{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+.pain{border-radius:var(--r);background:var(--black);color:var(--cream);padding:26px 24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.pain .k{font:800 12px/1 var(--text);letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+.pain p{margin:0;font:600 17px/1.4 var(--text)}
+.src{margin:16px 0 0;font-size:12px;color:rgba(7,3,2,.6)}
+.prizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+.prize{border-radius:var(--r);background:var(--black);color:var(--cream);padding:14px 14px 24px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.prize .pic{position:relative;aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--green);display:grid;place-items:center;margin-bottom:10px}
+.prize .pic .ill{width:72%;height:auto;color:var(--black)}
+.prize .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.prize .pic img.ok{opacity:1}
+.prize .pic img.ok ~ .ill,.prize .pic img.ok ~ .year{display:none}
+.prize .year{position:absolute;right:16px;bottom:12px;font:900 30px/1 var(--text);letter-spacing:-.03em;color:var(--black)}
+.prize .n{padding:0 10px;font:800 11px/1 var(--text);letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+.prize h3{margin:0;padding:0 10px;font:800 clamp(20px,2vw,24px)/1.15 var(--text);letter-spacing:-.02em}
+@media (max-width:900px){.pains{grid-template-columns:repeat(2,minmax(0,1fr))}.prizes{grid-template-columns:1fr}}
+@media (max-width:640px){.bar .wrap{min-height:68px}.bar .logo{height:30px}.bar .cd span{min-width:40px;padding:5px 4px;font-size:15px}.bar .cd span small{font-size:8px}.pains{grid-template-columns:1fr}.track.fb{grid-auto-columns:86%}}
+.prize .pic.dark{background:radial-gradient(ellipse 75% 70% at 50% 62%,rgba(50,153,128,.42) 0%,rgba(50,153,128,.12) 45%,#0b0807 80%),#0b0807}
+.prize .pic.dark .ill,.prize .pic.dark .year{color:var(--green)}
+@media (min-width:901px){.hero .top{align-items:start}.hero .logo-v{align-self:start;margin-top:38px}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <img class="logo" src="assets/images/logo-h.png" alt="VOLL Pilates Business Week 2026" width="1000" height="198">
+    <div class="r">
+      <span class="lbl" id="bar-label">Inscrições encerram em</span>
+      <div class="cd" data-countdown></div>
+      <a class="btn" href="#inscricao">Inscrever minha unidade</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 1 · Chamada -->
+<section class="band hero" id="topo">
+  <div class="wrap top">
+    <div>
+      <div class="eyebrow rise">Exclusivo para franqueados VOLL</div>
+      <h1 class="rise d1">Pare de competir por preço. <em>Comece a competir por valor.</em></h1>
+      <p class="lead rise d2"><strong>Três noites para transformar a maneira como você administra, vende e desenvolve sua unidade VOLL.</strong></p>
+      <p class="lead2 rise d2">Um encontro exclusivo para franqueados que querem aumentar a rentabilidade, fortalecer a retenção de alunos, aprimorar suas estratégias comerciais e elevar a qualidade das aulas, por meio da padronização do atendimento e da experiência oferecida em cada unidade VOLL.</p>
+      <p class="lead2 rise d3">Mais do que aprender sobre gestão, você vai sair com <strong>direcionamentos e planos de ação para aplicar no seu estúdio.</strong></p>
+      <ul class="when rise d3">
+        <li>16 a 18 de novembro</li>
+        <li>19h30 às 22h</li>
+        <li>Online e ao vivo · só para franqueados</li>
+      </ul>
+      <div class="cta-row rise d3">
+        <a class="btn" href="#inscricao">Quero minha unidade lá
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="note"><strong>R$ 0</strong> · inscrições até <strong>30/10, às 23h59</strong></span>
+      </div>
+    </div>
+    <img class="logo-v rise d2" src="assets/images/logo-v.png" alt="VOLL Pilates Business Week 2026" width="760" height="501">
+  </div>
+</section>
+
+<!-- 2 · Edições anteriores -->
+<section class="band photo-bg" id="edicoes">
+  <div class="wrap">
+    <div class="all">
+      <div>
+        <h2 class="h">Nos últimos anos, muitas unidades ficaram de fora. <em>Este ano, nenhuma fica.</em></h2>
+        <p class="sub">Viagem, hotel, agenda: no presencial, muita unidade não conseguiu estar. Em 2026 a VOLL Business Week é <strong>gratuita e online</strong>. A rede inteira vai estar na mesma sala, e a sua unidade não pode ser a que ficou para trás.</p>
+      </div>
+      <p class="big-all" aria-hidden="true">TODAS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Palestrantes -->
+<section class="band cream" id="palestrantes" data-carousel aria-roledescription="carrossel" aria-label="Palestrantes">
+  <div class="wrap">
+    <div class="sp-head">
+      <div>
+        <div class="eyebrow">Palestrantes de peso</div>
+        <h2 class="h">Quem vai estar <em>com você.</em></h2>
+        <p class="sub">Gente que trata pilates como negócio e sabe o que faz uma unidade lucrar.</p>
+      </div>
+      <div class="nav">
+        <button type="button" data-prev aria-label="Palestrante anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <span class="count" data-count aria-live="polite">1 / 9</span>
+        <button type="button" data-next aria-label="Próximo palestrante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="track" id="track" data-track tabindex="0">
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/keyner-luiz.webp" alt="Keyner Luiz"></div><figcaption><h3>Keyner Luiz</h3><p>Relacionamento e retenção de alunos</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/marcella-contursi.webp" alt="Marcella Contursi"></div><figcaption><h3>Marcella Contursi</h3><p>O instrutor como agente de encantamento</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/jully-felici.webp" alt="Jully Felici"></div><figcaption><h3>Jully Felici</h3><p>FourFisio · Remarketing e reativação</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/rafael-juliano.webp" alt="Rafael Juliano"></div><figcaption><h3>Rafael Juliano</h3><p>O mercado de pilates em 2026</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/henrique-wolf.webp" alt="Henrique Wolf"></div><figcaption><h3>Henrique Wolf</h3><p>O mercado de pilates em 2026</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/felipe-scher.webp" alt="Felipe Scher"></div><figcaption><h3>Felipe Scher</h3><p>Precificação sem medo</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/estela-maris.webp" alt="Estela Maris"></div><figcaption><h3>Estela Maris</h3><p>Plataformas de benefício sem prejuízo</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/carol-rorato.webp" alt="Carol Rorato"></div><figcaption><h3>Carol Rorato</h3><p>Padrão VOLL e experiência do cliente</p></figcaption></figure>
+      <figure class="card"><div class="photo"><img src="assets/images/palestrantes/aline-monteiro.webp" alt="Aline Monteiro"></div><figcaption><h3>Aline Monteiro</h3><p>Diretora de Franquias · Estado da rede</p></figcaption></figure>
+    </div>
+    <div class="cta-end"><a class="btn dark" href="#inscricao">Quero aprender com eles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="note">Gratuito · inscrições até <strong>30/10</strong></span></div>
+  </div>
+</section>
+
+<!-- 4 · Qual é a sua unidade -->
+<section class="band" id="unidade">
+  <div class="wrap">
+    <div class="eyebrow">Qual é a sua unidade?</div>
+    <h2 class="h">Toda rede tem três tipos de unidade. <em>Só um cresce de verdade.</em></h2>
+    <div class="types">
+      <article class="type lose">
+        <span class="n">01</span>
+        <h3>A que copia o preço do concorrente</h3>
+        <p>Trabalha mais para ganhar menos. Cada desconto do concorrente vira um desconto seu, e a margem some no fim do mês.</p>
+        <span class="tag">Disputa preço</span>
+      </article>
+      <article class="type win">
+        <span class="n">02</span>
+        <h3>A que define o próprio preço</h3>
+        <p>Sabe a margem de cada horário, segura o aluno, lota a agenda e cobra o que vale. Lucra, cresce e vira a referência da região.</p>
+        <span class="tag">É aqui que você precisa estar</span>
+      </article>
+      <article class="type lose">
+        <span class="n">03</span>
+        <h3>A que fica no meio, refém das outras duas</h3>
+        <p>Nem premium, nem barata. Depende do movimento de quem define e de quem copia. O mercado mudou, e o meio-termo perde.</p>
+        <span class="tag">Perde espaço</span>
+      </article>
+    </div>
+    <p class="verdict">A VOLL Business Week existe para colocar <em>todas as unidades da rede no primeiro grupo.</em> Inclusive a sua.</p>
+    <div class="cta-end"><a class="btn" href="#inscricao">Quero definir o meu preço <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="note">Gratuito · inscrições até <strong>30/10</strong></span></div>
+  </div>
+</section>
+
+<!-- 5 · Dores -->
+<section class="band green" id="dores">
+  <div class="wrap">
+    <div class="eyebrow">O custo de não agir</div>
+    <h2 class="h">Cada uma dessas dores custa dinheiro <em>todo mês</em>, enquanto ninguém mexe nela.</h2>
+    <p class="sub">A VOLL Business Week ataca as quatro de frente, com os números da sua unidade na mesa.</p>
+    <div class="pains">
+      <article class="pain"><span class="k">Preço</span><p>Você cobra menos do que deveria e não reajusta há tempo demais.</p></article>
+      <article class="pain"><span class="k">Evasão</span><p>O aluno falta duas aulas, ninguém procura e ele cancela.</p></article>
+      <article class="pain"><span class="k">Captação</span><p>O lead não chega, ou chega e não fecha.</p></article>
+      <article class="pain"><span class="k">Equipe</span><p>Se o instrutor-chave sai, parte dos alunos vai junto.</p></article>
+    </div>
+    <p class="src">Fontes: ACSM Worldwide Survey 2026, HFA Global Report, Panorama Fitness 2026.</p>
+    <div class="ref">
+      <p>Lucrar mais. Crescer mais. <em>Ser a referência da sua região.</em> Tudo começa em 16/11.</p>
+      <a class="btn" href="#inscricao">Garantir minha inscrição</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Sorteios -->
+<section class="band cream" id="sorteios">
+  <div class="wrap">
+    <div class="eyebrow">Sorteios ao vivo</div>
+    <h2 class="h">Um prêmio por noite. <em>Três chances de levar.</em></h2>
+    <p class="sub">A cada noite da VOLL Business Week, um prêmio é sorteado ao vivo entre os franqueados presentes. <strong>Quem está ao vivo, concorre.</strong></p>
+    <div class="prizes">
+      <article class="prize">
+        <div class="pic">
+          <img src="assets/images/reformer_equipilates.webp" alt="Reformer Equipilates">
+          <svg class="ill" viewBox="0 0 240 140" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 96h200"/><path d="M32 96v22M208 96v22"/><rect x="74" y="78" width="70" height="14" rx="6"/><path d="M28 96V60M28 60h22M212 96V58"/><path d="M212 58c-10 0-14 8-14 16"/><path d="M150 85h48" stroke-dasharray="6 8"/><circle cx="96" cy="102" r="4"/><circle cx="124" cy="102" r="4"/></svg>
+        </div>
+        <span class="n">Prêmio</span>
+        <h3>Reformer Equipilates</h3>
+      </article>
+      <article class="prize">
+        <div class="pic">
+          <img src="assets/images/cadillac_equipilates.webp" alt="Cadillac Equipilates">
+          <svg class="ill" viewBox="0 0 240 140" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="78" width="172" height="16" rx="5"/><path d="M42 94v28M198 94v28"/><path d="M42 78V22M198 78V22M42 22h156"/><path d="M42 50h156"/><path d="M90 22v24M150 22v24"/><path d="M90 46c0 10-8 12-8 20M150 46c0 10 8 12 8 20"/></svg>
+        </div>
+        <span class="n">Prêmio</span>
+        <h3>Cadillac Equipilates</h3>
+      </article>
+      <article class="prize">
+        <div class="pic dark">
+          <img src="assets/images/premios/evento-2027.webp" alt="Acesso a um evento VOLL 2027">
+          <svg class="ill" viewBox="0 0 240 140" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 36h160v22a14 14 0 0 0 0 28v22H40V86a14 14 0 0 0 0-28z"/><path d="M150 40v68" stroke-dasharray="6 8"/><path d="M78 64h44M78 80h30"/></svg>
+          <span class="year">2027</span>
+        </div>
+        <span class="n">Prêmio</span>
+        <h3>Acesso a um evento VOLL 2027</h3>
+      </article>
+    </div>
+    <div class="cta-end"><a class="btn dark" href="#inscricao">Quero concorrer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="note">Inscrição gratuita até <strong>30/10</strong></span></div>
+  </div>
+</section>
+
+<!-- 7 · Quem esteve lá -->
+<section class="band green" id="depoimentos" data-carousel>
+  <div class="wrap">
+    <div class="fb-head">
+      <div>
+        <div class="eyebrow">Quem esteve lá</div>
+        <h3>O que os franqueados disseram do <em>IV Encontro Nacional.</em></h3>
+      </div>
+      <div class="nav">
+        <button type="button" data-prev aria-label="Depoimento anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <span class="count" data-count aria-live="polite">1 / 6</span>
+        <button type="button" data-next aria-label="Próximo depoimento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="track fb" data-track tabindex="0" aria-label="Depoimentos de franqueados">
+      <figure class="card wa"><div class="wa-top"><span class="av">LO</span><div><b>Layana Silva Oliveira</b><small>VOLL Pilates Studio Guararema</small></div></div><div class="wa-body"><div class="bubble"><p>Estou no meu primeiro encontro e superou as minhas expectativas. Vocês são sensacionais! 👏👏👏</p><span class="meta">Nota 10 <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5l3 3L10 2.5M7 9.5l1 0.8L16 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></figure>
+      <figure class="card wa"><div class="wa-top"><span class="av">AO</span><div><b>Alline Aparecida Tavares de Oliveira</b><small>VOLL Pilates Vila Clarice</small></div></div><div class="wa-body"><div class="bubble"><p>Incrível, de muito aprendizado, muitas trocas necessárias. Um momento muito especial.</p><span class="meta">Nota 10 <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5l3 3L10 2.5M7 9.5l1 0.8L16 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></figure>
+      <figure class="card wa"><div class="wa-top"><span class="av">AA</span><div><b>Andreza Dias de Almeida</b><small>VOLL Studios Presidente Prudente</small></div></div><div class="wa-body"><div class="bubble"><p>Incrível, e agregou muito conhecimento à minha unidade.</p><span class="meta">Nota 10 <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5l3 3L10 2.5M7 9.5l1 0.8L16 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></figure>
+      <figure class="card wa"><div class="wa-top"><span class="av">LR</span><div><b>Larissa Silva Rodrigues</b><small>VOLL Pilates Nova Aliança RP</small></div></div><div class="wa-body"><div class="bubble"><p>Cheio de novidades e compartilhamentos, muitas palestras que acrescentaram muito pro meu negócio.</p><span class="meta">Nota 9 <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5l3 3L10 2.5M7 9.5l1 0.8L16 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><div class="bubble"><p>Foi incrível, me senti incluída e nos deram ouvidos. Amei!!!</p><span class="meta"><svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5l3 3L10 2.5M7 9.5l1 0.8L16 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></figure>
+      <figure class="card wa"><div class="wa-top"><span class="av">GC</span><div><b>Gesilaine Ferreira da Costa</b><small>Studio VOLL Aquidauana</small></div></div><div class="wa-body"><div class="bubble"><p>Enriquecedor, me surpreendeu muito. Muitas trocas entre os franqueados, muito conhecimento adquirido.</p><span class="meta">Nota 10 <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5l3 3L10 2.5M7 9.5l1 0.8L16 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></figure>
+      <figure class="card wa"><div class="wa-top"><span class="av">MD</span><div><b>Maiara da Silva Damasceno</b><small>VOLL Pilates Muriaé</small></div></div><div class="wa-body"><div class="bubble"><p>Maravilhoso. Esse modelo de encontro ficou mais dinâmico e interessante.</p><span class="meta">Nota 10 <svg viewBox="0 0 18 12" aria-hidden="true"><path d="M1 6.5l3 3L10 2.5M7 9.5l1 0.8L16 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></figure>
+    </div>
+    <div class="cta-end"><a class="btn dark" href="#inscricao">Garantir a vaga da minha unidade <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="note">Não seja a única unidade a ficar de fora</span></div>
+  </div>
+</section>
+
+<!-- 8 · Inscrição -->
+<section class="band" id="inscricao">
+  <div class="wrap form-grid">
+    <div class="form-info">
+      <div class="eyebrow">Inscrição gratuita e obrigatória</div>
+      <h2 class="h">A sua unidade <em>vai estar lá?</em></h2>
+      <p class="deadline"><b>Inscrições até 30/10/2026, às 23h59</b></p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Três noites ao vivo, 16 a 18/11, das 19h30 às 22h</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Um plano prático para aplicar na manhã seguinte a cada noite</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Prêmios sorteados todas as noites</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Gratuito e online, sem viagem</span></li>
+      </ul>
+      <div class="urge">
+        <strong>Não seja a única unidade a ficar de fora.</strong>
+        <p><b>Inscrição obrigatória</b> para a organização do evento. Garanta agora a vaga da sua unidade!</p>
+      </div>
+    </div>
+    <div id="form-area">
+      <iframe class="form-frame" src="https://portal.grupovoll.com.br/?publicFormId=ff6d2c20-3a98-484c-9f4a-4965418b2352" title="Formulário de inscrição da VOLL Business Week" loading="lazy"></iframe>
+      <p class="form-alt">Não carregou? <a href="https://portal.grupovoll.com.br/?publicFormId=ff6d2c20-3a98-484c-9f4a-4965418b2352" target="_blank" rel="noopener">Abrir o formulário em nova aba</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="brand">VOLL Pilates · Business Week 2026</span>
+    <span class="sig">Mais do que estúdios. Construímos histórias.</span>
+    <small>© 2026 Grupo VOLL · #VOLLBUSINESSWEEK</small>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <div class="p">Até 30/10<strong>Gratuito</strong></div>
+  <a class="btn" href="#inscricao">Inscrever-se</a>
+</div>
+
+
+<script>
+(function(){
+  var START = Date.parse("2026-10-30T23:59:59-03:00");
+  var boxes = document.querySelectorAll("[data-countdown]");
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function tick(){
+    var ms = START - Date.now();
+    if (ms <= 0){
+      boxes.forEach(function(b){ b.innerHTML = "<span>Encerradas</span>"; });
+      var l=document.getElementById("bar-label"); if(l) l.textContent="Inscrições";
+      var fa=document.getElementById("form-area");
+      if (fa && !fa.querySelector(".done")) fa.innerHTML='<div class="done"><div class="eyebrow c">Inscrições encerradas</div><h3 class="h">O prazo terminou em <em>30/10.</em></h3><p>Fale com a equipe de franquias pela comunidade de franqueados ou pelo Portal do Franqueado.</p></div>';
+      return false;
+    }
+    var s = Math.floor(ms/1000), d = Math.floor(s/86400), h = Math.floor(s%86400/3600), m = Math.floor(s%3600/60), sec = s%60;
+    var html = "<span>"+d+"<small>dias</small></span><span>"+pad(h)+"<small>h</small></span><span>"+pad(m)+"<small>min</small></span><span>"+pad(sec)+"<small>seg</small></span>";
+    boxes.forEach(function(b){ b.innerHTML = html; });
+    return true;
+  }
+  if (tick()) { var t = setInterval(function(){ if(!tick()) clearInterval(t); }, 1000); }
+
+  document.querySelectorAll(".photo img, .prize .pic img").forEach(function(img){
+    function show(){ if (img.naturalWidth > 0){ img.classList.add("ok"); var m = img.parentNode.querySelector(".mono"); if (m) m.hidden = true; } }
+    if (img.complete) show();
+    img.addEventListener("load", show);
+    img.addEventListener("error", function(){ img.hidden = true; });
+  });
+
+  document.querySelectorAll("[data-carousel]").forEach(function(root){
+    var track = root.querySelector("[data-track]");
+    var cards = Array.prototype.slice.call(track.querySelectorAll(".card"));
+    var count = root.querySelector("[data-count]");
+    function current(){
+      var x = track.scrollLeft, best = 0, bd = Infinity;
+      cards.forEach(function(c,i){ var d = Math.abs(c.offsetLeft - track.offsetLeft - x); if (d < bd){ bd = d; best = i; } });
+      return best;
+    }
+    function go(i){ i = Math.max(0, Math.min(cards.length - 1, i)); track.scrollTo({ left: cards.at(i).offsetLeft - track.offsetLeft }); }
+    root.querySelector("[data-prev]").addEventListener("click", function(){ go(current() - 1); });
+    root.querySelector("[data-next]").addEventListener("click", function(){
+      var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      go(atEnd ? 0 : current() + 1);
+    });
+    track.addEventListener("keydown", function(e){
+      if (e.key === "ArrowRight"){ e.preventDefault(); go(current() + 1); }
+      if (e.key === "ArrowLeft"){ e.preventDefault(); go(current() - 1); }
+    });
+    var raf;
+    track.addEventListener("scroll", function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(function(){ count.textContent = (current() + 1) + " / " + cards.length; }); });
+  });
+
+})();
+</script>
+
+</body></html>
+
+</body></html>
