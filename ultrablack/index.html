@@ -372,10 +372,6 @@ html{scroll-behavior:smooth}
 </div>
 <script>
 (function () {
-var fim = new Date('2026-11-30T23:59:59-03:00').getTime();
-var dias = Math.max(0, Math.floor((fim - Date.now()) / 86400000));
-document.querySelectorAll('[data-dias]').forEach(function (el) { el.textContent = dias; });
-
 var track = document.getElementById('car-track');
 var dots = document.querySelectorAll('#car-dots button');
 var n = dots.length, i = 0, auto;
